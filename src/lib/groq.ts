@@ -1,7 +1,7 @@
 import Groq from 'groq-sdk';
 
 const groq = new Groq({
-  apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY || 'dummy_api_key_to_prevent_crash',
   dangerouslyAllowBrowser: true // Digunakan di sisi client untuk simulasi latihan mandiri
 });
 
