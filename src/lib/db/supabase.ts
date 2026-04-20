@@ -1,6 +1,10 @@
 import { supabase } from '../supabase/client';
 import { User, SoalTes, NilaiUser, SoalWawancara, Materi } from './local';
 
+function isUUID(uuid: string) {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(uuid);
+}
+
 export const supabaseDB = {
   users: {
     async findByEmail(email: string): Promise<User | undefined> {
@@ -8,8 +12,13 @@ export const supabaseDB = {
       return data || undefined;
     },
     async findById(id: string): Promise<User | undefined> {
-      const { data } = await supabase.from('profiles').select('*').eq('id', id).single();
-      return data || undefined;
+      if (!isUUID(id)) return undefined;
+      try {
+        const { data } = await supabase.from('profiles').select('*').eq('id', id).single();
+        return data || undefined;
+      } catch {
+        return undefined;
+      }
     },
     async create(data: any): Promise<any> {
       const { data: newUser, error } = await supabase
@@ -31,19 +40,29 @@ export const supabaseDB = {
       return data || [];
     },
     async update(id: string, data: any): Promise<any> {
-      const { data: updated, error } = await supabase
-        .from('profiles')
-        .update(data)
-        .eq('id', id)
-        .select()
-        .single();
-      if (error) throw error;
-      return updated;
+      if (!isUUID(id)) throw new Error('Invalid ID format');
+      try {
+        const { data: updated, error } = await supabase
+          .from('profiles')
+          .update(data)
+          .eq('id', id)
+          .select()
+          .single();
+        if (error) throw error;
+        return updated;
+      } catch (err) {
+        throw err;
+      }
     },
     async delete(id: string): Promise<boolean> {
-      const { error } = await supabase.from('profiles').delete().eq('id', id);
-      if (error) throw error;
-      return true;
+      if (!isUUID(id)) throw new Error('Invalid ID format');
+      try {
+        const { error } = await supabase.from('profiles').delete().eq('id', id);
+        if (error) throw error;
+        return true;
+      } catch (err) {
+        throw err;
+      }
     }
   },
 
