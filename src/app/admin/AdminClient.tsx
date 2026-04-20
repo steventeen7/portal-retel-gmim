@@ -401,30 +401,6 @@ export default function AdminClient({ initialUsers, initialLogs, initialChatLogs
         </div>
       )}
 
-        <div className="space-y-4">
-           <div className="flex items-center gap-2 px-1">
-            <Settings className="w-5 h-5 text-gray-400" />
-            <h2 className="text-xl font-black text-gray-900 tracking-tight">Sistem Control</h2>
-          </div>
-          <div className="bg-gradient-to-br from-purple-700 to-indigo-800 rounded-[32px] p-8 text-white shadow-xl shadow-purple-900/20 space-y-6">
-             <div>
-                <div className="text-purple-200 text-[10px] font-black uppercase tracking-widest mb-1">Status Server</div>
-                <div className="flex items-center gap-2">
-                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                   <div className="text-lg font-black tracking-tight tracking-tight uppercase">Mode: {process.env.NEXT_PUBLIC_DB_MODE || 'SUPABASE'}</div>
-                </div>
-             </div>
-             <div className="pt-6 border-t border-white/10">
-                <p className="text-purple-200 text-xs font-medium leading-relaxed">
-                   Admin bertanggung jawab penuh atas persetujuan pendaftar. Pastikan data Jemaat & Wilayah valid sebelum memberikan izin akses modul latihan.
-                </p>
-             </div>
-             <button className="w-full py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-2xl font-black text-sm transition-all uppercase tracking-widest">
-                Download Rekapitulasi
-             </button>
-          </div>
-        </div>
-      </div>
 
       {/* Edit User Modal */}
       {showEdit && editingUser && (

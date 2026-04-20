@@ -5,7 +5,7 @@ import { useVoice } from '@/hooks/useVoice';
 import { evaluateKeyword, EvalResult } from '@/lib/groq';
 import { 
   Dices, Mic, MicOff, Volume2, Timer, Sparkles, 
-  BarChart3, ArrowRight, Zap
+  BarChart3, ArrowRight, Zap, RotateCcw
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
