@@ -7,7 +7,7 @@ import MateriAdminClient from './MateriAdminClient'
 export default async function AdminMateriPage() {
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value
-  const payload = token ? verifyToken(token) : null
+  const payload = token ? await verifyToken(token) : null
   
   if (!payload || payload.role !== 'admin') redirect('/dashboard')
 

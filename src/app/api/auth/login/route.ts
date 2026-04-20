@@ -37,12 +37,13 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    const token = signToken({
+    const token = await signToken({
       id: user.id,
       email: user.email,
       full_name: user.full_name,
       role: user.role,
-      permissions: (user as any).permissions || []
+      permissions: Array.isArray(user.permissions) ? user.permissions : [],
+      is_approved: user.is_approved
     })
 
     const response = NextResponse.json(

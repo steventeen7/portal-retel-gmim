@@ -9,7 +9,7 @@ import DashboardClient from './DashboardClient'
 export default async function DashboardPage() {
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value
-  const payload = token ? verifyToken(token) : null
+  const payload = token ? await verifyToken(token) : null
   if (!payload) redirect('/auth/login')
 
   // Fetch real-time user data from DB

@@ -5,7 +5,8 @@ import { verifyToken } from '@/lib/auth'
 // GET /api/soal?tahun=2024
 export async function GET(req: NextRequest) {
   const token = req.cookies.get('token')?.value
-  if (!token || !verifyToken(token)) {
+  const payload = token ? await verifyToken(token) : null
+  if (!token || !payload) {
     return NextResponse.json({ error: 'Tidak terautentikasi.' }, { status: 401 })
   }
 

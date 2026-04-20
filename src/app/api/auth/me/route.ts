@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'Tidak terautentikasi.' }, { status: 401 })
   }
 
-  const payload = verifyToken(token)
+  const payload = await verifyToken(token)
   if (!payload) {
     return NextResponse.json({ error: 'Token tidak valid atau sudah kadaluarsa.' }, { status: 401 })
   }

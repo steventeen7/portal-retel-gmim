@@ -8,7 +8,7 @@ import AdminClient from './AdminClient'
 export default async function AdminPage() {
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value
-  const user = token ? verifyToken(token) : null
+  const user = token ? await verifyToken(token) : null
   if (!user) redirect('/auth/login')
   if (user.role !== 'admin') redirect('/dashboard')
 

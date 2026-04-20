@@ -32,7 +32,7 @@ async function handleRequest(req: NextRequest, action: (data: any) => Promise<an
   const token = req.cookies.get('token')?.value
   if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  const payload = verifyToken(token)
+  const payload = await verifyToken(token)
   if (!payload || payload.role !== 'admin') {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
   }

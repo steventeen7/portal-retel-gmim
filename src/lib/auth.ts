@@ -1,8 +1,8 @@
 import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
+import { SignJWT, jwtVerify } from 'jose'
 
-const JWT_SECRET = process.env.JWT_SECRET ?? 'fallback_secret_change_me'
-const JWT_EXPIRES_IN = '7d'
+const JWT_SECRET_STR = process.env.JWT_SECRET || 'retel-secret-key-2026'
+const JWT_SECRET = new TextEncoder().encode(JWT_SECRET_STR)
 
 // ─── Password ────────────────────────────────────────────────────────────────
 export async function hashPassword(password: string): Promise<string> {
@@ -16,34 +16,34 @@ export async function comparePassword(
   return bcrypt.compare(password, hashed)
 }
 
-// ─── JWT ─────────────────────────────────────────────────────────────────────
+// ─── JWT (Using jose for Edge & Node compatibility) ──────────────────────────
 export type JWTPayload = {
   id: string
   email: string
   full_name: string
   role: string
   permissions?: string[]
+  is_approved?: boolean
 }
 
-export function signToken(payload: JWTPayload): string {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN })
+export async function signToken(payload: JWTPayload): Promise<string> {
+  return new SignJWT(payload as any)
+    .setProtectedHeader({ alg: 'HS256' })
+    .setIssuedAt()
+    .setExpirationTime('7d')
+    .sign(JWT_SECRET)
 }
 
-export function verifyToken(token: string): JWTPayload | null {
+export async function verifyToken(token: string): Promise<JWTPayload | null> {
   try {
-    return jwt.verify(token, JWT_SECRET) as JWTPayload
-  } catch {
+    const { payload } = await jwtVerify(token, JWT_SECRET)
+    return payload as unknown as JWTPayload
+  } catch (err) {
     return null
   }
 }
 
 // ─── Cookie helpers ───────────────────────────────────────────────────────────
-export function getTokenFromCookieHeader(cookieHeader: string | null): string | null {
-  if (!cookieHeader) return null
-  const match = cookieHeader.match(/(?:^|;\s*)token=([^;]+)/)
-  return match ? match[1] : null
-}
-
 export function getCookie(name: string): string | null {
   if (typeof document === 'undefined') return null
   const value = `; ${document.cookie}`

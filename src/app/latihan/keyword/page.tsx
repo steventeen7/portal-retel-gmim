@@ -2,36 +2,37 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { isRedirectError } from 'next/dist/client/components/redirect-error'
 import { verifyToken } from '@/lib/auth'
-import { db } from '@/lib/db'
 import KeywordClient from './KeywordClient'
+
+export const dynamic = 'force-dynamic';
 
 export default async function KeywordPage() {
   try {
     const cookieStore = await cookies()
     const token = cookieStore.get('token')?.value
-    const payload = token ? verifyToken(token) : null
+    
+    if (!token) {
+      redirect('/auth/login')
+    }
+
+    // Zero DB dependency: Verifikasi token dan ambil data langsung dari payload
+    const payload = await verifyToken(token)
     
     if (!payload || !payload.id) {
       redirect('/auth/login')
     }
 
-    const user = await db.users.findById(payload.id)
-    if (!user) {
-      redirect('/auth/login')
-    }
+    const perms = Array.isArray(payload.permissions) ? payload.permissions : []
+    const role = payload.role || 'user'
 
-    const perms = Array.isArray(user.permissions) ? user.permissions : []
-    const role = user.role || 'user'
-
+    // Check permission - Langsung dari Token
     if (role !== 'admin' && !perms.includes('keyword')) {
       redirect('/dashboard?error=unauthorized&module=keyword')
     }
 
-    return <KeywordClient user={user} />
+    return <KeywordClient user={payload} />
   } catch (err) {
-    // PENTING: Lempar kembali error redirect agar Next.js bisa memprosesnya
     if (isRedirectError(err)) throw err
-
     console.error('[KEYWORD PAGE ERROR]', err)
     redirect('/auth/login')
   }

@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
   const token = req.cookies.get('token')?.value
   if (!token) return NextResponse.json({ error: 'Tidak terautentikasi.' }, { status: 401 })
 
-  const payload = verifyToken(token)
+  const payload = await verifyToken(token)
   if (!payload || payload.role !== 'admin') {
     return NextResponse.json({ error: 'Akses ditolak. Anda bukan Admin.' }, { status: 403 })
   }

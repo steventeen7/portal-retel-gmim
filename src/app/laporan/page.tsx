@@ -7,7 +7,7 @@ import { BarChart3, TrendingUp, Calendar, CheckCircle2, Award, ClipboardList, Ar
 export default async function LaporanPage() {
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value
-  const user = token ? verifyToken(token) : null
+  const user = token ? await verifyToken(token) : null
   if (!user) redirect('/auth/login')
 
   const riwayat = await db.nilaiUser.findByUser(user.id)

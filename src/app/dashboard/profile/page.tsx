@@ -31,7 +31,7 @@ export default function ProfilePage() {
         router.push('/auth/login');
         return;
       }
-      const payload = verifyToken(token);
+      const payload = await verifyToken(token);
       if (!payload) {
         router.push('/auth/login');
         return;

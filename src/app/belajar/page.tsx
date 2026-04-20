@@ -7,7 +7,7 @@ import MateriClient from './MateriClient'
 export default async function MateriPage() {
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value
-  const user = token ? verifyToken(token) : null
+  const user = token ? await verifyToken(token) : null
   if (!user) redirect('/auth/login')
 
   const materiAll = await db.materi.findAll()

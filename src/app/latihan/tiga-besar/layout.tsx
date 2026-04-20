@@ -1,7 +1,8 @@
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { verifyToken } from '@/lib/auth';
-import { db } from '@/lib/db';
+
+export const dynamic = 'force-dynamic';
 
 export default async function TigaBesarLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
@@ -9,19 +10,12 @@ export default async function TigaBesarLayout({ children }: { children: React.Re
 
   if (!token) redirect('/auth/login');
 
-  const payload = verifyToken(token);
+  const payload = await verifyToken(token);
   if (!payload) redirect('/auth/login');
 
-  // Selalu baca dari DB — bukan dari JWT yang bisa kadaluarsa
-  const user = await db.users.findById(payload.id);
-  if (!user) redirect('/auth/login');
+  const perms = Array.isArray(payload.permissions) ? payload.permissions : [];
 
-  if (!user.is_approved && user.role !== 'admin') {
-    redirect('/dashboard?error=pending');
-  }
-
-  // Cek izin modul 'tiga-besar'
-  if (user.role !== 'admin' && !user.permissions?.includes('tiga-besar')) {
+  if (payload.role !== 'admin' && !perms.includes('tiga-besar')) {
     redirect('/dashboard?error=no-permission&module=tiga-besar');
   }
 

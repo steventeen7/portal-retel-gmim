@@ -11,7 +11,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     redirect('/auth/login');
   }
 
-  const payload = verifyToken(token);
+  const payload = await verifyToken(token);
   if (!payload || payload.role !== 'admin') {
     redirect('/dashboard');
   }
