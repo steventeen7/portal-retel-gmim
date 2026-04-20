@@ -17,6 +17,7 @@ type UserProfile = {
   is_approved: boolean;
   permissions: string[];
   jemaat: string;
+  wilayah?: string;
   rayon: string;
   phone?: string;
   created_at: string;
@@ -32,6 +33,7 @@ export default function AdminClient({ initialUsers, initialLogs }: { initialUser
   const [editingUser, setEditingUser] = useState<UserProfile | null>(null);
   const [editForm, setEditForm] = useState({
     full_name: '',
+    email: '',
     jemaat: '',
     wilayah: '',
     rayon: '',
@@ -103,6 +105,7 @@ export default function AdminClient({ initialUsers, initialLogs }: { initialUser
     setEditingUser(u);
     setEditForm({
       full_name: u.full_name,
+      email: u.email || '',
       jemaat: u.jemaat || '',
       wilayah: u.wilayah || '',
       rayon: u.rayon || '',

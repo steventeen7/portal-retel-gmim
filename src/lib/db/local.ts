@@ -30,7 +30,7 @@ function writeJSON<T>(file: string, data: T[]): void {
   const filePath = path.join(dataDir, file)
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8')
   // Update cache on write
-  cache[file] = data
+  cache[file] = { data, mtime: Date.now() }
 }
 
 // ─── Types ───────────────────────────────────────────────────────────────────
