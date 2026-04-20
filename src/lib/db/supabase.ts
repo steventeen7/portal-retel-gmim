@@ -68,17 +68,28 @@ export const supabaseDB = {
 
   soalTes: {
     async findByTahun(tahun: number): Promise<SoalTes[]> {
-      const { data } = await supabase.from('soal_tes').select('*').eq('tahun', tahun).order('nomor_soal');
-      return data || [];
+      try {
+        const { data, error } = await supabase.from('soal_tes').select('*').eq('tahun', tahun).order('nomor_soal');
+        if (!error && data && data.length > 0) return data;
+      } catch (err) {}
+      return localDB.soalTes.findByTahun(tahun);
     },
     async findAll(): Promise<SoalTes[]> {
-      const { data } = await supabase.from('soal_tes').select('*').order('tahun', { ascending: false }).order('nomor_soal');
-      return data || [];
+      try {
+        const { data, error } = await supabase.from('soal_tes').select('*').order('tahun', { ascending: false }).order('nomor_soal');
+        if (!error && data && data.length > 0) return data;
+      } catch (err) {}
+      return localDB.soalTes.findAll();
     },
     async getTahunList(): Promise<number[]> {
-      const { data } = await supabase.from('soal_tes').select('tahun');
-      const tahunSet = new Set(data?.map(d => d.tahun) || []);
-      return Array.from(tahunSet).sort((a, b) => b - a);
+      try {
+        const { data, error } = await supabase.from('soal_tes').select('tahun');
+        if (!error && data && data.length > 0) {
+          const tahunSet = new Set(data.map(d => d.tahun));
+          return Array.from(tahunSet).sort((a, b) => b - a);
+        }
+      } catch (err) {}
+      return localDB.soalTes.getTahunList();
     }
   },
 
@@ -100,27 +111,42 @@ export const supabaseDB = {
 
   soalWawancara: {
     async findAll(): Promise<SoalWawancara[]> {
-      const { data } = await supabase.from('soal_wawancara').select('*');
-      return data || [];
+      try {
+        const { data, error } = await supabase.from('soal_wawancara').select('*');
+        if (!error && data && data.length > 0) return data;
+      } catch (err) {}
+      return localDB.soalWawancara.findAll();
     },
     async findByKategori(kategori: string): Promise<SoalWawancara[]> {
-      const { data } = await supabase.from('soal_wawancara').select('*').eq('kategori', kategori);
-      return data || [];
+      try {
+        const { data, error } = await supabase.from('soal_wawancara').select('*').eq('kategori', kategori);
+        if (!error && data && data.length > 0) return data;
+      } catch (err) {}
+      return localDB.soalWawancara.findByKategori(kategori);
     }
   },
 
   materi: {
     async findAll(): Promise<Materi[]> {
-      const { data } = await supabase.from('materi_belajar').select('*');
-      return data || [];
+      try {
+        const { data, error } = await supabase.from('materi_belajar').select('*');
+        if (!error && data && data.length > 0) return data;
+      } catch (err) {}
+      return localDB.materi.findAll();
     },
     async findByKategori(kategori: string): Promise<Materi[]> {
-      const { data } = await supabase.from('materi_belajar').select('*').eq('kategori', kategori);
-      return data || [];
+      try {
+        const { data, error } = await supabase.from('materi_belajar').select('*').eq('kategori', kategori);
+        if (!error && data && data.length > 0) return data;
+      } catch (err) {}
+      return localDB.materi.findByKategori(kategori);
     },
     async findById(id: number): Promise<Materi | undefined> {
-      const { data } = await supabase.from('materi_belajar').select('*').eq('id', id).single();
-      return data || undefined;
+      try {
+        const { data, error } = await supabase.from('materi_belajar').select('*').eq('id', id).single();
+        if (!error && data) return data;
+      } catch (err) {}
+      return localDB.materi.findById(id);
     },
     async create(data: any): Promise<any> {
       const { data: res, error } = await supabase.from('materi_belajar').insert([data]).select().single();
@@ -141,15 +167,21 @@ export const supabaseDB = {
 
   keywords: {
     async findAll(): Promise<any[]> {
-      const { data } = await supabase.from('kata_kunci').select('*');
-      return data || [];
+      try {
+        const { data, error } = await supabase.from('kata_kunci').select('*');
+        if (!error && data && data.length > 0) return data;
+      } catch(err) {}
+      return localDB.keywords.findAll();
     }
   },
 
   tigaBesar: {
     async findAll(): Promise<any[]> {
-      const { data } = await supabase.from('soal_tiga_besar').select('*');
-      return data || [];
+      try {
+        const { data, error } = await supabase.from('soal_tiga_besar').select('*');
+        if (!error && data && data.length > 0) return data;
+      } catch (err) {}
+      return localDB.tigaBesar.findAll();
     }
   },
   
