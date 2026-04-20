@@ -30,15 +30,20 @@ export const supabaseDB = {
       const { data } = await supabase.from('profiles').select('*').order('created_at', { ascending: false });
       return data || [];
     },
-    async updatePermissions(id: string, permissions: string[], is_approved: boolean): Promise<any> {
-      const { data, error } = await supabase
+    async update(id: string, data: any): Promise<any> {
+      const { data: updated, error } = await supabase
         .from('profiles')
-        .update({ permissions, is_approved })
+        .update(data)
         .eq('id', id)
         .select()
         .single();
       if (error) throw error;
-      return data;
+      return updated;
+    },
+    async delete(id: string): Promise<boolean> {
+      const { error } = await supabase.from('profiles').delete().eq('id', id);
+      if (error) throw error;
+      return true;
     }
   },
 
