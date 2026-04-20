@@ -10,17 +10,17 @@ export default async function MateriPage() {
   const user = token ? verifyToken(token) : null
   if (!user) redirect('/auth/login')
 
-  const materiAll = db.materi.findAll()
+  const materiAll = await db.materi.findAll()
 
   return (
     <div className="max-w-5xl mx-auto space-y-8 animate-fade-in-up">
       <div>
         <h1 className="text-3xl font-bold text-gray-900 mb-1">📚 Materi Belajar</h1>
         <p className="text-gray-600">
-          {materiAll.length} topik materi — klik untuk membaca konten lengkap.
+          {(materiAll || []).length} topik materi — klik untuk membaca konten lengkap.
         </p>
       </div>
-      <MateriClient materiList={materiAll} />
+      <MateriClient materiList={materiAll || []} />
     </div>
   )
 }

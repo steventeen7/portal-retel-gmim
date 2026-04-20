@@ -16,7 +16,8 @@ export default async function DashboardPage() {
   const user = await db.users.findById(payload.id);
   if (!user) redirect('/auth/login');
 
-  const riwayat = db.simulationHistory.findByUser(user.id).reverse();
+  const riwayatRaw = await db.simulationHistory.findByUser(user.id);
+  const riwayat = Array.isArray(riwayatRaw) ? [...riwayatRaw].reverse() : [];
   
   // Calculate stats from riwayat
   const avgSkor = riwayat.length > 0
@@ -30,9 +31,11 @@ export default async function DashboardPage() {
     ? Math.max(...riwayat.map((n: any) => Math.round((n.skor.content + n.skor.correlation + n.skor.performance) / 3))) 
     : null;
 
-  const tahunList = db.soalTes.getTahunList();
-  const soalCount = db.soalTes.findAll().length;
-  const wawancaraCount = db.soalWawancara.findAll().length;
+  const tahunList = await db.soalTes.getTahunList();
+  const allSoal = await db.soalTes.findAll();
+  const soalCount = allSoal?.length || 0;
+  const allWawancara = await db.soalWawancara.findAll();
+  const wawancaraCount = allWawancara?.length || 0;
   // Fallback if materials not exist yet
   const materiCount = 0;
 

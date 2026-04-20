@@ -113,6 +113,18 @@ export const supabaseDB = {
       return data || [];
     }
   },
+  
+  simulationHistory: {
+    async create(data: any): Promise<any> {
+      const { data: result, error } = await supabase.from('simulation_history').insert([data]).select().single();
+      if (error) throw error;
+      return result;
+    },
+    async findByUser(userId: string): Promise<any[]> {
+      const { data } = await supabase.from('simulation_history').select('*').eq('user_id', userId).order('created_at', { ascending: false });
+      return data || [];
+    }
+  },
 
   logs: {
     async create(userId: string, activity: string): Promise<void> {
