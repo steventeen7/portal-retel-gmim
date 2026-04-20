@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "user_id": "932f907f-8f4d-444d-9b1e-8382fe0aff6c",
+    "tipe": "keyword",
+    "judul": "Sola Scriptura",
+    "skor": {
+      "content": 8,
+      "correlation": 9,
+      "performance": 8
+    },
+    "feedback": "Penjelasan tentang Sola Scriptura sudah cukup baik, namun perlu diperjelas dan diperluas agar lebih komprehensif. Istilah 'balas crypto' tidak relevan dengan topik yang dibahas.",
+    "jawaban": "balas crypto adalah sesuatu yang berarti Alkitab sebagai Firman",
+    "created_at": "2026-04-19T15:16:39.244Z"
+  }
+]

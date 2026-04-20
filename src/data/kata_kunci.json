@@ -1,0 +1,2452 @@
+[
+  {
+    "id": 1,
+    "kata": "Integritas",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Keselarasan antara perkataan dan perbuatan. Contoh: Tetap jujur mengembalikan sisa uang belanja walau orang tua tidak mengecek.",
+    "penjelasan": "Integritas adalah fondasi karakter. Remaja dengan integritas tetap melakukan kebenaran baik dilihat maupun tidak. Amsal 11:3 - \"Orang yang jujur dipimpin oleh integritasnya\""
+  },
+  {
+    "id": 2,
+    "kata": "Kekudusan",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Hidup yang terpisah dari dosa dan dikhususkan bagi Tuhan. Contoh: Menolak ajakan menonton film porno meski teman-teman melakukannya.",
+    "penjelasan": "1 Petrus 1:16 - \"Kuduslah kamu, sebab Aku kudus\". Remaja teladan menjaga pikiran, perkataan, dan perbuatan dari kecemaran"
+  },
+  {
+    "id": 3,
+    "kata": "Pacaran Sehat",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Hubungan yang memiliki batasan jelas, melibatkan orang tua, dan fokus pada pengembangan diri. Contoh: Bertemu hanya di tempat umum, tidak berduaan di kamar tertutup.",
+    "penjelasan": "Batasan melindungi dari dosa seksual sebelum waktunya. Remaja teladan memprioritaskan studi dan pelayanan daripada hubungan yang mengikat"
+  },
+  {
+    "id": 4,
+    "kata": "Seks Bebas",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Hubungan seksual di luar pernikahan yang dilarang Alkitab. Contoh: Berani menolak ajakan \"coba-coba\" dari pacar dengan alasan Firman Tuhan.",
+    "penjelasan": "1 Korintus 6:18 - \"Jauhkanlah diri dari percabulan\". Dampaknya: penyakit kelamin, kehamilan tak diinginkan, trauma psikologis"
+  },
+  {
+    "id": 5,
+    "kata": "Pergaulan Sehat",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Interaksi sosial yang positif dan membangun karakter. Contoh: Memilih teman yang rajin beribadah dan berprestasi, bukan yang hanya suka bersenang-senang.",
+    "penjelasan": "Amsal 13:20 - \"Siapa bergaul dengan orang bijak menjadi bijak\". Remaja teladan selektif dalam memilih sahabat"
+  },
+  {
+    "id": 6,
+    "kata": "Kontrol Diri",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kemampuan mengendalikan emosi, keinginan, dan tindakan. Contoh: Tidak langsung marah ketika diprovokasi, tetapi menenangkan diri dan merespon dengan bijak.",
+    "penjelasan": "Galatia 5:23 - \"Penguasaan diri\" adalah buah Roh. Remaja teladan tidak mudah terprovokasi dan bisa menahan amarah"
+  },
+  {
+    "id": 7,
+    "kata": "Cinta Kasih (Agape)",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kasih tanpa syarat yang berasal dari Allah. Contoh: Tetap mengasihi teman yang menyakiti, mendoakannya, bukan membalas dendam.",
+    "penjelasan": "1 Korintus 13:4-7 - Kasih sabar, murah hati, tidak cemburu. Remaja teladan mengasihi seperti Kristus mengasihi gereja"
+  },
+  {
+    "id": 8,
+    "kata": "Kejujuran",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Berkata dan bertindak sesuai kebenaran. Contoh: Mengaku kepada guru ketika lupa mengerjakan PR, tidak menyontek saat ujian.",
+    "penjelasan": "Efesus 4:25 - \"Buanglah dusta dan katakanlah benar\". Remaja teladan lebih baik dapat nilai rendah dengan jujur daripada nilai tinggi dengan curang"
+  },
+  {
+    "id": 9,
+    "kata": "Kerendahan Hati",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Tidak sombong dan mengakui keterbatasan diri. Contoh: Mau belajar dari teman yang lebih pintar, tidak gengsi bertanya.",
+    "penjelasan": "Filipi 2:3 - \"Dengan rendah hati anggaplah orang lain lebih utama daripadamu\". Remaja teladan tidak mencari pujian"
+  },
+  {
+    "id": 10,
+    "kata": "Kesabaran",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kemampuan menunggu dengan tenang tanpa mengeluh. Contoh: Sabar menunggu giliran presentasi, tidak memotong pembicaraan orang lain.",
+    "penjelasan": "Roma 12:12 - \"Bersabarlah dalam kesesakan\". Remaja teladan percaya waktu Tuhan adalah yang terbaik"
+  },
+  {
+    "id": 11,
+    "kata": "Tanggung Jawab",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kesediaan menanggung konsekuensi dari tindakan sendiri. Contoh: Mengakui kesalahan dan memperbaiki, tidak menyalahkan orang lain.",
+    "penjelasan": "Galatia 6:5 - \"Setiap orang akan memikul tanggungannya sendiri\". Remaja teladan dewasa dalam bertanggung jawab"
+  },
+  {
+    "id": 12,
+    "kata": "Empati",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kemampuan merasakan apa yang dirasakan orang lain. Contoh: Menghibur teman yang sedang berduka, tidak mengejek kesulitan orang lain.",
+    "penjelasan": "Roma 12:15 - \"Bersukacitalah dengan orang yang bersukacita, menangislah dengan orang yang menangis\". Remaja teladan peka pada sesama"
+  },
+  {
+    "id": 13,
+    "kata": "Ketekunan",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Terus berusaha meski menghadapi kegagalan. Contoh: Tetap belajar meski nilai ulangan jelek, tidak menyerah.",
+    "penjelasan": "Yakobus 1:12 - \"Berbahagialah orang yang bertahan dalam pencobaan\". Remaja teladan tidak mudah putus asa"
+  },
+  {
+    "id": 14,
+    "kata": "Optimisme",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Memandang masa depan dengan harapan positif. Contoh: Yakin bisa memperbaiki nilai meski saat ini rendah, karena Tuhan memberikan kemampuan.",
+    "penjelasan": "Roma 8:28 - \"Allah bekerja dalam segala sesuatu untuk mendatangkan kebaikan\". Remaja teladan melihat peluang di balik masalah"
+  },
+  {
+    "id": 15,
+    "kata": "Pemaaf",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Rela melepaskan hak untuk membalas dendam. Contoh: Memaafkan teman yang menyebarkan gosip, tidak menyimpan dendam.",
+    "penjelasan": "Efesus 4:32 - \"Hendaklah kamu saling mengampuni, sama seperti Allah telah mengampuni kamu\". Remaja teladan bebas dari kepahitan"
+  },
+  {
+    "id": 16,
+    "kata": "Disiplin",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Melakukan hal yang benar secara konsisten. Contoh: Bangun pagi setiap hari untuk berdoa dan baca Alkitab, meski hari libur.",
+    "penjelasan": "Amsal 12:1 - \"Siapa mengabaikan didikan menghina dirinya sendiri\". Remaja teladan terbiasa dengan rutinitas positif"
+  },
+  {
+    "id": 17,
+    "kata": "Keberanian Moral",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Berani melakukan kebenaran walau sendirian. Contoh: Menegur teman yang merokok di lingkungan gereja, berani berkata \"tidak\" pada ajakan narkoba.",
+    "penjelasan": "Yosua 1:9 - \"Kuatkan dan teguhkanlah hatimu\". Remaja teladan tidak takut berbeda demi kebenaran"
+  },
+  {
+    "id": 18,
+    "kata": "Rasa Hormat",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Menghargai orang lain, terutama yang lebih tua. Contoh: Mencium tangan orang tua dan guru, berbicara dengan sopan.",
+    "penjelasan": "Keluaran 20:12 - \"Hormatilah ayahmu dan ibumu\". Remaja teladan tahu tata krama dan sopan santun"
+  },
+  {
+    "id": 19,
+    "kata": "Sikap Melayani",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Mendahulukan kepentingan orang lain. Contoh: Rela membersihkan ruang ibadah tanpa diminta, membantu teman yang kesulitan pelajaran.",
+    "penjelasan": "Markus 10:45 - \"Anak Manusia datang bukan untuk dilayani, melainkan untuk melayani\". Remaja teladan memiliki hati seorang hamba"
+  },
+  {
+    "id": 20,
+    "kata": "Sukacita",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kebahagiaan yang tidak tergantung situasi. Contoh: Tetap tersenyum dan bersyukur meski mengalami masalah, karena tahu Tuhan menyertai.",
+    "penjelasan": "Nehemia 8:10 - \"Sukacita karena TUHAN adalah kekuatanmu\". Remaja teladan sumber sukacitanya adalah Tuhan"
+  },
+  {
+    "id": 21,
+    "kata": "Ketahanan Mental",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kemampuan bangkit dari keterpurukan. Contoh: Tidak terpuruk ketika gagal lomba, segera evaluasi dan berlatih lebih giat.",
+    "penjelasan": "2 Korintus 4:8-9 - \"Kami ditindas tetapi tidak terhimpit, dihempaskan tetapi tidak binasa\". Remaja teladan tangguh menghadapi masalah"
+  },
+  {
+    "id": 22,
+    "kata": "Kesederhanaan",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Hidup tidak berlebihan dan tidak bergantung pada materi. Contoh: Tidak memaksakan orang tua membeli HP mahal hanya karena ikut-ikutan teman.",
+    "penjelasan": "1 Timotius 6:6 - \"Ibadah disertai rasa cukup adalah keuntungan besar\". Remaja teladan bersyukur dengan apa yang ada"
+  },
+  {
+    "id": 23,
+    "kata": "Tenggang Rasa",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Memperhatikan perasaan orang lain. Contoh: Tidak berbicara keras di tempat ibadah, tidak mengganggu teman yang sedang belajar.",
+    "penjelasan": "Matius 7:12 - \"Segala sesuatu yang kamu kehendaki supaya orang perbuat kepadamu, perbuatlah demikian kepada mereka\". Emas benar"
+  },
+  {
+    "id": 24,
+    "kata": "Kemandirian",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Mampu melakukan sesuatu tanpa tergantung orang lain. Contoh: Mengerjakan tugas sekolah sendiri, tidak menyuruh orang tua.",
+    "penjelasan": "Remaja teladan belajar bertanggung jawab atas hidupnya sendiri, tidak selalu minta dibantu"
+  },
+  {
+    "id": 25,
+    "kata": "Kreativitas",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kemampuan menciptakan hal baru yang bermanfaat. Contoh: Membuat konten Alkitab di TikTok untuk menjangkau teman-teman sebaya.",
+    "penjelasan": "Keluaran 35:31 - \"Telah memenuhinya dengan Roh Allah, dengan keahlian, pengertian, dan pengetahuan\". Remaja teladan menggunakan kreativitas untuk kemuliaan Tuhan"
+  },
+  {
+    "id": 26,
+    "kata": "Kepedulian Sosial",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Peka terhadap kebutuhan orang lain. Contoh: Menggalang dana untuk korban bencana, menjenguk teman yang sakit.",
+    "penjelasan": "Yakobus 2:16 - \"Berikanlah kepada mereka apa yang mereka perlukan\". Remaja teladan tidak acuh pada sesama"
+  },
+  {
+    "id": 27,
+    "kata": "Kesetiaan",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Tetap komitmen dalam hubungan dan janji. Contoh: Tetap datang ke latihan paduan suara meski lelah, karena sudah berkomitmen.",
+    "penjelasan": "Amsal 20:6 - \"Orang yang setia, siapakah menemukannya?\". Remaja teladan dapat diandalkan"
+  },
+  {
+    "id": 28,
+    "kata": "Kesopanan",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Berperilaku sesuai norma yang berlaku. Contoh: Berpakaian rapi dan sopan saat ke gereja, tidak memakai baju ketat atau pendek.",
+    "penjelasan": "1 Timotius 2:9 - \"Hendaklah perempuan berdandan dengan pantas, dengan sopan dan sederhana\". Berlaku juga untuk pria"
+  },
+  {
+    "id": 29,
+    "kata": "Penerimaan Diri",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Menerima kelebihan dan kekurangan diri. Contoh: Tidak iri dengan fisik teman yang lebih menarik, bersyukur dengan apa yang Tuhan beri.",
+    "penjelasan": "Mazmur 139:14 - \"Aku bersyukur kepada-Mu karena kejadianku dahsyat dan ajaib\". Remaja teladan mengasihi diri sendiri"
+  },
+  {
+    "id": 30,
+    "kata": "Komitmen",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Teguh pada keputusan yang telah dibuat. Contoh: Konsisten mengikuti kegiatan remaja setiap minggu meski banyak godaan.",
+    "penjelasan": "Pengkhotbah 5:4 - \"Tunaikanlah nazarmu\". Remaja teladan tidak mudah berubah pikiran"
+  },
+  {
+    "id": 31,
+    "kata": "Inisiatif",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Melakukan sesuatu tanpa menunggu perintah. Contoh: Membersihkan papan tulis sebelum guru datang, tanpa diminta.",
+    "penjelasan": "Remaja teladan proaktif, tidak pasif menunggu disuruh"
+  },
+  {
+    "id": 32,
+    "kata": "Gigih",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Tidak menyerah sebelum mencapai tujuan. Contoh: Terus berlatih pidato meski sering gagal, sampai akhirnya bisa.",
+    "penjelasan": "Galatia 6:9 - \"Janganlah jemu-jemu berbuat baik, karena pada waktunya kita akan menuai\". Remaja teladan tidak mudah menyerah"
+  },
+  {
+    "id": 33,
+    "kata": "Religiusitas",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kedekatan pribadi dengan Tuhan. Contoh: Memiliki waktu teduh setiap hari, berdoa sebelum melakukan apapun.",
+    "penjelasan": "Yakobus 4:8 - \"Mendekatlah kepada Allah, maka Ia akan mendekat kepadamu\". Remaja teladan memiliki kehidupan rohani yang hidup"
+  },
+  {
+    "id": 34,
+    "kata": "Toleransi",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Menghargai perbedaan tanpa mengorbankan iman. Contoh: Berteman baik dengan yang berbeda agama, tidak memaksakan kehendak.",
+    "penjelasan": "Roma 14:19 - \"Marilah kita berusaha untuk saling membangun\". Remaja teladan hidup rukun dalam perbedaan"
+  },
+  {
+    "id": 35,
+    "kata": "Kritis",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Mampu menganalisis informasi dengan bijak. Contoh: Tidak langsung percaya hoaks, mengecek kebenaran berita terlebih dahulu.",
+    "penjelasan": "1 Tesalonika 5:21 - \"Ujilah segala sesuatu, peganglah yang baik\". Remaja teladan cerdas dan tidak mudah termakan hoaks"
+  },
+  {
+    "id": 36,
+    "kata": "Motivasi Diri",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Semangat dari dalam diri sendiri. Contoh: Belajar giat karena ingin memuliakan Tuhan, bukan karena takut dimarahi orang tua.",
+    "penjelasan": "Kolose 3:23 - \"Apapun juga yang kamu perbuat, perbuatlah dengan segenap hatimu seperti untuk Tuhan\". Remaja teladan memiliki motivasi internal"
+  },
+  {
+    "id": 37,
+    "kata": "Kerja Sama",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Bekerja bersama mencapai tujuan bersama. Contoh: Membagi tugas kelompok dengan adil, tidak egois.",
+    "penjelasan": "Pengkhotbah 4:9 - \"Berdua lebih baik dari seorang diri\". Remaja teladan tahu bahwa kebersamaan menguatkan"
+  },
+  {
+    "id": 38,
+    "kata": "Fokus",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Memusatkan perhatian pada satu hal. Contoh: Tidak main HP saat belajar, tidak ngobrol saat ibadah.",
+    "penjelasan": "1 Korintus 9:24 - \"Lari sedemikian rupa sehingga kamu memperolehnya\". Remaja teladan tidak terpecah perhatiannya"
+  },
+  {
+    "id": 39,
+    "kata": "Ketenangan",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Tidak mudah gelisah dan cemas. Contoh: Menyerahkan kekhawatiran ujian kepada Tuhan dalam doa, belajar maksimal, dan percaya hasilnya.",
+    "penjelasan": "Filipi 4:6-7 - \"Janganlah hendaknya kamu kuatir tentang apapun juga\". Remaja teladan memiliki damai sejahtera Kristus"
+  },
+  {
+    "id": 40,
+    "kata": "Kebijaksanaan",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kemampuan mengambil keputusan terbaik. Contoh: Memilih menolak ajakan tawuran karena tahu risikonya, mengajak damai.",
+    "penjelasan": "Amsal 4:7 - \"Perolehlah hikmat, perolehlah pengertian\". Remaja teladan tidak gegabah dalam mengambil keputusan"
+  },
+  {
+    "id": 41,
+    "kata": "Rendah Hati",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Tidak sombong atas prestasi. Contoh: Tetap rendah hati meski juara kelas, tidak merendahkan teman.",
+    "penjelasan": "Amsal 16:19 - \"Lebih baik merendahkan diri dengan orang yang rendah hati\". Remaja teladan tahu semua prestasi adalah anugerah Tuhan"
+  },
+  {
+    "id": 42,
+    "kata": "Teguh Pendirian",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Tidak mudah terpengaruh bujukan negatif. Contoh: Tetap tidak merokok meski diajak teman berkali-kali, konsisten dengan prinsip.",
+    "penjelasan": "Efesus 6:14 - \"Berdirilah teguh, berikatpinggangkan kebenaran\". Remaja teladan memiliki prinsip yang kokoh"
+  },
+  {
+    "id": 43,
+    "kata": "Murah Hati",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Senang memberi dan berbagi. Contoh: Memberi sebagian uang jajan untuk teman yang kurang mampu.",
+    "penjelasan": "Amsal 11:25 - \"Siapa banyak memberi berkat, diberi kelimpahan\". Remaja teladan tidak pelit"
+  },
+  {
+    "id": 44,
+    "kata": "Pemberani",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Berani mengungkapkan kebenaran. Contoh: Berani melaporkan tindakan bullying yang dilihatnya kepada guru.",
+    "penjelasan": "Amsal 28:1 - \"Orang benar berani seperti singa\". Remaja teladan tidak takut membela yang benar"
+  },
+  {
+    "id": 45,
+    "kata": "Humble",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kerendahan hati yang tulus. Contoh: Mengakui kesalahan di depan teman-teman, meminta maaf.",
+    "penjelasan": "Mikha 6:8 - \"Berjalanlah dengan rendah hati di hadapan Allahmu\". Remaja teladan tidak gengsi mengakui salah"
+  },
+  {
+    "id": 46,
+    "kata": "Grit (Ketekunan Berbasis Gairah)",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Ketekunan jangka panjang untuk mencapai tujuan. Contoh: Berlatih musik bertahun-tahun untuk bisa melayani sebagai pemain keyboard di gereja.",
+    "penjelasan": "Remaja teladan memiliki semangat yang tidak padam dalam jangka panjang"
+  },
+  {
+    "id": 47,
+    "kata": "Akuntabilitas",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Kesediaan dipertanggungjawabkan dan diawasi. Contoh: Memiliki sahabat rohani yang saling mengingatkan dalam doa dan perilaku.",
+    "penjelasan": "Remaja teladan tidak hidup sendiri, tetapi terbuka pada pertanggungjawaban"
+  },
+  {
+    "id": 48,
+    "kata": "Wisdom",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Aplikasi pengetahuan dalam kehidupan nyata. Contoh: Tahu bahwa pacaran di usia remaja rawan dosa, jadi memilih fokus studi dan pelayanan dulu.",
+    "penjelasan": "Amsal 9:10 - \"Permulaan hikmat adalah takut akan Tuhan\". Remaja teladan tidak hanya tahu, tetapi melakukan"
+  },
+  {
+    "id": 49,
+    "kata": "Self-Esteem Sehat",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Menghargai diri tanpa sombong. Contoh: Percaya diri tampil di depan umum karena tahu Tuhan memberi kemampuan, tidak minder.",
+    "penjelasan": "Roma 12:3 - \"Janganlah kamu memikirkan hal-hal yang lebih tinggi dari pada yang patut kamu pikirkan\". Remaja teladan memiliki pandangan yang seimbang tentang diri"
+  },
+  {
+    "id": 50,
+    "kata": "Pemecah Masalah",
+    "materi": "KEPRIBADIAN (Love, Sex, Dating)",
+    "jawaban": "Mampu mencari solusi kreatif untuk masalah. Contoh: Ketika sound system gereja rusak saat ibadah, mencari alternatif menggunakan speaker HP.",
+    "penjelasan": "Remaja teladan tidak panik saat masalah datang, tetapi mencari jalan keluar"
+  },
+  {
+    "id": 51,
+    "kata": "Keteladanan Daniel",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Daniel berani tidak menajiskan diri dengan makanan raja, tetap berdoa 3x sehari meski dilarang. Contoh: Seperti Daniel, remaja teladan tetap berdoa di sekolah meski teman-teman mengejek.",
+    "penjelasan": "Daniel 1:8; 6:10. Daniel menunjukkan bahwa iman tidak bisa dikompromikan. Tuhan melindungi Daniel di gua singa karena kesetiaannya"
+  },
+  {
+    "id": 52,
+    "kata": "Keteladanan Timotius",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Timotius menjadi teladan sekalipun masih muda, mengikuti Paulus dalam misi, dan melayani dengan setia. Contoh: Remaja teladan aktif dalam pelayanan gereja meski masih muda, menjadi contoh bagi adik-adiknya.",
+    "penjelasan": "1 Timotius 4:12 - \"Jangan seorang pun menganggap engkau rendah karena engkau muda\". Usia bukan penghalang untuk menjadi berkat"
+  },
+  {
+    "id": 53,
+    "kata": "Keteladanan Yusuf",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Yusuf setia kepada Tuhan saat digoda istri Potifar, tetap jujur meski dipenjara, mengampuni saudara-saudaranya. Contoh: Remaja teladan menolak ajakan pacar untuk berbuat dosa, meski berisiko putus.",
+    "penjelasan": "Kejadian 39:9 - \"Bagaimana mungkin aku melakukan kejahatan besar ini dan berdosa terhadap Allah?\" Integritas Yusuf membawanya menjadi pemimpin Mesir"
+  },
+  {
+    "id": 54,
+    "kata": "Keteladanan Daud",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Daud muda berani melawan Goliat karena percaya Tuhan lebih besar. Contoh: Remaja teladan berani melawan ketidakadilan di sekolah meski sendirian, karena percaya Tuhan menyertai.",
+    "penjelasan": "1 Samuel 17:45 - \"Kepadamu aku mendekat demi nama TUHAN semesta alam\". Daud tidak melihat besar masalah, tetapi besar Tuhan-nya"
+  },
+  {
+    "id": 55,
+    "kata": "Keteladanan Rut",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Rut setia mendampingi Naomi (mertuanya) dan meninggalkan tanah kelahirannya. Contoh: Remaja teladan setia membantu orang tua yang sakit, tidak meninggalkan mereka.",
+    "penjelasan": "Rut 1:16 - \"Bangsamulah bangsaku, Allahmulah Allahku\". Kesetiaan Rut dibalas Tuhan dengan menjadi nenek moyang Yesus"
+  },
+  {
+    "id": 56,
+    "kata": "Amanat Agung",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Perintah Yesus untuk pergi, jadikan semua bangsa murid, baptis, dan ajarkan perintah-Nya. Contoh: Remaja teladan mengajak teman sekolah ke gereja dan menjelaskan Injil dengan cara yang relevan.",
+    "penjelasan": "Matius 28:19-20. Ini adalah mandat utama gereja. Setiap remaja teladan adalah missioner di mana pun berada"
+  },
+  {
+    "id": 57,
+    "kata": "Perumpamaan Talenta",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Setiap orang diberi karunia sesuai kemampuan, harus dikembangkan, bukan disembunyikan. Contoh: Remaja teladan mengikuti lomba pidato untuk mengembangkan bakat bicaranya bagi Tuhan.",
+    "penjelasan": "Matius 25:14-30. Talenta bukan hanya uang tetapi semua karunia Tuhan. Yang penting adalah setia, bukan seberapa besar"
+  },
+  {
+    "id": 58,
+    "kata": "Perumpamaan Orang Samaria yang Baik",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Kasih tanpa memandang suku, agama, ras. Contoh: Remaja teladan menolong korban kecelakaan meski berbeda agama.",
+    "penjelasan": "Lukas 10:25-37. Siapapun sesama kita yang membutuhkan pertolongan. Kasih Kristus melampaui batas-batas manusia"
+  },
+  {
+    "id": 59,
+    "kata": "Perumpamaan Anak yang Hilang",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Kasih Bapa yang selalu menanti pertobatan anak-Nya. Contoh: Remaja teladan yang pernah tersesat, kembali kepada Tuhan dan diterima dengan sukacita.",
+    "penjelasan": "Lukas 15:11-32. Tidak ada dosa yang terlalu besar untuk diampuni. Tuhan selalu membuka tangan bagi yang bertobat"
+  },
+  {
+    "id": 60,
+    "kata": "Khotbah di Bukit",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Ucapan bahagia, garam dan terang, hukum Taurat, doa, puasa, tidak kuatir. Contoh: Remaja teladan menjadi \"terang\" dengan berperilaku baik di sekolah sehingga teman-teman terinspirasi.",
+    "penjelasan": "Matius 5-7. Ini adalah manifesto Kerajaan Allah. Remaja teladan hidup dengan nilai-nilai yang berbeda dari dunia"
+  },
+  {
+    "id": 61,
+    "kata": "Buah Roh",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Kasih, sukacita, damai sejahtera, kesabaran, kemurahan, kebaikan, kesetiaan, kelemahlembutan, penguasaan diri. Contoh: Remaja teladan menunjukkan kesabaran saat menghadapi teman yang menjengkelkan.",
+    "penjelasan": "Galatia 5:22-23. Buah Roh adalah karakter Kristus yang dihasilkan Roh Kudus dalam hidup orang percaya"
+  },
+  {
+    "id": 62,
+    "kata": "Karunia Roh",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Kemampuan khusus dari Roh Kudus untuk melayani: bernubuat, melayani, mengajar, menasihati, memberi, memimpin, menunjukkan kemurahan. Contoh: Remaja teladan menggunakan karunia mengajarnya untuk mengajar Sekolah Minggu.",
+    "penjelasan": "1 Korintus 12. Setiap remaja memiliki karunia unik. Tidak ada karunia yang lebih hebat; semua untuk membangun tubuh Kristus"
+  },
+  {
+    "id": 63,
+    "kata": "Iman",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Dasar dari segala sesuatu yang diharapkan, bukti dari segala sesuatu yang tidak dilihat. Contoh: Remaja teladan tetap percaya Tuhan akan memulihkan orang tuanya yang sakit, meski kondisi belum membaik.",
+    "penjelasan": "Ibrani 11:1. Iman bukan perasaan tetapi keputusan untuk percaya pada janji Tuhan walau keadaan berkata lain"
+  },
+  {
+    "id": 64,
+    "kata": "Pengharapan",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Keyakinan akan janji Tuhan di masa depan. Contoh: Remaja teladan tidak putus asa meski nilai ujian jelek, karena percaya masa depan ada di tangan Tuhan.",
+    "penjelasan": "Roma 15:13 - \"Pengharapan oleh kuasa Roh Kudus\". Pengharapan Kristen bukan optimisme kosong tetapi keyakinan pada kesetiaan Tuhan"
+  },
+  {
+    "id": 65,
+    "kata": "Kasih Agape",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Kasih tanpa syarat yang berasal dari Allah. Contoh: Remaja teladan tetap mengasihi teman yang menghianatinya, mendoakannya bukan membalas dendam.",
+    "penjelasan": "1 Korintus 13:1-13. Kasih agape tidak tergantung pada objek yang dikasihi, tetapi sumbernya yaitu Tuhan"
+  },
+  {
+    "id": 66,
+    "kata": "Pengampunan",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Melepaskan hak untuk membalas dendam. Contoh: Remaja teladan memaafkan teman yang menyebarkan gosip tentangnya, tidak menyimpan dendam.",
+    "penjelasan": "Matius 18:21-22 - \"Aku berkata kepadamu: Bukan sampai 7 kali, tetapi sampai 70 x 7 kali\". Pengampunan tanpa batas"
+  },
+  {
+    "id": 67,
+    "kata": "Perjanjian Baru",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Perjanjian yang ditulis dalam hati, bukan di batu, digenapi dalam darah Yesus. Contoh: Remaja teladan hidup bukan karena takut hukum Taurat, tetapi karena kasih kepada Tuhan yang menulis firman di hatinya.",
+    "penjelasan": "Yeremia 31:31-34; Lukas 22:20. Hubungan bukan lagi aturan mati, tetapi relasi pribadi dengan Tuhan"
+  },
+  {
+    "id": 68,
+    "kata": "Tritunggal",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Satu Allah dalam tiga Pribadi: Bapa, Anak, Roh Kudus. Contoh: Remaja teladan berdoa kepada Bapa, dalam nama Yesus, oleh kuasa Roh Kudus.",
+    "penjelasan": "Matius 28:19 - \"Baptislah mereka dalam nama Bapa, Anak, dan Roh Kudus\". Bukan tiga Tuhan tetapi satu hakikat"
+  },
+  {
+    "id": 69,
+    "kata": "Keselamatan",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Anugerah Allah melalui iman dalam Yesus Kristus, bukan karena perbuatan baik. Contoh: Remaja teladan tidak sombong karena rajin ke gereja, tahu bahwa keselamatan adalah pemberian Tuhan.",
+    "penjelasan": "Efesus 2:8-9. Tidak ada yang bisa membanggakan dirinya di hadapan Tuhan. Keselamatan adalah kasih karunia semata"
+  },
+  {
+    "id": 70,
+    "kata": "Salib",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Simbol pengorbanan Yesus untuk menebus dosa manusia. Contoh: Remaja teladan memikul \"salib\" dengan rela berkorban waktu dan tenaga untuk melayani.",
+    "penjelasan": "1 Petrus 2:24 - \"Ia sendiri telah memikul dosa kita di dalam tubuh-Nya di kayu salib\". Salib adalah pusat iman Kristen"
+  },
+  {
+    "id": 71,
+    "kata": "Kebangkitan",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Yesus bangkit dari kematian pada hari ketiga, mengalahkan maut. Contoh: Remaja teladan tidak takut mati karena percaya pada kebangkitan dan hidup kekal.",
+    "penjelasan": "1 Korintus 15:17 - \"Jika Kristus tidak dibangkitkan, sia-sialah kepercayaanmu\". Kebangkitan adalah jaminan kemenangan kita"
+  },
+  {
+    "id": 72,
+    "kata": "Kenaikan Yesus",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Yesus naik ke surga dan duduk di sebelah kanan Bapa. Contoh: Remaja teladan hidup dengan pengharapan bahwa Yesus akan kembali.",
+    "penjelasan": "Kisah Para Rasul 1:9-11. Yesus naik ke surga dan akan kembali dengan cara yang sama. Kita menantikan kedatangan-Nya"
+  },
+  {
+    "id": 73,
+    "kata": "Roh Kudus",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Penolong, Penghibur, Guru yang dijanjikan Yesus. Contoh: Remaja teladan meminta tuntunan Roh Kudus saat akan mengambil keputusan penting.",
+    "penjelasan": "Yohanes 14:26. Roh Kudus adalah pribadi, bukan kekuatan abstrak. Ia aktif dalam hidup orang percaya"
+  },
+  {
+    "id": 74,
+    "kata": "Alkitab",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Firman Tuhan yang diilhamkan, menjadi otoritas tertinggi iman dan kehidupan. Contoh: Remaja teladan membaca Alkitab setiap hari dan menjadikannya pedoman hidup.",
+    "penjelasan": "2 Timotius 3:16-17. Alkitab cukup untuk mengajarkan, menyatakan kesalahan, dan memperlengkapi untuk setiap perbuatan baik"
+  },
+  {
+    "id": 75,
+    "kata": "Doa",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Komunikasi dua arah dengan Tuhan. Contoh: Remaja teladan tidak hanya meminta, tetapi juga mendengarkan suara Tuhan melalui firman dan keheningan.",
+    "penjelasan": "1 Tesalonika 5:17 - \"Tetaplah berdoa\". Doa bukan daftar permintaan tetapi relasi dengan Bapa"
+  },
+  {
+    "id": 76,
+    "kata": "Puasa",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Menahan diri dari makanan untuk fokus pada Tuhan. Contoh: Remaja teladan berpuasa saat menghadapi ujian penting, memohon hikmat dari Tuhan.",
+    "penjelasan": "Matius 6:16-18. Puasa bukan untuk dilihat orang, tetapi untuk Tuhan. Puasa melatih penguasaan diri"
+  },
+  {
+    "id": 77,
+    "kata": "Persekutuan (Koinonia)",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Kebersamaan orang percaya dalam iman. Contoh: Remaja teladan aktif dalam kelompok PA (Pemahaman Alkitab) untuk bertumbuh bersama.",
+    "penjelasan": "Kisah Para Rasul 2:42. Orang Kristen tidak hidup sendiri. Persekutuan menguatkan dan saling membangun"
+  },
+  {
+    "id": 78,
+    "kata": "Pelayanan (Diakonia)",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Melayani sesama sebagai wujud kasih Kristus. Contoh: Remaja teladan mengunjungi panti asuhan dan membagikan makanan kepada yang membutuhkan.",
+    "penjelasan": "Matius 20:28. Yesus datang untuk melayani. Remaja teladan memiliki hati seorang hamba"
+  },
+  {
+    "id": 79,
+    "kata": "Kesaksian (Martyria)",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Bersaksi tentang Kristus melalui perkataan dan perbuatan. Contoh: Remaja teladan bersaksi dengan menunjukkan perubahan hidup yang lebih baik setelah percaya Yesus.",
+    "penjelasan": "Kisah Para Rasul 1:8. Setiap remaja teladan adalah saksi Kristus di mana pun berada"
+  },
+  {
+    "id": 80,
+    "kata": "Gembala yang Baik",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Yesus yang mengenal domba-domba-Nya dan memberi nyawa bagi domba. Contoh: Remaja teladan mengenal \"suara\" Tuhan melalui firman dan tidak mengikuti ajaran sesat.",
+    "penjelasan": "Yohanes 10:11. Yesus bukan gembala upahan. Remaja teladan adalah domba yang mendengar suara Gembala"
+  },
+  {
+    "id": 81,
+    "kata": "Pokok Anggur",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Yesus adalah pokok, kita adalah ranting. Contoh: Remaja teladan tetap \"melekat\" pada Yesus melalui doa dan firman agar berbuah.",
+    "penjelasan": "Yohanes 15:5 - \"Di luar Aku kamu tidak dapat berbuat apa-apa\". Tidak ada keberhasilan rohani tanpa ketergantungan pada Kristus"
+  },
+  {
+    "id": 82,
+    "kata": "Jalan, Kebenaran, Hidup",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Yesus adalah satu-satunya jalan kepada Bapa. Contoh: Remaja teladan tidak percaya bahwa semua agama sama, tetapi Yesus adalah satu-satunya Juruselamat.",
+    "penjelasan": "Yohanes 14:6. Klaim eksklusif Yesus. Remaja teladan berani menyatakan kebenaran ini dengan kasih"
+  },
+  {
+    "id": 83,
+    "kata": "Terang Dunia",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Orang percaya adalah terang yang menerangi kegelapan. Contoh: Remaja teladan menjadi teladan di sekolah sehingga teman-teman bertanya tentang imannya.",
+    "penjelasan": "Matius 5:14. Terang tidak bersembunyi. Remaja teladan tidak malu menjadi Kristen"
+  },
+  {
+    "id": 84,
+    "kata": "Garam Dunia",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Orang percaya memberi \"rasa\" dan menjadi pengawet di tengah masyarakat. Contoh: Remaja teladan mencegah perundungan (bullying) di sekolah dengan menegur dan mendamaikan.",
+    "penjelasan": "Matius 5:13. Garam yang kehilangan rasa tidak berguna. Remaja teladan harus tetap \"asinn\" dengan nilai-nilai Kristus"
+  },
+  {
+    "id": 85,
+    "kata": "Pekerjaan Baik",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Tindakan nyata sebagai buah iman, bukan sarana keselamatan. Contoh: Remaja teladan membantu tetangga yang kesusahan tanpa pamrih, sebagai bukti iman yang hidup.",
+    "penjelasan": "Yakobus 2:17 - \"Iman tanpa perbuatan pada hakikatnya adalah mati\". Perbuatan baik adalah bukti iman yang sejati"
+  },
+  {
+    "id": 86,
+    "kata": "Pengakuan Iman Rasuli",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Ringkasan iman Kristen yang diwariskan dari rasul-rasul. Contoh: Remaja teladan hafal dan memahami setiap kalimat Pengakuan Iman Rasuli.",
+    "penjelasan": "Pengakuan iman ini memuat doktrin Tritunggal, inkarnasi, penebusan, kebangkitan, dan hidup kekal"
+  },
+  {
+    "id": 87,
+    "kata": "Pengakuan Iman Nicea",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Pengakuan iman yang menegaskan ke-Allahan Yesus Kristus. Contoh: Remaja teladan dapat menjelaskan bahwa Yesus sejati Allah dan sejati manusia.",
+    "penjelasan": "Dihasilkan dari Konsili Nicea 325 M untuk melawan ajaran Arian yang menyangkal ke-Allahan Yesus"
+  },
+  {
+    "id": 88,
+    "kata": "Sola Scriptura",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Hanya Alkitab sebagai otoritas tertinggi iman. Contoh: Remaja teladan menguji setiap ajaran dengan Alkitab, tidak menerima begitu saja.",
+    "penjelasan": "Sola Scriptura adalah slogan Reformasi. Alkitab cukup sebagai sumber ajaran dan pedoman hidup"
+  },
+  {
+    "id": 89,
+    "kata": "Sola Fide",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Hanya oleh iman seseorang dibenarkan. Contoh: Remaja teladan percaya bahwa perbuatan baik tidak menyelamatkan, tetapi iman kepada Yesus.",
+    "penjelasan": "Roma 3:28. Bukan berarti perbuatan baik tidak penting, tetapi perbuatan baik adalah buah dari iman yang menyelamatkan"
+  },
+  {
+    "id": 90,
+    "kata": "Sola Gratia",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Hanya oleh kasih karunia, bukan karena usaha manusia. Contoh: Remaja teladan bersyukur karena diselamatkan bukan karena kebaikannya tetapi anugerah Tuhan.",
+    "penjelasan": "Efesus 2:5 - \"Karena kasih karunia kamu diselamatkan\". Tidak ada yang bisa membanggakan dirinya di hadapan Tuhan"
+  },
+  {
+    "id": 91,
+    "kata": "Solus Christus",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Hanya Kristus satu-satunya Juruselamat dan Pengantara. Contoh: Remaja teladan berdoa langsung kepada Tuhan dalam nama Yesus, tidak melalui perantara lain.",
+    "penjelasan": "1 Timotius 2:5 - \"Satu Allah dan satu Pengantara antara Allah dan manusia, yaitu Kristus Yesus\""
+  },
+  {
+    "id": 92,
+    "kata": "Soli Deo Gloria",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Segala kemuliaan hanya bagi Tuhan. Contoh: Remaja teladan tidak mencari pujian saat tampil di depan umum, tetapi memuliakan Tuhan.",
+    "penjelasan": "1 Korintus 10:31 - \"Lakukanlah segala sesuatu untuk kemuliaan Allah\". Motif pelayanan adalah kemuliaan Tuhan"
+  },
+  {
+    "id": 93,
+    "kata": "Perjamuan Kudus",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Sakramen peringatan kematian dan kebangkitan Yesus. Contoh: Remaja teladan mempersiapkan hati sebelum menerima Perjamuan Kudus, tidak datang asal-asalan.",
+    "penjelasan": "1 Korintus 11:23-26. Roti dan anggur melambangkan tubuh dan darah Kristus yang dikorbankan"
+  },
+  {
+    "id": 94,
+    "kata": "Baptisan Kudus",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Sakramen tanda perjanjian dan kelahiran baru. Contoh: Remaja teladan yang sudah dibaptis menghidupi janji baptisannya dengan hidup kudus.",
+    "penjelasan": "Matius 28:19. Baptisan bukan hanya ritual tetapi pintu masuk menjadi anggota gereja dan tanda kepatuhan pada Kristus"
+  },
+  {
+    "id": 95,
+    "kata": "Gereja",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Persekutuan orang percaya yang dipanggil keluar dari dunia. Contoh: Remaja teladan tidak menganggap gereja hanya gedung, tetapi dirinya sendiri adalah gereja di mana pun berada.",
+    "penjelasan": "Efesus 1:22-23. Gereja adalah tubuh Kristus, bukan organisasi tetapi organisme hidup"
+  },
+  {
+    "id": 96,
+    "kata": "Pengudusan",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Proses menjadi semakin serupa dengan Kristus. Contoh: Remaja teladan terus belajar, berdoa, dan melayani untuk bertumbuh dalam kekudusan.",
+    "penjelasan": "1 Tesalonika 4:3 - \"Kehendak Allah ialah pengudusanmu\". Pengudusan adalah proses seumur hidup, bukan instan"
+  },
+  {
+    "id": 97,
+    "kata": "Pencobaan",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Ujian iman yang diizinkan Tuhan untuk membentuk karakter. Contoh: Remaja teladan tidak berkecil hati saat gagal, tetapi melihatnya sebagai kesempatan bertumbuh.",
+    "penjelasan": "Yakobus 1:2-4. Pencobaan menghasilkan ketekunan, dan ketekunan menghasilkan kedewasaan rohani"
+  },
+  {
+    "id": 98,
+    "kata": "Anugerah",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Pemberian Tuhan yang tidak layak kita terima. Contoh: Remaja teladan tidak sombong dengan talentanya, karena semua adalah anugerah Tuhan.",
+    "penjelasan": "Roma 11:6. Anugerah tidak bisa dicampur dengan usaha manusia. Jika karena usaha, bukan lagi anugerah"
+  },
+  {
+    "id": 99,
+    "kata": "Pertobatan",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Perubahan pikiran dan arah hidup kembali kepada Tuhan. Contoh: Remaja teladan yang sebelumnya malas beribadah, menjadi rajin setelah mengalami pertobatan.",
+    "penjelasan": "Kisah Para Rasul 3:19. Pertobatan sejati ditandai dengan perubahan perilaku, bukan hanya penyesalan"
+  },
+  {
+    "id": 100,
+    "kata": "Kedatangan Tuhan Kedua Kali",
+    "materi": "PENGETAHUAN ALKITAB",
+    "jawaban": "Yesus akan kembali sebagai Raja dan Hakim. Contoh: Remaja teladan hidup dalam kesucian karena percaya Yesus bisa datang kapan saja.",
+    "penjelasan": "Wahyu 22:12 - \"Sesungguhnya Aku datang segera\". Kedatangan Yesus adalah pengharapan dan juga peringatan"
+  },
+  {
+    "id": 101,
+    "kata": "GMIM",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Gereja Masehi Injili di Minahasa, gereja mandiri sejak 30 September 1934. Contoh: Remaja teladan bangga menjadi bagian GMIM dan aktif dalam kegiatannya.",
+    "penjelasan": "GMIM adalah gereja Protestan di Sulawesi Utara yang merupakan mandiri dari Indische Kerk. Kata \"di\" menunjukkan lokasi geografis saat berdiri"
+  },
+  {
+    "id": 102,
+    "kata": "Sistem Presbiterial Sinodal",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Sistem kepemimpinan kolektif para penatua (presbiter) dengan keputusan melalui musyawarah di semua aras. Contoh: Remaja teladan menghargai keputusan rapat komisi remaja yang diambil secara musyawarah.",
+    "penjelasan": "Presbiterial = kepemimpinan para penatua; Sinodal = berjalan bersama. Bukan sistem episkopal (satu uskup) atau kongregasional (independen)"
+  },
+  {
+    "id": 103,
+    "kata": "Aras Pelayanan",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Tingkatan pelayanan: Jemaat (lokal), Wilayah (gabungan jemaat), Sinode (pusat). Contoh: Remaja teladan melayani di aras jemaat sebagai pengurus komisi remaja jemaat.",
+    "penjelasan": "Setiap aras memiliki kewenangan dan tanggung jawab. Keputusan aras bawah tidak boleh bertentangan dengan aras di atasnya"
+  },
+  {
+    "id": 104,
+    "kata": "BPMJ",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Badan Pekerja Majelis Jemaat - pimpinan tertinggi di aras jemaat. Contoh: Remaja teladan mengenal dan menghormati BPMJ di jemaatnya.",
+    "penjelasan": "BPMJ dipimpin oleh Pendeta yang ditempatkan BPMS. Masa pelayanan 5 tahun, mulai 1 Januari sampai 31 Desember"
+  },
+  {
+    "id": 105,
+    "kata": "BPMW",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Badan Pekerja Majelis Wilayah - pimpinan di aras wilayah. Contoh: Remaja teladan berkoordinasi dengan BPMW untuk kegiatan wilayah.",
+    "penjelasan": "BPMW terdiri dari 7 orang: Ketua (Pendeta), Wakil, Sekretaris, Bendahara, 3 Anggota. Masa pelayanan 5 tahun"
+  },
+  {
+    "id": 106,
+    "kata": "BPMS",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Badan Pekerja Majelis Sinode - pimpinan tertinggi GMIM. Contoh: Remaja teladan mendoakan BPMS dalam doa hariannya.",
+    "penjelasan": "BPMS periode 2022-2027 berjumlah 13 orang. Masa pelayanan 5 tahun. Ketua dijabat oleh Pendeta"
+  },
+  {
+    "id": 107,
+    "kata": "Sakramen",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Tanda dan meterai kasih karunia Allah yang kelihatan, terdiri dari Baptisan Kudus dan Perjamuan Kudus. Contoh: Remaja teladan mempersiapkan hati sebelum menerima Perjamuan Kudus.",
+    "penjelasan": "GMIM hanya mengakui 2 sakramen sesuai ajaran Reformasi, bukan 7 sakramen seperti Gereja Katolik"
+  },
+  {
+    "id": 108,
+    "kata": "Baptisan Kudus",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Sakramen tanda perjanjian Allah dan kelahiran baru. Contoh: Remaja teladan yang sudah dibaptis menghidupi janji baptisannya.",
+    "penjelasan": "Dilakukan sekali seumur hidup. Bagi anak-anak berdasarkan iman orang tua; bagi dewasa berdasarkan iman sendiri"
+  },
+  {
+    "id": 109,
+    "kata": "Perjamuan Kudus",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Sakramen peringatan kematian dan kebangkitan Yesus. Contoh: Remaja teladan mengaku dosa sebelum menerima Perjamuan Kudus.",
+    "penjelasan": "Dilayankan oleh Pendeta. Hanya untuk anggota Sidi Jemaat yang sudah mempersiapkan diri. Unsur: roti dan anggur"
+  },
+  {
+    "id": 110,
+    "kata": "Peneguhan Sidi Jemaat",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Pengakuan iman secara dewasa setelah mengikuti katekisasi. Contoh: Remaja teladan yang berusia 17 tahun mengikuti katekisasi untuk menjadi Sidi Jemaat.",
+    "penjelasan": "Minimal usia 17 tahun. Syarat untuk menerima Perjamuan Kudus dan menjadi Pelayan Khusus"
+  },
+  {
+    "id": 111,
+    "kata": "Tata Gereja GMIM 2021",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Aturan dasar kehidupan bergereja yang ditetapkan Sidang Majelis Sinode Istimewa ke-80 (29 Maret 2021). Contoh: Remaja teladan membaca dan memahami Tata Gereja.",
+    "penjelasan": "Terdiri dari 1 Tata Dasar dan 7 Peraturan. Menggantikan Tata Gereja 2016"
+  },
+  {
+    "id": 112,
+    "kata": "KPRS",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Komisi Pelayanan Remaja Sinode - perangkat pelayanan remaja di aras sinode. Contoh: Remaja teladan mengenal program-program KPRS dan berpartisipasi.",
+    "penjelasan": "Berdiri sendiri sejak 28 Januari 1990. Tanggal ini diperingati sebagai Hari Persatuan Remaja GMIM"
+  },
+  {
+    "id": 113,
+    "kata": "KPRJ",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Komisi Pelayanan Remaja Jemaat - perangkat pelayanan remaja di aras jemaat. Contoh: Remaja teladan menjadi pengurus KPRJ di jemaatnya.",
+    "penjelasan": "Pengurus KPRJ adalah Pembina Remaja, bukan remaja itu sendiri. Mereka yang sudah Sidi Jemaat dan memiliki sertifikat LTPR"
+  },
+  {
+    "id": 114,
+    "kata": "LKRG",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Latihan Kader Remaja Gereja - program pembinaan remaja berjenjang. Contoh: Remaja teladan mengikuti LKRG Dasar, Madya, dan Taruna.",
+    "penjelasan": "Tujuannya mempersiapkan kader remaja yang militan, berkarakter Kristus, dan memiliki spiritualitas kuat"
+  },
+  {
+    "id": 115,
+    "kata": "LTPR",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Latihan Tenaga Pembina Remaja - pelatihan untuk menjadi pembina remaja. Contoh: Remaja teladan bercita-cita menjadi pembina remaja setelah cukup usia.",
+    "penjelasan": "Syarat menjadi pengurus KPRJ (Pembina Remaja) adalah memiliki sertifikat LTPR"
+  },
+  {
+    "id": 116,
+    "kata": "Pemilihan Remaja Teladan",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Ajang seleksi remaja teladan melalui berbagai tahapan. Contoh: Remaja teladan mempersiapkan diri untuk mengikuti seleksi ini dengan belajar dan berlatih.",
+    "penjelasan": "Tahapan: Tes Tertulis, Wawancara, Karantina, Pelayanan Holistik, Kompetisi Potensi Diri, Final/Grand Final"
+  },
+  {
+    "id": 117,
+    "kata": "Hari Persatuan Remaja GMIM",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Peringatan berdirinya KPRS yang mandiri, setiap 28 Januari. Contoh: Remaja teladan mengikuti perayaan HPRG di wilayahnya dengan sukacita.",
+    "penjelasan": "Pertama kali diperingati pada 28 Januari 1990 di Palelon Modoinding"
+  },
+  {
+    "id": 118,
+    "kata": "Mars Remaja GMIM",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Lagu wajib dalam kegiatan remaja GMIM. Contoh: Remaja teladan hafal dan menyanyikan Mars Remaja GMIM dengan penuh semangat.",
+    "penjelasan": "Diciptakan oleh Pnt. Jantje Wowiling Sajow. Lagu ini menggambarkan semangat pelayanan remaja"
+  },
+  {
+    "id": 119,
+    "kata": "Lagu \"Menjadi Teladan\"",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Lagu tema Pemilihan Remaja Teladan, diciptakan Pnt. Ir. Dwight Moody Rondonuwu. Contoh: Remaja teladan menghayati lirik \"menjadi teladan\" dalam hidupnya.",
+    "penjelasan": "Pertama kali dinyanyikan pada Pemilihan Remaja Teladan Sinode tahun 2015"
+  },
+  {
+    "id": 120,
+    "kata": "Sejarah GMIM - 30 September 1934",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Tanggal GMIM berdiri sendiri sebagai gereja mandiri. Contoh: Remaja teladan memperingati hari jadi GMIM setiap tahun.",
+    "penjelasan": "Berdasarkan Staatsblad Hindia Belanda No. 563/1934, tanggal 17 September 1934, dan berlaku 30 September 1934"
+  },
+  {
+    "id": 121,
+    "kata": "Ds. E.A.A. de Vreede",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Ketua Sinode GMIM pertama (1934-1935). Contoh: Remaja teladan mengenal tokoh sejarah GMIM sebagai bentuk penghargaan.",
+    "penjelasan": "Beliau adalah misionaris Belanda yang memimpin GMIM pada awal berdirinya"
+  },
+  {
+    "id": 122,
+    "kata": "Ds. A.Z.R. Wenas",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Ketua Sinode pribumi pertama (1942-1951, dan 1955-1967). Contoh: Remaja teladan meneladani semangat nasionalisme dan pengabdian beliau.",
+    "penjelasan": "Beliau adalah orang Minahasa pertama yang menjadi Ketua Sinode. Menjabat dua periode"
+  },
+  {
+    "id": 123,
+    "kata": "Pdt. Dr. W.A. Roeroe",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Ketua Sinode terlama (1979-1990 dan 1995-2000). Contoh: Remaja teladan belajar tentang dedikasi beliau yang melayani dalam waktu lama.",
+    "penjelasan": "Total 16 tahun memimpin GMIM. Banyak karya dan pembangunan pada masa pelayanannya"
+  },
+  {
+    "id": 124,
+    "kata": "Misionaris Schwarz & Riedel",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Penginjil Eropa yang memberitakan Injil di Minahasa. Contoh: Remaja teladan bersyukur atas pengorbanan mereka sehingga kita dapat mengenal Yesus.",
+    "penjelasan": "Schwarz melayani di Langowan dan Kakas; Riedel di Tondano. Mereka datang pada abad ke-19"
+  },
+  {
+    "id": 125,
+    "kata": "Lambang GMIM (Manguni)",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Burung Manguni melambangkan gereja sebagai terang di tengah kegelapan. Contoh: Remaja teladan memakai lambang GMIM dengan bangga.",
+    "penjelasan": "Jumlah helai sayap melambangkan tahun 1934 (34 helai). Manguni aktif di malam hari → terang di kegelapan"
+  },
+  {
+    "id": 126,
+    "kata": "Sitou Timou Tumou Tou",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Falsafah Minahasa: \"Manusia hidup untuk memanusiakan manusia lain\". Contoh: Remaja teladan mengamalkan dengan menolong sesama.",
+    "penjelasan": "Diangkat dari falsafah daerah, menjadi semboyan pelayanan diakonia GMIM"
+  },
+  {
+    "id": 127,
+    "kata": "Mapalus",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Budaya gotong royong Minahasa yang menjadi model pelayanan bersama. Contoh: Remaja teladan bergotong royong membersihkan lingkungan gereja.",
+    "penjelasan": "Nilai luhur budaya yang selaras dengan ajaran Alkitab tentang kebersamaan"
+  },
+  {
+    "id": 128,
+    "kata": "Katekisasi",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Pengajaran iman Kristen secara sistematis. Contoh: Remaja teladan serius mengikuti katekisasi sebelum Sidi.",
+    "penjelasan": "Ada katekisasi Baptisan, Katekisasi Sidi, dan Katekisasi Pernikahan. Materi sesuai kurikulum BPMS"
+  },
+  {
+    "id": 129,
+    "kata": "Pelayan Khusus",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Jabatan gerejawi: Diaken, Penatua, Guru Agama, Pendeta. Contoh: Remaja teladan merindukan untuk menjadi Pelayan Khusus di masa depan.",
+    "penjelasan": "Diaken dan Penatua dipilih untuk periode 5 tahun. Guru Agama dan Pendeta adalah panggilan seumur hidup"
+  },
+  {
+    "id": 130,
+    "kata": "Diaken",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Pelayan yang fokus pada pelayanan diakonia (kasih) dan pengelolaan keuangan. Contoh: Remaja teladan belajar tentang keteladanan Stefanus sebagai Diaken.",
+    "penjelasan": "Kisah Para Rasul 6:1-7. Diaken dipilih untuk melayani kebutuhan jasmani jemaat"
+  },
+  {
+    "id": 131,
+    "kata": "Penatua",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Pelayan yang fokus pada pemberitaan firman, ibadah, dan penggembalaan. Contoh: Remaja teladan menghormati Penatua yang membimbingnya.",
+    "penjelasan": "1 Timotius 3:1-7. Penatua harus cakap mengajar dan memiliki kehidupan yang baik"
+  },
+  {
+    "id": 132,
+    "kata": "Pendeta",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Pelayan khusus yang ditahbiskan untuk pemberitaan firman dan pelayanan sakramen. Contoh: Remaja teladan menghormati dan mendoakan pendeta jemaatnya.",
+    "penjelasan": "Memenuhi syarat: pendidikan teologi S-1, masa vikariat 2 tahun, ditetapkan BPMS"
+  },
+  {
+    "id": 133,
+    "kata": "Guru Agama",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Pelayan khusus yang bertugas mengajar Agama Kristen di sekolah. Contoh: Remaja teladan memperhatikan pelajaran Agama Kristen di sekolah.",
+    "penjelasan": "Memenuhi syarat: pendidikan teologi S-1 jurusan PAK, masa vikariat 1 tahun di sekolah"
+  },
+  {
+    "id": 134,
+    "kata": "Pekerja GMIM",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Pendeta, Guru Agama, pegawai yang menerima biaya hidup dari GMIM. Contoh: Remaja teladan mendoakan pekerja GMIM yang melayani dengan setia.",
+    "penjelasan": "Status khusus dengan hak dan kewajiban yang diatur dalam Peraturan tentang Pekerja GMIM"
+  },
+  {
+    "id": 135,
+    "kata": "Komisi Pengawas Perbendaharaan (KPP)",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Perangkat yang mengawasi pengelolaan keuangan di semua aras. Contoh: Remaja teladan mendukung transparansi keuangan gereja.",
+    "penjelasan": "Ada KPPJ (Jemaat), KPPW (Wilayah), KPPS (Sinode). Bertugas mengawasi, memeriksa, membina"
+  },
+  {
+    "id": 136,
+    "kata": "Atribut GMIM",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Lambang, stempel, papan nama, pakaian jabatan, toga, stola. Contoh: Remaja teladan mengenakan pakaian sopan saat beribadah.",
+    "penjelasan": "Toga putih untuk persekutuan dengan kematian dan kebangkitan Kristus. Stola sesuai tahun gerejawi"
+  },
+  {
+    "id": 137,
+    "kata": "Tahun Gerejawi",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Siklus tahunan perayaan iman Kristen: Adven, Natal, Epifania, Pra-Paskah, Paskah, Pentakosta. Contoh: Remaja teladan memahami makna setiap hari raya gerejawi.",
+    "penjelasan": "Digunakan untuk menentukan warna liturgi dan bacaan Alkitab"
+  },
+  {
+    "id": 138,
+    "kata": "MTPJ",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Materi Pembacaan dan Tanggung Jawab Pelayanan Jemaat - bacaan Alkitab mingguan warga GMIM. Contoh: Remaja teladan membaca MTPJ setiap hari untuk merenungkan firman.",
+    "penjelasan": "Diterbitkan oleh BPMS. Bacaan Alkitah untuk ibadah harian dan mingguan"
+  },
+  {
+    "id": 139,
+    "kata": "Kelompok Pelayanan Lansia",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Perangkat pelayanan bagi warga jemaat usia 60 tahun ke atas. Contoh: Remaja teladan menghormati lansia dan melayani mereka dengan sukacita.",
+    "penjelasan": "Setiap aras (Jemaat, Wilayah, Sinode) memiliki Kelompok Pelayanan Lansia"
+  },
+  {
+    "id": 140,
+    "kata": "Peraturan tentang Jemaat",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Bagian dari Tata Gereja yang mengatur kehidupan di aras jemaat. Contoh: Remaja teladan mengetahui Bab IX Pasal 31 Ayat 4d tentang usia remaja.",
+    "penjelasan": "Pasal 31 Ayat 4d: Remaja adalah anggota GMIM usia 12-16 tahun 364 hari"
+  },
+  {
+    "id": 141,
+    "kata": "Peraturan tentang Wilayah",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Bagian dari Tata Gereja yang mengatur pelayanan di aras wilayah. Contoh: Remaja teladan mengetahui struktur pelayanan di wilayahnya.",
+    "penjelasan": "Mengatur tentang BPMW, Komisi Pelayanan Kategorial Wilayah, dll"
+  },
+  {
+    "id": 142,
+    "kata": "Peraturan tentang Sinode",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Bagian dari Tata Gereja yang mengatur pelayanan di aras sinode. Contoh: Remaja teladan mengetahui bahwa BPMS dipilih setiap 5 tahun.",
+    "penjelasan": "Mengatur tentang BPMS, Sidang Majelis Sinode, pemilihan, dll"
+  },
+  {
+    "id": 143,
+    "kata": "Sidang Majelis Sinode",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Pengambilan keputusan tertinggi di GMIM. Contoh: Remaja teladan mendoakan kelancaran sidang sinode.",
+    "penjelasan": "Terdiri dari Sidang 5 tahunan, Sidang Tahunan, dan Sidang Istimewa"
+  },
+  {
+    "id": 144,
+    "kata": "PGI",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Persekutuan Gereja-Gereja di Indonesia - wadah oikumenis gereja Protestan di Indonesia. Contoh: Remaja teladan mendukung kerjasama antar gereja.",
+    "penjelasan": "GMIM adalah anggota PGI. Kerjasama dalam kesaksian dan pelayanan di tingkat nasional"
+  },
+  {
+    "id": 145,
+    "kata": "NZG",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Nederlands Zendeling Genootschap - lembaga penginjilan Belanda yang mengutus misionaris ke Minahasa. Contoh: Remaja teladan bersyukur atas peran NZG dalam penginjilan.",
+    "penjelasan": "Mengutus Schwarz, Riedel, dan misionaris lainnya ke Minahasa pada abad ke-19"
+  },
+  {
+    "id": 146,
+    "kata": "Indische Kerk",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Gereja Hindia Belanda yang menjadi cikal bakal GMIM sebelum kemandirian. Contoh: Remaja teladan mempelajari sejarah kemandirian GMIM dari Indische Kerk.",
+    "penjelasan": "GMIM adalah gereja mandiri yang lahir dari Indische Kerk pada 1934"
+  },
+  {
+    "id": 147,
+    "kata": "Pengakuan Iman GMIM",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Dasar iman yang diakui GMIM: Pengakuan Iman Rasuli, Nicea-Konstantinopel, Athanasius, PBIK. Contoh: Remaja teladan menghafal dan memahami Pengakuan Iman Rasuli.",
+    "penjelasan": "Dalam persekutuan dengan gereja di segala abad, GMIM mengakui pengakuan iman oikumenis"
+  },
+  {
+    "id": 148,
+    "kata": "Pembina Remaja",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Anggota Sidi Jemaat yang melayani dan membina remaja, telah mengikuti LTPR. Contoh: Remaja teladan menghormati Pembina Remaja sebagai pembimbing.",
+    "penjelasan": "Syarat menjadi pengurus KPRJ adalah Pembina Remaja, bukan remaja aktif"
+  },
+  {
+    "id": 149,
+    "kata": "Regenerasi",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "Proses kaderisasi untuk menghasilkan pemimpin penerus. Contoh: Remaja teladan mempersiapkan diri menjadi pemimpin masa depan gereja.",
+    "penjelasan": "KPRS memiliki program LKRG untuk mempersiapkan kader remaja"
+  },
+  {
+    "id": 150,
+    "kata": "Gereja Global",
+    "materi": "AJARAN, TATA GEREJA & SEJARAH GMIM",
+    "jawaban": "GMIM sebagai gereja yang melayani tidak hanya di Minahasa tetapi di seluruh dunia. Contoh: Remaja teladan mendukung misi GMIM ke luar negeri.",
+    "penjelasan": "GMIM kini memiliki jemaat di berbagai provinsi di Indonesia dan di luar negeri (Belanda, Amerika, dll)"
+  },
+  {
+    "id": 151,
+    "kata": "Servant Leadership",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Kepemimpinan yang mengutamakan pelayanan, bukan kekuasaan. Contoh: Ketua remaja yang ikut membersihkan ruangan, bukan hanya menyuruh.",
+    "penjelasan": "Model kepemimpinan Yesus (Markus 10:45). Pemimpin yang melayani akan dihormati, bukan ditakuti"
+  },
+  {
+    "id": 152,
+    "kata": "Visi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Gambaran masa depan yang ingin dicapai bersama. Contoh: Remaja teladan memiliki visi \"Remaja Bagi Kristus\" dalam setiap kegiatannya.",
+    "penjelasan": "Visi memberi arah. Tanpa visi, organisasi kehilangan fokus. Visi KPRS: \"Remaja Bagi Kristus\""
+  },
+  {
+    "id": 153,
+    "kata": "Misi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Langkah-langkah strategis untuk mencapai visi. Contoh: Remaja teladan mengikuti LKRG sebagai bagian dari misi menjadi remaja yang bertumbuh.",
+    "penjelasan": "Misi KPRS: Menjadikan remaja GMIM yang berakar, bertumbuh, dan berbuah bagi Kristus"
+  },
+  {
+    "id": 154,
+    "kata": "Organisasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Wadah kerjasama sekelompok orang untuk mencapai tujuan bersama. Contoh: Remaja teladan aktif dalam organisasi remaja gereja untuk belajar bekerja sama.",
+    "penjelasan": "Organisasi melatih tanggung jawab, kerjasama, dan kepemimpinan. Remaja perlu berorganisasi"
+  },
+  {
+    "id": 155,
+    "kata": "Regenerasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Proses kaderisasi untuk mempersiapkan pemimpin penerus. Contoh: Remaja teladan melatih adik kelas untuk bisa menggantikannya nanti.",
+    "penjelasan": "Pemimpin yang baik meninggalkan pewaris. Jangan takut digantikan, tetapi persiapkan pengganti"
+  },
+  {
+    "id": 156,
+    "kata": "Delegasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Pemberian wewenang dan tanggung jawab kepada orang lain. Contoh: Ketua remaja mendelegasikan tugas koordinator acara kepada wakilnya.",
+    "penjelasan": "Delegasi bukan melepas tanggung jawab, tetapi memberdayakan orang lain. Pemimpin tidak bisa mengerjakan semuanya sendiri"
+  },
+  {
+    "id": 157,
+    "kata": "Koordinasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Pengaturan kerja sama antar bagian agar selaras. Contoh: Remaja teladan mengkoordinasikan jadwal latahan paduan suara dengan pemusik.",
+    "penjelasan": "Koordinasi mencegah tumpang tindih dan konflik. Komunikasi yang baik adalah kunci koordinasi"
+  },
+  {
+    "id": 158,
+    "kata": "Musyawarah",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Pengambilan keputusan bersama melalui diskusi untuk mencapai mufakat. Contoh: Remaja teladan menghargai pendapat semua anggota dalam rapat, tidak memaksakan kehendak.",
+    "penjelasan": "Sesuai sistem Presbiterial Sinodal. Musyawarah mufakat adalah nilai luhur bangsa dan gereja"
+  },
+  {
+    "id": 159,
+    "kata": "Konflik",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Perbedaan pendapat yang tidak dikelola dengan baik. Contoh: Remaja teladan menjadi mediator saat dua temannya berselisih.",
+    "penjelasan": "Konflik itu normal. Yang penting adalah cara mengelolanya dengan bijak dan kasih"
+  },
+  {
+    "id": 160,
+    "kata": "Mediasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Proses penyelesaian konflik dengan bantuan pihak ketiga yang netral. Contoh: Ketua remaja menjadi mediator antara bendahara dan seksi acara yang berselisih soal dana.",
+    "penjelasan": "Matius 5:9 - \"Berbahagialah pembawa damai\". Remaja teladan menjadi pendamai, bukan pemicu konflik"
+  },
+  {
+    "id": 161,
+    "kata": "Motivasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Dorongan dari dalam atau luar untuk bertindak. Contoh: Remaja teladan memotivasi teman yang malas dengan memberi semangat dan contoh.",
+    "penjelasan": "Pemimpin hebat adalah motivator. Mereka menginspirasi, bukan memaksa"
+  },
+  {
+    "id": 162,
+    "kata": "Disiplin Organisasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Ketaatan pada aturan dan komitmen yang disepakati. Contoh: Remaja teladan datang tepat waktu setiap rapat, tidak pernah terlambat.",
+    "penjelasan": "Disiplin adalah bentuk penghargaan pada orang lain dan pada organisasi"
+  },
+  {
+    "id": 163,
+    "kata": "Evaluasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Penilaian terhadap pelaksanaan program untuk perbaikan ke depan. Contoh: Remaja teladan mengadakan evaluasi setelah kegiatan Paskah untuk mengetahui kekurangan.",
+    "penjelasan": "Evaluasi bukan untuk mencari kesalahan, tetapi untuk belajar dan berkembang"
+  },
+  {
+    "id": 164,
+    "kata": "Kaderisasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Proses pembinaan kader secara berkelanjutan. Contoh: Remaja teladan mengikuti LKRG sebagai proses kaderisasi di GMIM.",
+    "penjelasan": "Kaderisasi menjamin keberlangsungan organisasi. Tanpa kaderisasi, organisasi akan mati"
+  },
+  {
+    "id": 165,
+    "kata": "Mentoring",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Pendampingan oleh orang yang lebih berpengalaman. Contoh: Remaja teladan memiliki pembina rohani yang membimbingnya.",
+    "penjelasan": "Amsal 27:17 - \"Besi menajamkan besi\". Mentoring mempercepat pertumbuhan dan mencegah kesalahan"
+  },
+  {
+    "id": 166,
+    "kata": "Teamwork",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Kerjasama tim untuk mencapai tujuan bersama. Contoh: Remaja teladan membagi tugas dengan adil dan membantu yang kesulitan.",
+    "penjelasan": "Tidak ada pemimpin yang sukses tanpa tim yang solid. Teamwork membuat pekerjaan berat menjadi ringan"
+  },
+  {
+    "id": 167,
+    "kata": "Pengambilan Keputusan",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Proses memilih alternatif terbaik dari beberapa pilihan. Contoh: Remaja teladan melibatkan tim dalam pengambilan keputusan, tidak otoriter.",
+    "penjelasan": "Keputusan yang baik adalah keputusan yang melibatkan banyak pihak dan mempertimbangkan dampak"
+  },
+  {
+    "id": 168,
+    "kata": "Manajemen Waktu",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Pengaturan waktu secara efektif dan efisien. Contoh: Remaja teladan membuat jadwal harian: belajar, ibadah, istirahat, dan bermain seimbang.",
+    "penjelasan": "Waktu adalah anugerah Tuhan yang tidak bisa diulang. Remaja teladan adalah pengelola waktu yang baik"
+  },
+  {
+    "id": 169,
+    "kata": "Skala Prioritas",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Menentukan mana yang lebih penting dan mendesak. Contoh: Remaja teladan memprioritaskan ibadah Minggu daripada jalan-jalan dengan teman.",
+    "penjelasan": "Matius 6:33 - \"Carilah dahulu Kerajaan Allah\". Prioritas utama adalah Tuhan, baru yang lain"
+  },
+  {
+    "id": 170,
+    "kata": "Proaktif",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Bertindak sebelum diminta/disuruh. Contoh: Remaja teladan membersihkan papan tulis sebelum guru datang, tanpa diminta.",
+    "penjelasan": "Pemimpin proaktif tidak menunggu masalah datang, tetapi mencegahnya. Inisiatif adalah ciri pemimpin"
+  },
+  {
+    "id": 171,
+    "kata": "Problem Solving",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Kemampuan mencari solusi atas masalah. Contoh: Remaja teladan mencari alternatif tempat latihan saat gereja sedang direnovasi.",
+    "penjelasan": "Pemimpin adalah pemecah masalah, bukan pengeluh. Setiap masalah pasti ada solusinya"
+  },
+  {
+    "id": 172,
+    "kata": "Komunikasi Efektif",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Penyampaian pesan yang jelas dan dipahami dengan baik. Contoh: Remaja teladan berbicara dengan jelas dan mendengarkan dengan aktif saat rapat.",
+    "penjelasan": "Komunikasi yang buruk adalah sumber utama konflik. Komunikasi yang baik membangun hubungan"
+  },
+  {
+    "id": 173,
+    "kata": "Kepemimpinan Situasional",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Gaya kepemimpinan yang disesuaikan dengan situasi dan kematangan tim. Contoh: Remaja teladan memberikan arahan detail kepada anggota baru, tetapi memberi kebebasan kepada yang sudah berpengalaman.",
+    "penjelasan": "Tidak ada gaya kepemimpinan yang cocok untuk semua situasi. Pemimpin yang baik fleksibel"
+  },
+  {
+    "id": 174,
+    "kata": "Pengawasan",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Pemantauan pelaksanaan tugas untuk memastikan sesuai rencana. Contoh: Ketua remaja memantau persiapan acara tanpa ikut campur terlalu banyak.",
+    "penjelasan": "Pengawasan bukan berarti tidak percaya, tetapi bentuk tanggung jawab. Kontrol yang berlebihan mematikan kreativitas"
+  },
+  {
+    "id": 175,
+    "kata": "Krisis Kepemimpinan",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Situasi di mana organisasi kehilangan arah karena lemahnya kepemimpinan. Contoh: Remaja teladan mencegah krisis dengan mempersiapkan kader sejak dini.",
+    "penjelasan": "Krisis kepemimpinan terjadi ketika tidak ada regenerasi. Solusinya: kaderisasi yang baik"
+  },
+  {
+    "id": 176,
+    "kata": "Keteladanan",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Pemimpin menjadi contoh yang baik bagi yang dipimpin. Contoh: Ketua remaja datang lebih awal dan pulang paling akhir setiap kegiatan.",
+    "penjelasan": "1 Timotius 4:12 - \"Jadilah teladan\". Orang lebih mendengar apa yang kita lakukan daripada apa yang kita katakan"
+  },
+  {
+    "id": 177,
+    "kata": "Otoritas",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Kewenangan yang sah untuk mengambil keputusan dan memerintah. Contoh: Ketua remaja menggunakan otoritasnya untuk memutuskan jadwal rapat, tetapi tetap mendengar masukan.",
+    "penjelasan": "Otoritas diberikan, bukan diambil. Otoritas yang tidak disertai keteladanan adalah kediktatoran"
+  },
+  {
+    "id": 178,
+    "kata": "Pengaruh",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Kemampuan membujuk tanpa memaksa. Contoh: Remaja teladan mempengaruhi temannya untuk ikut kegiatan gereja dengan ajakan yang baik, bukan paksaan.",
+    "penjelasan": "Pemimpin yang efektif memiliki pengaruh, bukan sekadar kekuasaan. Pengaruh dibangun dari kepercayaan"
+  },
+  {
+    "id": 179,
+    "kata": "Tanggung Jawab",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Kesediaan menanggung konsekuensi dari keputusan dan tindakan. Contoh: Ketua remaja mengakui kesalahan ketika acara kurang sukses, tidak menyalahkan panitia.",
+    "penjelasan": "Pemimpin sejati tidak mencari kambing hitam. Mereka bertanggung jawab dan belajar dari kesalahan"
+  },
+  {
+    "id": 180,
+    "kata": "Akuntabilitas",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Kesediaan dipertanggungjawabkan kepada pihak yang berwenang. Contoh: Bendahara remaja membuat laporan keuangan yang transparan dan dapat diaudit.",
+    "penjelasan": "Akuntabilitas adalah bentuk integritas. Pemimpin yang akuntabel dapat dipercaya"
+  },
+  {
+    "id": 181,
+    "kata": "Rapat Efektif",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Rapat yang tepat waktu, fokus, dan menghasilkan keputusan. Contoh: Remaja teladan membuat agenda rapat sebelum rapat dimulai dan tepat waktu.",
+    "penjelasan": "Rapat yang tidak efektif membuang waktu. Remaja teladan memimpin rapat dengan efisien"
+  },
+  {
+    "id": 182,
+    "kata": "Notulensi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Catatan resmi jalannya rapat dan keputusan yang diambil. Contoh: Sekretaris remaja membuat notulensi setiap rapat sebagai dokumentasi.",
+    "penjelasan": "Notulensi mencegah kesalahpahaman dan menjadi acuan tindak lanjut. Arsip penting organisasi"
+  },
+  {
+    "id": 183,
+    "kata": "Program Kerja",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Rencana kegiatan organisasi dalam periode tertentu. Contoh: Remaja teladan menyusun proker (program kerja) awal tahun bersama tim.",
+    "penjelasan": "Proker yang baik spesifik, terukur, dapat dicapai, realistis, dan berbatas waktu (SMART)"
+  },
+  {
+    "id": 184,
+    "kata": "Anggaran",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Rencana pemasukan dan pengeluaran dana untuk kegiatan. Contoh: Bendahara remaja membuat anggaran sebelum kegiatan agar tidak defisit.",
+    "penjelasan": "Anggaran mencegah pemborosan. Remaja teladan belajar mengelola keuangan dengan bijak"
+  },
+  {
+    "id": 185,
+    "kata": "Laporan Pertanggungjawaban (LPJ)",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Laporan pelaksanaan program dan keuangan setelah kegiatan. Contoh: Panitia kegiatan Paskah membuat LPJ untuk dipertanggungjawabkan kepada komisi remaja.",
+    "penjelasan": "LPJ adalah bentuk akuntabilitas. Remaja teladan belajar membuat LPJ yang rapi dan jujur"
+  },
+  {
+    "id": 186,
+    "kata": "Rekrutmen",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Proses mencari dan memilih anggota baru. Contoh: Komisi remaja membuka pendaftaran anggota baru dengan kriteria yang jelas.",
+    "penjelasan": "Rekrutmen yang baik menghasilkan tim yang berkualitas. Remaja teladan membantu proses rekrutmen"
+  },
+  {
+    "id": 187,
+    "kata": "Pembinaan",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Proses pengembangan potensi anggota secara berkelanjutan. Contoh: Remaja teladan mengikuti pembinaan rohani rutin setiap minggu.",
+    "penjelasan": "Pembinaan mencegah kemandekan. Organisasi yang sehat memiliki sistem pembinaan yang baik"
+  },
+  {
+    "id": 188,
+    "kata": "Retreat",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Kegiatan penyegaran rohani dan fisik di luar tempat rutin. Contoh: Komisi remaja mengadakan retreat tahunan untuk mempererat kebersamaan.",
+    "penjelasan": "Retreat (perenungan) memulihkan semangat dan memperkuat ikatan tim"
+  },
+  {
+    "id": 189,
+    "kata": "Kebersamaan",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Rasa persatuan dan kekeluargaan dalam organisasi. Contoh: Remaja teladan makan bersama setelah ibadah untuk mempererat persaudaraan.",
+    "penjelasan": "Kebersamaan adalah lem yang menyatukan tim. Tanpa kebersamaan, organisasi mudah terpecah"
+  },
+  {
+    "id": 190,
+    "kata": "Solidaritas",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Rasa setia kawan dan saling mendukung. Contoh: Remaja teladan menjenguk teman yang sakit dan membantu meringankan bebannya.",
+    "penjelasan": "Roma 12:15 - \"Bersukacitalah dengan orang yang bersukacita, menangislah dengan orang yang menangis\""
+  },
+  {
+    "id": 191,
+    "kata": "Inovasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Ide baru yang kreatif untuk kemajuan organisasi. Contoh: Remaja teladan mengusulkan ibadah online untuk menjangkau remaja yang sibuk.",
+    "penjelasan": "Inovasi membuat organisasi tetap relevan dengan zaman. Remaja teladan tidak takut mencoba hal baru"
+  },
+  {
+    "id": 192,
+    "kata": "Adaptasi",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Kemampuan menyesuaikan diri dengan perubahan. Contoh: Remaja teladan cepat belajar menggunakan aplikasi baru untuk rapat online saat pandemi.",
+    "penjelasan": "Organisasi yang adaptif bertahan di tengah perubahan. Fleksibilitas adalah kunci kelangsungan hidup"
+  },
+  {
+    "id": 193,
+    "kata": "Krisis",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Situasi genting yang mengancam kelangsungan organisasi. Contoh: Remaja teladan tetap tenang dan mencari solusi saat pembicara acara batal mendadak.",
+    "penjelasan": "Pemimpin diuji dalam krisis. Yang terlihat bukan kepanikannya, tetapi solusinya"
+  },
+  {
+    "id": 194,
+    "kata": "Manajemen Krisis",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Strategi menghadapi dan mengatasi krisis. Contoh: Komisi remaja memiliki rencana cadangan (backup plan) untuk setiap kegiatan besar.",
+    "penjelasan": "Siapkan payung sebelum hujan. Remaja teladan antisipatif, bukan reaktif"
+  },
+  {
+    "id": 195,
+    "kata": "Goal Setting",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Penetapan tujuan yang jelas dan terukur. Contoh: Remaja teladan menetapkan target: 10 teman baru diajak ke gereja dalam 3 bulan.",
+    "penjelasan": "Tujuan yang jelas memberi motivasi dan arah. Tanpa tujuan, organisasi berjalan tanpa arah"
+  },
+  {
+    "id": 196,
+    "kata": "Sumber Daya Manusia (SDM)",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Potensi manusia yang dimiliki organisasi. Contoh: Remaja teladan mengidentifikasi bakat teman-temannya untuk ditempatkan sesuai kemampuannya.",
+    "penjelasan": "SDM adalah aset paling berharga. Remaja teladan mengembangkan SDM, bukan mengeksploitasi"
+  },
+  {
+    "id": 197,
+    "kata": "Pengembangan Diri",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Upaya meningkatkan kemampuan diri secara sadar. Contoh: Remaja teladan mengikuti pelatihan kepemimpinan di luar gereja untuk menambah wawasan.",
+    "penjelasan": "Pemimpin yang baik adalah pembelajar seumur hidup. Berhenti belajar berarti berhenti memimpin"
+  },
+  {
+    "id": 198,
+    "kata": "Resolusi Konflik",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Penyelesaian pertentangan secara damai dan adil. Contoh: Remaja teladan mempertemukan dua anggota yang berselisih untuk berdamai.",
+    "penjelasan": "Matius 5:23-24 - \"Berdamailah dahulu dengan saudaramu\". Resolusi konflik memulihkan hubungan"
+  },
+  {
+    "id": 199,
+    "kata": "Kepemimpinan Transformatif",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Kepemimpinan yang mengubah anggota menjadi versi terbaik dirinya. Contoh: Ketua remaja membina anggota sehingga mereka lebih percaya diri dan bertumbuh.",
+    "penjelasan": "Pemimpin transformatif tidak hanya mencapai target, tetapi mengubah hidup orang"
+  },
+  {
+    "id": 200,
+    "kata": "Warisan Kepemimpinan",
+    "materi": "KEPEMIMPINAN DAN ORGANISASI",
+    "jawaban": "Apa yang ditinggalkan pemimpin setelah masa jabatannya. Contoh: Remaja teladan ingin dikenang sebagai pemimpin yang melayani, bukan hanya populer.",
+    "penjelasan": "Warisan terbaik bukan proyek megah, tetapi orang-orang yang diberdayakan. Apa yang akan kau tinggalkan?"
+  },
+  {
+    "id": 201,
+    "kata": "Bhinneka Tunggal Ika",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Semboyan negara Indonesia: \"Berbeda-beda tetapi tetap satu\". Contoh: Remaja teladan berteman dengan semua suku dan agama tanpa membeda-bedakan.",
+    "penjelasan": "Berasal dari kitab Sutasoma karya Mpu Tantular. Remaja teladan menghayati persatuan dalam keberagaman"
+  },
+  {
+    "id": 202,
+    "kata": "Pancasila",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Dasar negara Indonesia: 5 sila. Contoh: Remaja teladan mengamalkan sila pertama dengan taat beribadah.",
+    "penjelasan": "Sila 1: Ketuhanan Yang Maha Esa. Remaja teladan menghormati Pancasila sebagai pemersatu bangsa"
+  },
+  {
+    "id": 203,
+    "kata": "UUD 1945",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Konstitusi dasar Negara Kesatuan Republik Indonesia. Contoh: Remaja teladan mengetahui hak dan kewajibannya sebagai warga negara.",
+    "penjelasan": "UUD 1945 adalah hukum tertinggi di Indonesia. Remaja teladan taat pada hukum"
+  },
+  {
+    "id": 204,
+    "kata": "NKRI",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Negara Kesatuan Republik Indonesia. Contoh: Remaja teladan bangga menjadi warga NKRI dan ikut menjaganya.",
+    "penjelasan": "Bentuk negara kesatuan dengan desentralisasi. Remaja teladan cinta tanah air"
+  },
+  {
+    "id": 205,
+    "kata": "Proklamasi 17 Agustus 1945",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Deklarasi kemerdekaan Indonesia. Contoh: Remaja teladan mengikuti upacara 17 Agustus dengan khidmat.",
+    "penjelasan": "Dibacakan Soekarno-Hatta di Jl. Pegangsaan Timur 56, Jakarta. Puncak perjuangan bangsa"
+  },
+  {
+    "id": 206,
+    "kata": "Soekarno",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Presiden pertama Republik Indonesia, Proklamator. Contoh: Remaja teladan mempelajari pidato-pidato Soekarno yang membangkitkan semangat nasionalisme.",
+    "penjelasan": "Bapak Proklamator, penggali Pancasila. Remaja teladan meneladani semangatnya memperjuangkan kemerdekaan"
+  },
+  {
+    "id": 207,
+    "kata": "Mohammad Hatta",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Wakil Presiden pertama Indonesia, Proklamator. Contoh: Remaja teladan meneladani kesederhanaan dan kejujuran Bung Hatta.",
+    "penjelasan": "Bapak Koperasi Indonesia. Dikenal sebagai pribadi yang jujur dan sederhana"
+  },
+  {
+    "id": 208,
+    "kata": "ASEAN",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Perhimpunan Bangsa-Bangsa Asia Tenggara. Contoh: Remaja teladan mempelajari bahasa Inggris untuk bisa berkomunikasi dengan pemuda ASEAN.",
+    "penjelasan": "Didirikan 8 Agustus 1967 di Bangkok. Anggota: Indonesia, Malaysia, Filipina, Singapura, Thailand, Brunei, Vietnam, Laos, Myanmar, Kamboja"
+  },
+  {
+    "id": 209,
+    "kata": "PBB",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Perserikatan Bangsa-Bangsa (UN). Contoh: Remaja teladan mendukung misi perdamaian PBB di berbagai negara.",
+    "penjelasan": "Didirikan 24 Oktober 1945. Indonesia anggota ke-60. Tujuan: menjaga perdamaian dunia"
+  },
+  {
+    "id": 210,
+    "kata": "Global Warming",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Pemanasan global akibat efek rumah kaca. Contoh: Remaja teladan mengurangi penggunaan plastik dan menanam pohon untuk mengatasi pemanasan global.",
+    "penjelasan": "Disebabkan emisi CO2, metana, dan gas rumah kaca lainnya. Remaja teladan peduli lingkungan"
+  },
+  {
+    "id": 211,
+    "kata": "COVID-19",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Pandemi global yang melanda dunia sejak 2020. Contoh: Remaja teladan mematuhi protokol kesehatan dan membantu sesama yang terpapar.",
+    "penjelasan": "Virus SARS-CoV-2. WHO tetapkan pandemi 11 Maret 2020. Remaja teladan belajar adaptasi di masa krisis"
+  },
+  {
+    "id": 212,
+    "kata": "Narkoba",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Narkotika, Psikotropika, dan Bahan Adiktif berbahaya. Contoh: Remaja teladan berani menolak ajakan menggunakan narkoba dan melaporkannya.",
+    "penjelasan": "Dampak: merusak fisik, mental, masa depan, dan dosa di hadapan Tuhan (1 Korintus 6:19-20)"
+  },
+  {
+    "id": 213,
+    "kata": "Bullying",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Perundungan, tindakan menyakiti orang lain secara fisik atau verbal. Contoh: Remaja teladan membela korban bullying dan melaporkan ke guru.",
+    "penjelasan": "Dampak: trauma, depresi, bahkan bunuh diri. Remaja teladan anti-perundungan"
+  },
+  {
+    "id": 214,
+    "kata": "Hoaks",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Informasi bohong yang disebarkan melalui media. Contoh: Remaja teladan mengecek kebenaran berita sebelum membagikannya.",
+    "penjelasan": "Hoaks memecah belah dan menimbulkan kepanikan. Remaja teladan bijak bermedia sosial"
+  },
+  {
+    "id": 215,
+    "kata": "Korupsi",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Penyalahgunaan kepercayaan untuk keuntungan pribadi. Contoh: Remaja teladan jujur dalam ujian dan tidak menyontek sebagai bentuk anti-korupsi.",
+    "penjelasan": "Korupsi adalah kejahatan luar biasa. Remaja teladan membangun integritas sejak dini"
+  },
+  {
+    "id": 216,
+    "kata": "Demokrasi",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Sistem pemerintahan dari rakyat, oleh rakyat, untuk rakyat. Contoh: Remaja teladan menggunakan hak pilihnya saat pemilu ketika sudah cukup umur.",
+    "penjelasan": "Indonesia adalah negara demokrasi. Remaja teladan berpartisipasi dalam demokrasi secara bertanggung jawab"
+  },
+  {
+    "id": 217,
+    "kata": "Pemilu",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Pemilihan umum untuk memilih wakil rakyat dan presiden. Contoh: Remaja teladan yang sudah 17 tahun menggunakan hak pilihnya dengan bijak.",
+    "penjelasan": "Pemilu 2024 serentak: memilih presiden, DPR, DPD, DPRD. Remaja teladan tidak golput"
+  },
+  {
+    "id": 218,
+    "kata": "Hak Asasi Manusia (HAM)",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Hak dasar yang melekat pada setiap manusia. Contoh: Remaja teladan menghormati HAM teman dengan tidak memaksakan kehendak.",
+    "penjelasan": "HAM dilindungi UU. Remaja teladan memahami bahwa HAM dibatasi oleh HAM orang lain"
+  },
+  {
+    "id": 219,
+    "kata": "Kebebasan Beragama",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Hak setiap orang memeluk agamanya masing-masing. Contoh: Remaja teladan menghormati teman yang berbeda agama, tidak memaksakan keyakinannya.",
+    "penjelasan": "Pasal 29 UUD 1945. Remaja teladan toleran tanpa mengorbankan iman"
+  },
+  {
+    "id": 220,
+    "kata": "Sumber Daya Alam (SDA)",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Kekayaan alam yang dapat dimanfaatkan manusia. Contoh: Remaja teladan menggunakan air dengan hemat sebagai bentuk syukur atas SDA.",
+    "penjelasan": "SDA terbatas. Remaja teladan adalah penjaga alam yang bertanggung jawab"
+  },
+  {
+    "id": 221,
+    "kata": "Teknologi Informasi",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Penggunaan teknologi untuk mengolah dan menyebarkan informasi. Contoh: Remaja teladan menggunakan HP untuk belajar Alkitab online, bukan hanya main game.",
+    "penjelasan": "Remaja teladan melek digital tetapi tidak kecanduan. Gunakan teknologi untuk kemuliaan Tuhan"
+  },
+  {
+    "id": 222,
+    "kata": "Media Sosial",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Platform digital untuk berinteraksi dan berbagi konten. Contoh: Remaja teladan menggunakan medsos untuk menyebarkan konten rohani yang membangun.",
+    "penjelasan": "Bijak bermedsos: tidak menyebarkan hoaks, ujaran kebencian, atau konten asusila"
+  },
+  {
+    "id": 223,
+    "kata": "Cyberbullying",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Perundungan yang dilakukan melalui media digital. Contoh: Remaja teladan tidak ikut-ikutan mengomentari negatif postingan teman.",
+    "penjelasan": "Dampak cyberbullying sangat berbahaya. Remaja teladan menjadi pengguna medsos yang positif"
+  },
+  {
+    "id": 224,
+    "kata": "Investasi",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Penanaman modal untuk mendapatkan keuntungan di masa depan. Contoh: Remaja teladan menabung sebagian uang jajan untuk masa depan.",
+    "penjelasan": "Investasi tidak hanya uang, tetapi waktu dan talenta untuk Kerajaan Allah"
+  },
+  {
+    "id": 225,
+    "kata": "Kewirausahaan",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Kemampuan menciptakan peluang usaha. Contoh: Remaja teladan membuat kue dan menjualnya untuk menggalang dana kegiatan remaja.",
+    "penjelasan": "Remaja teladan kreatif dan tidak bergantung pada orang tua terus"
+  },
+  {
+    "id": 226,
+    "kata": "Literasi Digital",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Kemampuan menggunakan teknologi digital secara bijak. Contoh: Remaja teladan memeriksa kebenaran berita sebelum membagikannya di grup WA.",
+    "penjelasan": "Remaja teladan tidak mudah termakan hoaks. Cek, ricek, baru share"
+  },
+  {
+    "id": 227,
+    "kata": "Olimpiade",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Ajang olahraga internasional terbesar. Contoh: Remaja teladan mendukung atlet Indonesia di Olimpiade dengan doa dan dukungan moral.",
+    "penjelasan": "Olimpiade Tokyo 2020 (digelar 2021). Nilai sportivitas dan persahabatan antar bangsa"
+  },
+  {
+    "id": 228,
+    "kata": "Piala Dunia",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Kejuaraan sepak bola internasional. Contoh: Remaja teladan menonton Piala Dunia tetapi tidak lupa ibadah.",
+    "penjelasan": "Digelar setiap 4 tahun. Piala Dunia 2022 di Qatar. Remaja teladan tidak fanatik berlebihan"
+  },
+  {
+    "id": 229,
+    "kata": "Revolusi Industri 4.0",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Era digital dengan kecerdasan buatan, big data, dan internet of things. Contoh: Remaja teladan mempelajari coding dan AI untuk bersaing di era 4.0.",
+    "penjelasan": "Remaja teladan tidak boleh buta teknologi. Siap menghadapi perubahan zaman"
+  },
+  {
+    "id": 230,
+    "kata": "Vaksin",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Zat yang diberikan untuk membentuk kekebalan tubuh terhadap penyakit. Contoh: Remaja teladan mengikuti program vaksinasi untuk melindungi diri dan orang lain.",
+    "penjelasan": "Vaksin adalah berkat ilmu pengetahuan. Remaja teladan tidak termakan hoaks anti-vaksin"
+  },
+  {
+    "id": 231,
+    "kata": "Kesehatan Mental",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Kondisi psikologis yang sehat. Contoh: Remaja teladan tidak takut curhat ke orang tua atau pembina saat mengalami tekanan.",
+    "penjelasan": "Mental health penting. Remaja teladan tidak menyembunyikan masalah dan mencari pertolongan"
+  },
+  {
+    "id": 232,
+    "kata": "Pendidikan Karakter",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Pembentukan nilai-nilai luhur dalam diri. Contoh: Remaja teladan mengikuti ekstrakurikuler pramuka untuk melatih karakter.",
+    "penjelasan": "Pendidikan karakter membentuk manusia utuh. Remaja teladan tidak hanya cerdas otak tetapi juga hati"
+  },
+  {
+    "id": 233,
+    "kata": "Sumpah Pemuda 1928",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Ikrar pemuda Indonesia untuk satu tanah air, satu bangsa, satu bahasa. Contoh: Remaja teladan menggunakan bahasa Indonesia yang baik di lingkungan sekolah.",
+    "penjelasan": "28 Oktober 1928. Remaja teladan menghidupkan semangat persatuan"
+  },
+  {
+    "id": 234,
+    "kata": "Hari Pahlawan 10 November",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Peringatan pertempuran Surabaya melawan penjajah. Contoh: Remaja teladan mengunjungi makam pahlawan sebagai bentuk penghormatan.",
+    "penjelasan": "Remaja teladan meneladani semangat kepahlawanan dalam konteks kekinian"
+  },
+  {
+    "id": 235,
+    "kata": "Hari Kebangkitan Nasional 20 Mei",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Peringatan berdirinya Budi Utomo (1908). Contoh: Remaja teladan membaca buku-buku tentang perjuangan bangsa.",
+    "penjelasan": "Remaja teladan bangkit dari keterpurukan dan berkontribusi bagi bangsa"
+  },
+  {
+    "id": 236,
+    "kata": "Hari Kartini 21 April",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Peringatan emansipasi wanita. Contoh: Remaja teladan (laki-laki) membantu pekerjaan rumah tanpa membedakan gender.",
+    "penjelasan": "Remaja teladan mendukung kesetaraan gender yang alkitabiah"
+  },
+  {
+    "id": 237,
+    "kata": "Kepulauan Indonesia",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Negara kepulauan terbesar di dunia (17.000+ pulau). Contoh: Remaja teladan bangga menjadi warga negara kepulauan yang kaya akan budaya.",
+    "penjelasan": "Remaja teladan menjaga persatuan meski terpisah lautan"
+  },
+  {
+    "id": 238,
+    "kata": "Ragam Bahasa Daerah",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Indonesia memiliki 700+ bahasa daerah. Contoh: Remaja teladan bisa berbahasa daerah sebagai bentuk pelestarian budaya.",
+    "penjelasan": "Bahasa daerah adalah kekayaan bangsa. Remaja teladan tidak malu berbahasa daerah"
+  },
+  {
+    "id": 239,
+    "kata": "Pariwisata Halal",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Wisata yang ramah bagi wisatawan muslim. Contoh: Remaja teladan sebagai pemandu wisata menghormati kebutuhan wisatawan muslim.",
+    "penjelasan": "Indonesia adalah destinasi wisata halal dunia. Remaja teladan mendukung pariwisata inklusif"
+  },
+  {
+    "id": 240,
+    "kata": "Ekonomi Kreatif",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Ekonomi yang berbasis pada kreativitas dan inovasi. Contoh: Remaja teladan membuat konten YouTube tentang review tempat wisata di Sulut.",
+    "penjelasan": "Remaja teladan tidak hanya jadi konsumen tetapi juga pencipta lapangan kerja"
+  },
+  {
+    "id": 241,
+    "kata": "Startup",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Perusahaan rintisan berbasis teknologi. Contoh: Remaja teladan belajar membuat aplikasi sederhana untuk membantu kegiatan gereja.",
+    "penjelasan": "Banyak startup sukses didirikan oleh anak muda. Remaja teladan tidak takut memulai"
+  },
+  {
+    "id": 242,
+    "kata": "Green Economy",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Ekonomi yang ramah lingkungan. Contoh: Remaja teladan membawa tas belanja sendiri untuk mengurangi sampah plastik.",
+    "penjelasan": "Remaja teladan peduli pada keberlanjutan bumi"
+  },
+  {
+    "id": 243,
+    "kata": "Koperasi",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Badan usaha yang berlandaskan asas kekeluargaan. Contoh: Remaja teladan menabung di koperasi sekolah untuk belajar menabung.",
+    "penjelasan": "Bangun ekonomi kerakyatan. Remaja teladan belajar berkoperasi sejak dini"
+  },
+  {
+    "id": 244,
+    "kata": "UMKM",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Usaha Mikro, Kecil, dan Menengah. Contoh: Remaja teladan membeli produk UMKM lokal daripada produk impor.",
+    "penjelasan": "Dukung produk lokal. Remaja teladan bangga pada karya anak bangsa"
+  },
+  {
+    "id": 245,
+    "kata": "Bencana Alam",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Peristiwa alam yang merusak dan merugikan. Contoh: Remaja teladan ikut serta dalam aksi penggalangan dana untuk korban bencana.",
+    "penjelasan": "Remaja teladan tanggap bencana: tahu cara evakuasi dan membantu korban"
+  },
+  {
+    "id": 246,
+    "kata": "Mitigasi Bencana",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Upaya mengurangi risiko bencana. Contoh: Remaja teladan tidak membuang sampah sembarangan untuk mencegah banjir.",
+    "penjelasan": "Lebih baik mencegah daripada mengobati. Remaja teladan peduli mitigasi"
+  },
+  {
+    "id": 247,
+    "kata": "Toleransi",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Sikap saling menghargai antar umat beragama dan kelompok. Contoh: Remaja teladan mengucapkan selamat hari raya kepada teman yang berbeda agama.",
+    "penjelasan": "Indonesia adalah negara toleran. Remaja teladan menjaga kerukunan"
+  },
+  {
+    "id": 248,
+    "kata": "Radikalisme",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Paham yang menginginkan perubahan dengan cara kekerasan. Contoh: Remaja teladan menolak ajakan untuk ikut organisasi radikal.",
+    "penjelasan": "Remaja teladan cinta damai dan menolak kekerasan atas nama apapun"
+  },
+  {
+    "id": 249,
+    "kata": "Hoaks Politik",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Berita bohong yang bertujuan menjatuhkan lawan politik. Contoh: Remaja teladan tidak ikut menyebarkan berita negatif tentang paslon tanpa bukti.",
+    "penjelasan": "Pemilu damai. Remaja teladan cerdas dan tidak termakan isu SARA"
+  },
+  {
+    "id": 250,
+    "kata": "Bela Negara",
+    "materi": "PENGETAHUAN UMUM",
+    "jawaban": "Sikap dan perilaku warga negara untuk menjaga kedaulatan negara. Contoh: Remaja teladan mengikuti upacara bendera dengan khidmat dan serius.",
+    "penjelasan": "Bela negara tidak selalu dengan senjata. Belajar sungguh-sungguh juga bela negara"
+  },
+  {
+    "id": 251,
+    "kata": "Remaja Bagi Kristus (Teens for Christ)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Visi pelayanan remaja GMIM bahwa seluruh hidup remaja dipersembahkan bagi Kristus. Contoh: Remaja teladan menggunakan talenta musiknya untuk melayani di gereja, bukan untuk pamer.",
+    "penjelasan": "Visi ini menjadi fondasi semua kegiatan remaja. Remaja teladan menghayati bahwa hidupnya milik Kristus"
+  },
+  {
+    "id": 252,
+    "kata": "Berakar, Bertumbuh, Berbuah",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Misi remaja GMIM untuk menjadi remaja yang memiliki dasar iman kuat, terus berkembang, dan membawa dampak. Contoh: Remaja teladan rajin baca Alkitab (berakar), aktif dalam pelayanan (bertumbuh), dan mengajak teman ke gereja (berbuah).",
+    "penjelasan": "3B: Berakar (akar iman), Bertumbuh (proses kedewasaan), Berbuah (dampak bagi orang lain)"
+  },
+  {
+    "id": 253,
+    "kata": "LKRG (Latihan Kader Remaja Gereja)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Program pembinaan remaja berjenjang untuk menghasilkan kader gereja yang militan. Contoh: Remaja teladan mengikuti LKRG Dasar, Madya, dan Taruna dengan sungguh-sungguh.",
+    "penjelasan": "LKRG Dasar (pengenalan), Madya (pendalaman), Taruna (pemuridan). Remaja teladan lulus semua jenjang"
+  },
+  {
+    "id": 254,
+    "kata": "Hari Persatuan Remaja GMIM (28 Januari)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Peringatan berdirinya Komisi Pelayanan Remaja Sinode GMIM. Contoh: Remaja teladan memperingati HPRG dengan ibadah syukur dan kegiatan positif.",
+    "penjelasan": "Berdiri 28 Januari 1990 di Palelon Modoinding. Remaja teladan mengenal sejarah pelayanan remajanya"
+  },
+  {
+    "id": 255,
+    "kata": "Pemilihan Remaja Teladan",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Ajang seleksi remaja teladan melalui berbagai tahapan yang objektif. Contoh: Remaja teladan mempersiapkan diri dengan belajar dan berlatih wawancara.",
+    "penjelasan": "Tahapan: Tes Tertulis, Wawancara, Karantina, Pelayanan Holistik, Kompetisi Potensi Diri, Final"
+  },
+  {
+    "id": 256,
+    "kata": "KB3 (Komunitas Berakar, Bertumbuh, Berbuah)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Program pemuridan remaja dalam kelompok kecil untuk pertumbuhan iman. Contoh: Remaja teladan mengikuti KB3 di jemaatnya untuk belajar Alkitab bersama.",
+    "penjelasan": "KB3 adalah wadah pembinaan intensif, biasanya terdiri dari 5-10 orang dengan satu pemimpin"
+  },
+  {
+    "id": 257,
+    "kata": "KPRS (Komisi Pelayanan Remaja Sinode)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Organisasi pelayanan remaja di tingkat sinode yang mengoordinasikan seluruh program remaja GMIM. Contoh: Remaja teladan mengenal struktur KPRS dan program-programnya.",
+    "penjelasan": "KPRS memiliki 7-9 bidang, antara lain: P3SDM, APIM, PMB, Litbang, TIK, dll"
+  },
+  {
+    "id": 258,
+    "kata": "KPRW (Komisi Pelayanan Remaja Wilayah)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Organisasi pelayanan remaja di tingkat wilayah. Contoh: Remaja teladan berpartisipasi dalam kegiatan yang diselenggarakan KPRW di wilayahnya.",
+    "penjelasan": "KPRW adalah koordinator program remaja antar jemaat dalam satu wilayah"
+  },
+  {
+    "id": 259,
+    "kata": "KPRJ (Komisi Pelayanan Remaja Jemaat)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Organisasi pelayanan remaja di tingkat jemaat. Contoh: Remaja teladan menjadi pengurus KPRJ sebagai Pembina Remaja.",
+    "penjelasan": "KPRJ diketuai oleh Pembina Remaja (anggota Sidi Jemaat yang sudah LTPR), bukan remaja"
+  },
+  {
+    "id": 260,
+    "kata": "Pembina Remaja",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Anggota Sidi Jemaat yang dipilih untuk membina dan mendampingi remaja. Contoh: Remaja teladan menghormati dan mendengarkan nasihat Pembina Remaja.",
+    "penjelasan": "Syarat: Sidi Jemaat, memiliki sertifikat LTPR, dewasa rohani. Remaja teladan merindukan menjadi pembina suatu hari nanti"
+  },
+  {
+    "id": 261,
+    "kata": "LTPR (Latihan Tenaga Pembina Remaja)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Pelatihan untuk menjadi pembina remaja yang berkualitas. Contoh: Remaja teladan yang sudah cukup umur mengikuti LTPR untuk mempersiapkan diri menjadi pembina.",
+    "penjelasan": "LTPR diselenggarakan oleh KPRS. Materi: psikologi remaja, metode pembinaan, kepemimpinan"
+  },
+  {
+    "id": 262,
+    "kata": "PKRS (Perkemahan Kreatif Remaja Sinode)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Perkemahan tahunan remaja GMIM tingkat sinode yang berisi pembinaan, lomba, dan persekutuan. Contoh: Remaja teladan mengikuti PKRS untuk memperluas pergaulan dan belajar hal baru.",
+    "penjelasan": "PKRS biasanya digelar setiap tahun di lokasi yang berbeda-beda di Sulut"
+  },
+  {
+    "id": 263,
+    "kata": "PSR (Pesta Seni Remaja)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Ajang unjuk kreativitas remaja GMIM di bidang seni dan budaya. Contoh: Remaja teladan menampilkan tarian kolintang dalam PSR untuk melestarikan budaya.",
+    "penjelasan": "PSR adalah wadah menyalurkan bakat seni remaja. Remaja teladan mengembangkan kreativitas"
+  },
+  {
+    "id": 264,
+    "kata": "GEMAR (Gerakan Membaca Alkitab Remaja)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Program mendorong remaja membaca Alkitab secara terstruktur. Contoh: Remaja teladan mengikuti tantangan membaca 1 pasal Alkitab setiap hari.",
+    "penjelasan": "GEMAR dikelola Bidang APIM. Remaja teladan menjadi duta GEMAR di jemaatnya"
+  },
+  {
+    "id": 265,
+    "kata": "SIKAT (Sistem Informasi Kegiatan Terpadu)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Platform online pendaftaran kegiatan remaja GMIM. Contoh: Remaja teladan mendaftar mengikuti PKRS melalui SIKAT.",
+    "penjelasan": "SIKAT memudahkan administrasi dan pendataan. Remaja teladan melek teknologi"
+  },
+  {
+    "id": 266,
+    "kata": "Rayon Pelayanan",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Pengelompokan wilayah pelayanan KPRS untuk koordinasi (12 Rayon). Contoh: Remaja teladan mengetahui rayonnya dan aktif dalam kegiatan rayon.",
+    "penjelasan": "Rayon: Manado, Bitung, Minut, Minahasa, Minsel, Mitra, Bolmong, Bolsel, Boltim, Kotamobagu, Sangihe, Talaud"
+  },
+  {
+    "id": 267,
+    "kata": "Mars Remaja GMIM",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Lagu wajib yang dinyanyikan dalam setiap kegiatan remaja GMIM. Contoh: Remaja teladan hafal dan menyanyikan Mars Remaja GMIM dengan penuh penghayatan.",
+    "penjelasan": "Ciptaan: Pnt. Jantje Wowiling Sajow. Lirik: \"Kami remaja GMIM, siap sedia bagi Kristus\""
+  },
+  {
+    "id": 268,
+    "kata": "Lagu \"Menjadi Teladan\"",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Lagu tema Pemilihan Remaja Teladan yang berisi ajakan untuk menjadi teladan. Contoh: Remaja teladan menghayati lirik \"jadilah teladan dalam perkataan dan tingkah laku\".",
+    "penjelasan": "Ciptaan: Pnt. Ir. Dwight Moody Rondonuwu, MT. Pertama kali dinyanyikan tahun 2015"
+  },
+  {
+    "id": 269,
+    "kata": "Retel (Remaja Teladan)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Singkatan dari Remaja Teladan. Contoh: Remaja teladan bercita-cita menjadi Retel GMIM.",
+    "penjelasan": "Istilah populer dalam Pemilihan Remaja Teladan. Remaja teladan dikenal sebagai Retel"
+  },
+  {
+    "id": 270,
+    "kata": "Karantina",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Tahap pembinaan intensif selama 3 hari bagi finalis Remaja Teladan. Contoh: Remaja teladan mempersiapkan fisik dan mental untuk mengikuti karantina.",
+    "penjelasan": "Materi karantina: homiletika, liturgi, multimedia, ketrampilan rumah tangga, adu bakat"
+  },
+  {
+    "id": 271,
+    "kata": "Pelayanan Holistik",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Pelayanan yang menyentuh seluruh aspek kehidupan (rohani, jasmani, sosial). Contoh: Remaja teladan mengunjungi panti asuhan sebagai bentuk pelayanan holistik.",
+    "penjelasan": "Ini adalah salah satu tahapan seleksi. Remaja teladan belajar melayani secara utuh"
+  },
+  {
+    "id": 272,
+    "kata": "Kompetisi Potensi Diri",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Tahapan lomba yang menguji kemampuan debat, pidato Inggris, dan karya tulis. Contoh: Remaja teladan berlatih debat untuk mempersiapkan kompetisi ini.",
+    "penjelasan": "Tahapan ini terbuka untuk umum. Remaja teladan menunjukkan kualitasnya di depan publik"
+  },
+  {
+    "id": 273,
+    "kata": "Grand Final",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Puncak acara Pemilihan Remaja Teladan tingkat sinode. Contoh: Remaja teladan yang masuk Grand Final mempersiapkan diri maksimal untuk tampil terbaik.",
+    "penjelasan": "Di Grand Final, peserta diminta menjelaskan kata kunci yang diambil secara acak"
+  },
+  {
+    "id": 274,
+    "kata": "Gelar Atribut",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Gelar khusus selain juara utama, seperti Intelegensia, Persahabatan, Berbakat, Cinta Lingkungan, Favorit. Contoh: Remaja teladan berusaha meraih gelar Remaja Teladan Cinta Lingkungan dengan proyek penghijauan.",
+    "penjelasan": "Setiap gelar memiliki indikator penilaian tersendiri. Remaja teladan berprestasi di berbagai bidang"
+  },
+  {
+    "id": 275,
+    "kata": "Selempang Pelayanan",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Selempang yang dikenakan finalis Remaja Teladan berwarna ungu. Contoh: Remaja teladan bangga mengenakan selempang ungu sebagai finalis.",
+    "penjelasan": "Selempang sinode: dasar hitam tulisan emas; rayon: hitam perak; wilayah: ungu emas; jemaat: ungu perak"
+  },
+  {
+    "id": 276,
+    "kata": "Tahapan Seleksi",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Rangkaian proses seleksi Remaja Teladan: Tes Tertulis → Wawancara → Karantina → Pelayanan Holistik → Kompetisi Potensi Diri → Final/Grand Final. Contoh: Remaja teladan mempersiapkan diri di setiap tahapan dengan serius.",
+    "penjelasan": "Setiap tahapan memiliki bobot penilaian: Tes Tertulis 5%, Wawancara 15%, Karantina+Holistik 35%, Kompetisi 25%, Final 20%"
+  },
+  {
+    "id": 277,
+    "kata": "Kata Kunci Final",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "3 kata kunci yang diambil acak peserta final untuk dijelaskan di depan juri. Contoh: Remaja teladan berlatih menjelaskan hubungan antara \"Integritas, Pelayanan, Keteladanan\".",
+    "penjelasan": "Kata kunci ditulis juri di kertas, dimasukkan wadah, peserta mengambil secara acak. Uji spontanitas"
+  },
+  {
+    "id": 278,
+    "kata": "3 Besar",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Babak penentuan juara di mana nilai sebelumnya tidak dipakai. Contoh: Remaja teladan tampil maksimal di babak 3 besar karena ini penentu kemenangan.",
+    "penjelasan": "Di babak ini, semua peserta mendapat pertanyaan yang sama. Yang terbaiklah yang menang"
+  },
+  {
+    "id": 279,
+    "kata": "Etika Remaja Teladan",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Pedoman perilaku yang harus dipatuhi Remaja Teladan GMIM. Contoh: Remaja teladan tidak merokok, berpakaian sopan, dan menjaga pergaulan.",
+    "penjelasan": "Etika diatur dalam Pedoman Etika Remaja Teladan GMIM. Pelanggaran mendapat sanksi"
+  },
+  {
+    "id": 280,
+    "kata": "Toga dan Stola",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Pakaian jabatan Pelayan Khusus GMIM. Contoh: Remaja teladan mengetahui makna toga putih (persekutuan dengan kematian dan kebangkitan Kristus).",
+    "penjelasan": "Toga hitam (duka cita?), putih (kebangkitan), ungu (pertobatan). Stola sesuai tahun gerejawi"
+  },
+  {
+    "id": 281,
+    "kata": "Tahun Pelayanan",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Periode pelayanan GMIM di setiap aras. Contoh: Remaja teladan mengetahui bahwa periode pelayanan BPMS adalah 5 tahun (1 April - 31 Maret).",
+    "penjelasan": "Aras jemaat: 1 Januari - 31 Desember; Wilayah: 1 Maret - 28/29 Februari; Sinode: 1 April - 31 Maret"
+  },
+  {
+    "id": 282,
+    "kata": "Sidang Majelis",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Forum pengambilan keputusan tertinggi di setiap aras (Jemaat, Wilayah, Sinode). Contoh: Remaja teladan menghormati keputusan Sidang Majelis Jemaat di gerejanya.",
+    "penjelasan": "Keputusan Sidang Majelis Sinode adalah tertinggi. Remaja teladan tunduk pada keputusan sidang"
+  },
+  {
+    "id": 283,
+    "kata": "Kemitraan",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Kerjasama antar jemaat, wilayah, atau dengan gereja lain. Contoh: Remaja teladan mengikuti pertukaran pemuda dengan gereja mitra.",
+    "penjelasan": "Kemitraan memperkuat pelayanan. Remaja teladan membangun jaringan persaudaraan"
+  },
+  {
+    "id": 284,
+    "kata": "Misi Pengutusan",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Pengiriman tenaga pelayanan ke daerah atau gereja yang membutuhkan. Contoh: Remaja teladan mendukung misi pengutusan dengan doa dan dana.",
+    "penjelasan": "Ini adalah pola strategi pelayanan remaja: Penginjilan → Pembinaan → Pelipatgandaan → Pengutusan"
+  },
+  {
+    "id": 285,
+    "kata": "Pelipatgandaan",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Proses melatih orang lain untuk melakukan apa yang kita lakukan. Contoh: Remaja teladan yang bisa main gitar mengajar temannya sehingga bisa bergantian melayani.",
+    "penjelasan": "Inilah pola Yesus: memuridkan 12 murid, lalu mereka memuridkan yang lain. Remaja teladan tidak bekerja sendiri"
+  },
+  {
+    "id": 286,
+    "kata": "Model Remaja Lukas 2:52",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Remaja yang bertumbuh dalam 4 aspek: fisik, hikmat (intelektual), rohani, dan sosial. Contoh: Remaja teladan menjaga kesehatan (fisik), rajin belajar (intelektual), tekun berdoa (rohani), dan bersahabat dengan semua (sosial).",
+    "penjelasan": "Inilah model remaja ideal GMIM. Remaja teladan berusaha seimbang dalam semua aspek"
+  },
+  {
+    "id": 287,
+    "kata": "Aspek Fisik",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Menjaga kesehatan tubuh sebagai bait Roh Kudus. Contoh: Remaja teladan berolahraga teratur dan tidak merokok.",
+    "penjelasan": "1 Korintus 6:19. Tubuh adalah bait Roh Kudus. Remaja teladan tidak merusak tubuh dengan narkoba, alkohol, atau gaya hidup tidak sehat"
+  },
+  {
+    "id": 288,
+    "kata": "Aspek Intelektual",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Bertumbuh dalam pengetahuan dan hikmat. Contoh: Remaja teladan rajin membaca buku dan belajar dengan sungguh-sungguh.",
+    "penjelasan": "Amsal 4:7 - \"Perolehlah hikmat\". Remaja teladan tidak malas belajar, karena pengetahuan adalah anugerah Tuhan"
+  },
+  {
+    "id": 289,
+    "kata": "Aspek Spiritual",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Bertumbuh dalam hubungan dengan Tuhan. Contoh: Remaja teladan memiliki waktu teduh setiap hari dan aktif dalam ibadah.",
+    "penjelasan": "Ini adalah aspek yang paling penting. Remaja teladan tidak mengabaikan kehidupan rohaninya"
+  },
+  {
+    "id": 290,
+    "kata": "Aspek Sosial",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Bertumbuh dalam hubungan dengan sesama. Contoh: Remaja teladan ramah pada semua orang, tidak pilih-pilih teman.",
+    "penjelasan": "Yesus juga bertumbuh dalam kasih Allah dan manusia. Remaja teladan membangun relasi yang sehat"
+  },
+  {
+    "id": 291,
+    "kata": "Pelayanan Diakonia",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Pelayanan kasih kepada yang membutuhkan. Contoh: Remaja teladan mengumpulkan pakaian layak pakai untuk korban bencana.",
+    "penjelasan": "Diakonia adalah salah satu panggilan gereja. Remaja teladan memiliki kepedulian sosial tinggi"
+  },
+  {
+    "id": 292,
+    "kata": "Pelayanan Marturia",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Pelayanan kesaksian tentang Kristus. Contoh: Remaja teladan bersaksi dengan mengajak teman ke gereja.",
+    "penjelasan": "Setiap remaja adalah saksi Kristus. Remaja teladan tidak malu mengaku Kristen"
+  },
+  {
+    "id": 293,
+    "kata": "Pelayanan Koinonia",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Pelayanan persekutuan antar sesama percaya. Contoh: Remaja teladan hadir dalam setiap ibadah dan kegiatan persekutuan.",
+    "penjelasan": "Koinonia menguatkan iman. Remaja teladan tidak menyendiri tetapi membangun kebersamaan"
+  },
+  {
+    "id": 294,
+    "kata": "Pelayanan Leiturgia",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Pelayanan ibadah dan penyembahan. Contoh: Remaja teladan melayani sebagai liturgos, pemusik, atau paduan suara.",
+    "penjelasan": "Ibadah adalah respon manusia kepada Tuhan. Remaja teladan melayani dengan hati yang sungguh-sungguh"
+  },
+  {
+    "id": 295,
+    "kata": "Pendalaman Alkitab (PA)",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Kegiatan mempelajari Alkitab secara mendalam dalam kelompok kecil. Contoh: Remaja teladan aktif mengikuti PA remaja setiap minggu.",
+    "penjelasan": "PA adalah sarana bertumbuh dalam pengenalan akan Firman Tuhan. Remaja teladan tidak malas ber-PA"
+  },
+  {
+    "id": 296,
+    "kata": "Ibadah Remaja",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Ibadah khusus untuk remaja yang dikemas secara kreatif dan relevan. Contoh: Remaja teladan hadir dalam ibadah remaja dan membawa teman.",
+    "penjelasan": "Ibadah remaja adalah wadah pembinaan iman yang sesuai dengan dunia remaja"
+  },
+  {
+    "id": 297,
+    "kata": "Kreativitas Remaja",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Kemampuan menciptakan sesuatu yang baru dan bermanfaat dalam pelayanan. Contoh: Remaja teladan membuat video animasi Alkitab untuk ditayangkan di ibadah remaja.",
+    "penjelasan": "Kreativitas membuat pelayanan tidak membosankan. Remaja teladan inovatif"
+  },
+  {
+    "id": 298,
+    "kata": "Kader Milenial",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Generasi remaja yang dipersiapkan menjadi pemimpin masa depan. Contoh: Remaja teladan mengikuti LKRG dan pelatihan kepemimpinan untuk menjadi kader milenial.",
+    "penjelasan": "Gereja butuh pemimpin milenial yang berkarakter Kristus. Remaja teladan menjawab panggilan ini"
+  },
+  {
+    "id": 299,
+    "kata": "Spiritualitas Remaja",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Kedalaman hubungan pribadi remaja dengan Tuhan. Contoh: Remaja teladan memiliki kerinduan untuk berdoa dan membaca firman, bukan karena dipaksa.",
+    "penjelasan": "Spiritualitas bukan tentang ritual, tetapi relasi. Remaja teladan jatuh cinta pada Tuhan"
+  },
+  {
+    "id": 300,
+    "kata": "Komitmen Remaja",
+    "materi": "KEREMAJAAN GMIM",
+    "jawaban": "Keteguhan hati untuk tetap setia kepada Tuhan dan pelayanan. Contoh: Remaja teladan tetap datang ke gereja meski hujan atau banyak tugas sekolah.",
+    "penjelasan": "Komitmen diuji dalam kesulitan. Remaja teladan tidak mudah goyah"
+  },
+  {
+    "id": 301,
+    "kata": "Bunaken",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Taman Laut Nasional di Sulawesi Utara, spot diving kelas dunia. Contoh: Remaja teladan mengajak wisatawan asing untuk snorkeling di Bunaken sambil menjelaskan keindahan ciptaan Tuhan.",
+    "penjelasan": "Terumbu karang Bunaken adalah yang terkaya di dunia. Remaja teladan bangga dan ikut menjaga kelestariannya"
+  },
+  {
+    "id": 302,
+    "kata": "Tinutuan (Bubur Manado)",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Makanan khas Sulawesi Utara berupa bubur dengan sayuran dan jagung. Contoh: Remaja teladan memperkenalkan Tinutuan kepada teman dari luar daerah sebagai kuliner sehat.",
+    "penjelasan": "Tinutuan adalah makanan bergizi dan menjadi ikon kuliner Manado. Remaja teladan bisa memasaknya"
+  },
+  {
+    "id": 303,
+    "kata": "Danau Tondano",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Danau terluas di Sulawesi Utara, terletak di Kabupaten Minahasa. Contoh: Remaja teladan mengajak keluarga piknik di Danau Tondano sambil menikmati pemandangan alam.",
+    "penjelasan": "Danau Tondano adalah sumber kehidupan bagi masyarakat sekitar. Remaja teladan ikut menjaga kebersihannya"
+  },
+  {
+    "id": 304,
+    "kata": "Gunung Lokon",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Gunung berapi aktif di Tomohon yang terkenal dengan \"Gunung Api Tomohon\". Contoh: Remaja teladan mendaki Gunung Lokon sebagai bentuk apresiasi pada keindahan ciptaan Tuhan.",
+    "penjelasan": "Pemandangan dari puncak Lokon sangat indah. Remaja teladan tetap waspada karena statusnya gunung aktif"
+  },
+  {
+    "id": 305,
+    "kata": "Gunung Mahawu",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Gunung di Tomohon dengan kawah yang indah dan pemandangan Danau Tondano. Contoh: Remaja teladan mengajak teman-teman mendaki Gunung Mahawu untuk refreshing.",
+    "penjelasan": "Pendakian ke Mahawu relatif mudah, cocok untuk pemula. Remaja teladan menjaga kebersihan selama pendakian"
+  },
+  {
+    "id": 306,
+    "kata": "Bukit Kasih Kanonang",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Tempat wisata religi di Minahasa dengan simbol kerukunan antar umat beragama. Contoh: Remaja teladan mengunjungi Bukit Kasih untuk belajar tentang toleransi.",
+    "penjelasan": "Terdapat 5 rumah ibadah berbeda dalam satu kawasan. Remaja teladan menghormati simbol kerukunan ini"
+  },
+  {
+    "id": 307,
+    "kata": "Tari Maengket",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Tarian tradisional Minahasa yang menggambarkan sukacita panen. Contoh: Remaja teladan menarikan Maengket dalam acara kebudayaan di sekolah.",
+    "penjelasan": "Maengket memiliki 3 babak: Maowey Kamberu, Marambak, Lalayaan. Remaja teladan melestarikan tarian daerah"
+  },
+  {
+    "id": 308,
+    "kata": "Kolintang",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Alat musik pukul kayu khas Minahasa yang diakui UNESCO. Contoh: Remaja teladan belajar memainkan kolintang untuk mengisi ibadah.",
+    "penjelasan": "Kolintang masuk Warisan Budaya Tak Benda UNESCO 2019. Remaja teladan bangga dengan warisan budaya ini"
+  },
+  {
+    "id": 309,
+    "kata": "Wale",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Rumah adat Minahasa berbentuk panggung dengan atap tinggi. Contoh: Remaja teladan menjelaskan arsitektur Wale kepada wisatawan yang berkunjung.",
+    "penjelasan": "Wale memiliki makna filosofis: dekat dengan leluhur (tinggi) dan jauh dari binatang buas (panggung)"
+  },
+  {
+    "id": 310,
+    "kata": "Mapalus",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Budaya gotong royong masyarakat Minahasa. Contoh: Remaja teladan mengamalkan Mapalus dengan membantu membersihkan lingkungan gereja bersama-sama.",
+    "penjelasan": "Nilai Mapalus selaras dengan ajaran Alkitab tentang kebersamaan. Remaja teladan menghidupinya"
+  },
+  {
+    "id": 311,
+    "kata": "Sitou Timou Tumou Tou",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Falsafah Minahasa: \"Manusia hidup untuk memanusiakan manusia lain\". Contoh: Remaja teladan menjadi relawan untuk mengajar anak-anak putus sekolah.",
+    "penjelasan": "Falsafah ini menjadi semboyan pelayanan GMIM. Remaja teladan mewujudkannya dalam aksi nyata"
+  },
+  {
+    "id": 312,
+    "kata": "Bahasa Tombulu",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Salah satu bahasa daerah di Minahasa yang digunakan di wilayah Tomohon dan sekitarnya. Contoh: Remaja teladan menyapa teman dengan \"Magi\" (selamat pagi) dalam bahasa Tombulu.",
+    "penjelasan": "Remaja teladan melestarikan bahasa daerah sebagai identitas budaya"
+  },
+  {
+    "id": 313,
+    "kata": "Bahasa Tondano",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Bahasa daerah yang digunakan di wilayah Tondano dan sekitarnya. Contoh: Remaja teladan belajar bahasa Tondano untuk berkomunikasi dengan kakek-neneknya.",
+    "penjelasan": "Bahasa daerah terancam punah. Remaja teladan berperan melestarikannya"
+  },
+  {
+    "id": 314,
+    "kata": "Bahasa Tonsawang",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Bahasa daerah di wilayah Tombatu, Minahasa Tenggara. Contoh: Remaja teladan dari Tombatu bangga bisa berbahasa Tonsawang.",
+    "penjelasan": "Setiap bahasa daerah adalah kekayaan bangsa. Remaja teladan tidak malu menggunakannya"
+  },
+  {
+    "id": 315,
+    "kata": "Bahasa Bolaang Mongondow",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Bahasa daerah di Kabupaten Bolaang Mongondow Raya. Contoh: Remaja teladan dari Bolmong menggunakan bahasa daerahnya saat berbicara dengan teman sebaya.",
+    "penjelasan": "Remaja teladan menjaga identitas budayanya di tengah arus globalisasi"
+  },
+  {
+    "id": 316,
+    "kata": "Bahasa Sangihe",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Bahasa daerah di Kepulauan Sangihe dan Talaud. Contoh: Remaja teladan dari Sangihe melestarikan bahasanya dengan ikut lomba pidato bahasa daerah.",
+    "penjelasan": "Bahasa Sangihe memiliki dialek yang berbeda-beda di setiap pulau. Remaja teladan mempelajarinya"
+  },
+  {
+    "id": 317,
+    "kata": "What is your hobby? (English)",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"My hobby is reading the Bible and singing worship songs.\" Contoh: Remaja teladan menjawab pertanyaan wawancara Bahasa Inggris dengan percaya diri.",
+    "penjelasan": "Latihan menjawab pertanyaan umum dalam Bahasa Inggris. Remaja teladan tidak gugup"
+  },
+  {
+    "id": 318,
+    "kata": "Why do you want to be an exemplary youth?",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"I want to be a role model for my friends and glorify God through my life.\" Contoh: Remaja teladan menjelaskan motivasinya dalam Bahasa Inggris dengan lancar.",
+    "penjelasan": "Ini adalah pertanyaan umum dalam wawancara. Remaja teladan mempersiapkan jawabannya"
+  },
+  {
+    "id": 319,
+    "kata": "Can you introduce yourself in English?",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"My name is... I am 15 years old. I come from... My hobby is... My dream is to be...\" Contoh: Remaja teladan berlatih perkenalan diri dalam Bahasa Inggris setiap hari.",
+    "penjelasan": "Perkenalan diri adalah pertanyaan pertama yang biasanya muncul. Remaja teladan siap"
+  },
+  {
+    "id": 320,
+    "kata": "What is your favorite Bible verse?",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"My favorite verse is 1 Timothy 4:12 - Don't let anyone look down on you because you are young.\" Contoh: Remaja teladan hafal ayat Alkitab favorit dalam Bahasa Inggris.",
+    "penjelasan": "Hafalkan ayat kunci dalam Bahasa Inggris. Remaja teladan siap menjawab pertanyaan rohani"
+  },
+  {
+    "id": 321,
+    "kata": "How do you say \"Saya bangga menjadi orang Minahasa\" in English?",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"I am proud to be a Minahasan.\" Contoh: Remaja teladan mengungkapkan kebanggaannya terhadap budaya Minahasa dalam Bahasa Inggris.",
+    "penjelasan": "Kebanggaan pada identitas budaya harus bisa diungkapkan dalam bahasa internasional"
+  },
+  {
+    "id": 322,
+    "kata": "What is \"Tinutuan\" in English?",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"Tinutuan is Manado porridge, made of vegetables, corn, and pumpkin.\" Contoh: Remaja teladan menjelaskan makanan khas kepada turis asing dalam Bahasa Inggris.",
+    "penjelasan": "Remaja teladan menjadi duta kuliner Sulut. Belajar menjelaskan makanan daerah dalam Bahasa Inggris"
+  },
+  {
+    "id": 323,
+    "kata": "Where is Bunaken located?",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"Bunaken is located in Manado, North Sulawesi, Indonesia.\" Contoh: Remaja teladan menunjukkan lokasi Bunaken di peta dunia dalam Bahasa Inggris.",
+    "penjelasan": "Remaja teladan hafal lokasi wisata unggulan Sulut dalam Bahasa Inggris"
+  },
+  {
+    "id": 324,
+    "kata": "What can tourists do in Bunaken?",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"Tourists can go snorkeling, diving, and enjoy the beautiful coral reefs and fish.\" Contoh: Remaja teladan merekomendasikan aktivitas wisata di Bunaken dalam Bahasa Inggris.",
+    "penjelasan": "Remaja teladan mempromosikan pariwisata Sulut secara aktif"
+  },
+  {
+    "id": 325,
+    "kata": "Festival Likupang",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Festival wisata bahari di Likupang, Minahasa Utara, yang menarik wisatawan mancanegara. Contoh: Remaja teladan menjadi relawan dalam Festival Likupang untuk membantu wisatawan asing.",
+    "penjelasan": "Likupang ditetapkan sebagai Destinasi Wisata Super Prioritas. Remaja teladan mendukungnya"
+  },
+  {
+    "id": 326,
+    "kata": "Sail Tomini",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Event wisata bahari yang digelar di Teluk Tomini. Contoh: Remaja teladan ikut serta dalam acara Sail Tomini sebagai panitia muda.",
+    "penjelasan": "Event ini mempromosikan pariwisata Sulawesi. Remaja teladan bangga terlibat"
+  },
+  {
+    "id": 327,
+    "kata": "Waruga",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Peti kubur batu khas Minahasa berbentuk kubus. Contoh: Remaja teladan mengunjungi situs Waruga di Sawangan untuk belajar sejarah.",
+    "penjelasan": "Waruga adalah warisan megalitikum. Remaja teladan menghormati peninggalan leluhur"
+  },
+  {
+    "id": 328,
+    "kata": "Watu Pinawetengan",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Situs batu megalitikum di Minahasa yang menjadi tempat pembagian wilayah oleh nenek moyang. Contoh: Remaja teladan belajar sejarah Minahasa di Watu Pinawetengan.",
+    "penjelasan": "Menurut legenda, ini tempat Toar dan Lumimuut membagi wilayah. Remaja teladan mengenal asal-usulnya"
+  },
+  {
+    "id": 329,
+    "kata": "Parang dan Salawaku",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Senjata tradisional Minahasa (parang untuk menyerang, salawaku untuk perisai). Contoh: Remaja teladan mempelajari tarian perang yang menggunakan parang dan salawaku.",
+    "penjelasan": "Senjata ini digunakan dalam tarian perang Kabasaran. Remaja teladan melestarikan budaya"
+  },
+  {
+    "id": 330,
+    "kata": "Kabasaran",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Tarian perang Minahasa yang menggunakan parang dan salawaku. Contoh: Remaja teladan menonton pertunjukan Kabasaran untuk mengenal budaya perang Minahasa.",
+    "penjelasan": "Kabasaran kini lebih sebagai atraksi budaya. Remaja teladan menghargai warisan leluhur"
+  },
+  {
+    "id": 331,
+    "kata": "Pa'Benteng",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Tradisi adu ketangkasan dengan saling pukul menggunakan rotan dengan perisai. Contoh: Remaja teladan mengikuti Pa'Benteng sebagai olahraga tradisional.",
+    "penjelasan": "Pa'Benteng menguji ketangkasan dan keberanian. Remaja teladan menjaga sportivitas"
+  },
+  {
+    "id": 332,
+    "kata": "Tumatenden",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Alat musik tradisional Minahasa seperti gong. Contoh: Remaja teladan belajar memainkan tumatenden untuk mengiringi tarian Maengket.",
+    "penjelasan": "Tumatenden adalah pengiring penting dalam musik tradisional Minahasa"
+  },
+  {
+    "id": 333,
+    "kata": "Popondi",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Alat musik tiup tradisional Minahasa. Contoh: Remaja teladan mencoba meniup popondi untuk belajar alat musik tradisional.",
+    "penjelasan": "Popondi mirip suling tetapi dengan suara khas. Remaja teladan melestarikan warisan musik"
+  },
+  {
+    "id": 334,
+    "kata": "Sasando",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Alat musik petik dari Nusa Tenggara Timur (meski bukan Sulut, tapi tetap budaya Indonesia). Contoh: Remaja teladan mengetahui alat musik tradisional dari daerah lain sebagai wawasan nusantara.",
+    "penjelasan": "Remaja teladan memiliki wawasan budaya nasional, tidak hanya daerah sendiri"
+  },
+  {
+    "id": 335,
+    "kata": "Angklung",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Alat musik bambu dari Jawa Barat, diakui UNESCO. Contoh: Remaja teladan bisa memainkan angklung sebagai bentuk apresiasi budaya nasional.",
+    "penjelasan": "Remaja teladan tidak hanya bangga dengan budaya Minahasa tetapi juga budaya Indonesia secara umum"
+  },
+  {
+    "id": 336,
+    "kata": "\"Thank you\" in various local languages (Tombulu)",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"Magkamo\" atau \"Makase\" (Tombulu). Contoh: Remaja teladan mengucapkan terima kasih dalam bahasa daerah kepada orang tua.",
+    "penjelasan": "Remaja teladan tahu cara berterima kasih dalam berbagai bahasa daerah di Sulut"
+  },
+  {
+    "id": 337,
+    "kata": "\"How are you?\" in English response",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"I am fine, thank you. How about you?\" Contoh: Remaja teladan menjawab sapaan dalam Bahasa Inggris dengan sopan.",
+    "penjelasan": "Ini adalah dasar percakapan Bahasa Inggris. Remaja teladan menguasainya"
+  },
+  {
+    "id": 338,
+    "kata": "\"Excuse me, where is the nearest church?\"",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"Go straight, then turn left. The church is on your right.\" Contoh: Remaja teladan membantu turis asing menemukan gereja dalam Bahasa Inggris.",
+    "penjelasan": "Remaja teladan menjadi pemandu wisata rohani bagi wisatawan asing"
+  },
+  {
+    "id": 339,
+    "kata": "\"What is the traditional clothing of Minahasa?\"",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "\"The traditional clothing is called 'Pakaian Adat Minahasa' with 'Lapik' and 'Kamben'.\" Contoh: Remaja teladan mengenakan pakaian adat Minahasa dalam acara kebudayaan.",
+    "penjelasan": "Remaja teladan bangga mengenakan pakaian adat dan bisa menjelaskannya dalam Bahasa Inggris"
+  },
+  {
+    "id": 340,
+    "kata": "Lapik",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Kain tenun tradisional Minahasa yang digunakan sebagai bawahan. Contoh: Remaja teladan mengenakan Lapik dalam acara pernikahan adat.",
+    "penjelasan": "Lapik memiliki motif khas Minahasa. Remaja teladan melestarikan wastra tradisional"
+  },
+  {
+    "id": 341,
+    "kata": "Kamben",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Kain penutup badan bagian atas dalam pakaian adat Minahasa. Contoh: Remaja teladan memakai Kamben saat menjadi pemandu acara adat.",
+    "penjelasan": "Remaja teladan tahu cara mengenakan Kamben dengan benar"
+  },
+  {
+    "id": 342,
+    "kata": "Tonaas",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Pemimpin adat atau pemuka agama tradisional Minahasa. Contoh: Remaja teladan menghormati Tonaas sebagai tokoh budaya.",
+    "penjelasan": "Sebelum Kristen masuk, Tonaas memimpin upacara adat. Remaja teladan menghargai sejarah"
+  },
+  {
+    "id": 343,
+    "kata": "Walewangko",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Mahkota atau hiasan kepala dalam pakaian adat Minahasa. Contoh: Remaja teladan memakai Walewangko saat menjadi pengantin adat.",
+    "penjelasan": "Walewangko melambangkan keagungan. Remaja teladan memakainya dengan hormat"
+  },
+  {
+    "id": 344,
+    "kata": "Maleosan",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Upacara adat kelahiran dalam masyarakat Minahasa. Contoh: Remaja teladan mengetahui makna Maleosan sebagai ucapan syukur atas kelahiran.",
+    "penjelasan": "Remaja teladan menghargai setiap siklus kehidupan dalam budaya Minahasa"
+  },
+  {
+    "id": 345,
+    "kata": "Rumamba",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Upacara adat kematian dalam masyarakat Minahasa. Contoh: Remaja teladan ikut serta dalam upacara Rumamba sebagai bentuk penghormatan pada yang meninggal.",
+    "penjelasan": "Remaja teladan menghormati adat istiadat tanpa meninggalkan iman Kristen"
+  },
+  {
+    "id": 346,
+    "kata": "Fosso",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Upacara adat penguburan di Minahasa. Contoh: Remaja teladan membantu persiapan Fosso untuk anggota jemaat yang meninggal.",
+    "penjelasan": "Fosso adalah bagian dari prosesi adat yang sudah diinkulturasi dengan kekristenan"
+  },
+  {
+    "id": 347,
+    "kata": "Tourism Awareness",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Kesadaran untuk menjaga dan mempromosikan pariwisata daerah. Contoh: Remaja teladan tidak membuang sampah di tempat wisata dan mengajak teman-temannya untuk melakukan hal yang sama.",
+    "penjelasan": "Remaja teladan adalah duta wisata yang baik. Mereka menjaga kebersihan dan keramahan"
+  },
+  {
+    "id": 348,
+    "kata": "Creative Economy",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Ekonomi yang berbasis pada kreativitas, termasuk kerajinan tangan dan kuliner. Contoh: Remaja teladan membuat gantungan kunci dari kayu kolintang mini untuk dijual kepada wisatawan.",
+    "penjelasan": "Remaja teladan menciptakan peluang ekonomi dari potensi budaya lokal"
+  },
+  {
+    "id": 349,
+    "kata": "Cultural Heritage",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Warisan budaya yang perlu dilestarikan. Contoh: Remaja teladan mengajak teman-temannya untuk belajar menari Maengket agar tidak punah.",
+    "penjelasan": "Remaja teladan adalah generasi penerus yang menjaga warisan budaya"
+  },
+  {
+    "id": 350,
+    "kata": "Global Citizen with Local Identity",
+    "materi": "PARIWISATA, KEBUDAYAAN & BAHASA INGGRIS",
+    "jawaban": "Warga global yang tetap mempertahankan identitas lokal. Contoh: Remaja teladan fasih berbahasa Inggris (global) tetapi tetap bangga menggunakan bahasa Tombulu (lokal).",
+    "penjelasan": "Remaja teladan tidak kehilangan jati diri di tengah arus globalisasi. Mereka bisa bersaing secara global tetapi tetap berakar pada budaya lokal"
+  }
+]
