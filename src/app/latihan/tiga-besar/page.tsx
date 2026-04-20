@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-import { isRedirectError } from 'next/dist/client/components/redirect'
+import { isRedirectError } from 'next/dist/client/components/redirect-error'
 import { verifyToken } from '@/lib/auth'
 import { db } from '@/lib/db'
 import TigaBesarClient from './TigaBesarClient'
