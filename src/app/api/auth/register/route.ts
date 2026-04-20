@@ -39,8 +39,11 @@ export async function POST(req: NextRequest) {
       { message: 'Pendaftaran berhasil dikirim! Silakan tunggu persetujuan Admin.', user: { email: newUser.email } },
       { status: 201 }
     )
-  } catch (err) {
+  } catch (err: any) {
     console.error('[REGISTER ERROR]', err)
-    return NextResponse.json({ error: 'Terjadi kesalahan server.' }, { status: 500 })
+    return NextResponse.json({ 
+      error: 'Terjadi kesalahan server.', 
+      details: err.message || 'Unknown error'
+    }, { status: 500 })
   }
 }

@@ -48,7 +48,8 @@ export default function RegisterPage() {
       })
       const data = await res.json()
       if (!res.ok) {
-        toast.error(data.error ?? 'Registrasi gagal.')
+        const errorMsg = data.details ? `${data.error} (${data.details})` : (data.error ?? 'Registrasi gagal.');
+        toast.error(errorMsg);
       } else {
         const waMsg = `Syalom%20Kak,%20Saya%20${form.full_name}%20dari%20Jemaat%20${form.jemaat}.%20Tolong%20diaktivasi%20untuk%20tesnya`;
         const waLink = `https://wa.me/6285256510571?text=${waMsg}`;
