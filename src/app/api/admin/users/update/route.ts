@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { userId, permissions, isApproved, full_name, email, jemaat, wilayah, rayon, role } = await req.json()
+    const { userId, permissions, isApproved, full_name, email, jemaat, wilayah, rayon, phone, role } = await req.json()
 
     if (!userId) {
       return NextResponse.json({ error: 'ID Pengguna wajib diisi.' }, { status: 400 })
@@ -26,6 +26,7 @@ export async function POST(req: NextRequest) {
       jemaat,
       wilayah,
       rayon,
+      phone,
       role
     })
 

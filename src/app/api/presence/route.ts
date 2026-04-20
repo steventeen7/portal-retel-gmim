@@ -7,9 +7,10 @@ export async function GET(req: NextRequest) {
   if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   try {
-    const onlineUsers = db.presence?.getOnlineUsers() || [];
+    const onlineUsers = await db.presence.getOnlineUsers();
     return NextResponse.json({ users: onlineUsers });
   } catch (err) {
+    console.error('API Presence Get Error:', err);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }
@@ -22,9 +23,10 @@ export async function POST(req: NextRequest) {
   if (!payload) return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
 
   try {
-    db.presence?.ping(payload.id);
+    await db.presence.ping(payload.id);
     return NextResponse.json({ success: true });
   } catch (err) {
+    console.error('API Presence Post Error:', err);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }

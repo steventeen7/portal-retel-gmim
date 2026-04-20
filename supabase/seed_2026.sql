@@ -156,3 +156,67 @@ INSERT INTO soal_tes (tahun, nomor_soal, teks_soal, opsi_a, opsi_b, opsi_c, opsi
 (2026, 48, 'Siapa yang dikenal sebagai "Bapak Komputer" (penemu komputer modern)?', 'Alan Turing', 'Bill Gates', 'Steve Jobs', 'Mark Zuckerberg', 'a'),
 (2026, 49, 'Lembaga yang bertugas menangani korupsi di Indonesia adalah ...', 'KPK (Komisi Pemberantasan Korupsi)', 'BPK', 'BPKP', 'Kejaksaan Agung', 'a'),
 (2026, 50, 'Program ketahanan pangan yang digalakkan pemerintah Indonesia disebut ...', 'Ketahanan pangan mandiri', 'Program beras murah', 'Dapur sehat', 'Makan gratis', 'a');
+
+-- PAKET D - 50 SOAL PREDIKSI RETEL GMIM 2026 (151-200)
+INSERT INTO soal_tes (tahun, nomor_soal, teks_soal, opsi_a, opsi_b, opsi_c, opsi_d, jawaban_benar) VALUES
+(2026, 151, 'Berapakah jumlah kitab dalam Alkitab (TB)?', '66', '73', '60', '70', 'a'),
+(2026, 152, 'Siapakah penulis kitab Kejadian?', 'Musa', 'Abraham', 'Daud', 'Salomo', 'a'),
+(2026, 153, 'Apa warna liturgi untuk hari raya Natal?', 'Putih', 'Merah', 'Ungu', 'Hijau', 'a'),
+(2026, 154, 'Siapakah Ketua Sinode GMIM saat ini?', 'Pdt. Dr. Hein Arina', 'Pdt. Dr. Joice Sondakh', 'Pdt. Dr. Everett Tangel', 'Pdt. Dr. Adolf Wenas', 'a'),
+(2026, 155, 'Di mana Yesus lahir?', 'Betlehem', 'Nazaret', 'Yerusalem', 'Kana', 'a'),
+(2026, 156, 'Siapakah murid yang menyangkal Yesus 3 kali?', 'Petrus', 'Yudas', 'Yohanes', 'Tomas', 'a'),
+(2026, 157, 'Apa kepanjangan dari GMIM?', 'Gereja Masehi Injili di Minahasa', 'Gerakan Masehi Injili di Minahasa', 'Gereja Masyarakat Injili di Minahasa', 'Gereja Masehi Indonesia di Minahasa', 'a'),
+(2026, 158, 'GMIM berdiri sebagai gereja mandiri sejak tahun ...', '1934', '1945', '1930', '1950', 'a'),
+(2026, 159, 'Siapakah Ketua KPRS GMIM periode 2022-2027?', 'Pnt. dr. Michaela Paruntu', 'Pnt. Melky Pattiwael', 'Pnt. Edward Saragih', 'Pnt. Stevie Kaligis', 'a'),
+(2026, 160, 'Semboyan Remaja GMIM adalah ...', 'Teens for Christ', 'Remaja Berakar', 'Remaja Teladan', 'Remaja Cerdas', 'a'),
+(2026, 161, 'The opposite of "generous" is ...', 'Stingy', 'Kind', 'Helpful', 'Polite', 'a'),
+(2026, 162, 'What is the largest ocean on Earth?', 'Pacific Ocean', 'Atlantic Ocean', 'Indian Ocean', 'Arctic Ocean', 'a'),
+(2026, 163, 'Hasil dari 100 / 4 + 25 adalah ...', '50', '25', '75', '100', 'a'),
+(2026, 164, 'Siapa penemu gravitasi?', 'Isaac Newton', 'Albert Einstein', 'Galileo Galilei', 'Nikola Tesla', 'a'),
+(2026, 165, 'Ibukota Sulawesi Utara adalah ...', 'Manado', 'Bitung', 'Tomohon', 'Minahasa', 'a'),
+(2026, 166, 'Gunung tertinggi di Indonesia adalah ...', 'Puncak Jaya', 'Gunung Kerinci', 'Gunung Rinjani', 'Gunung Semeru', 'a'),
+(2026, 167, 'Lagu kebangsaan Indonesia adalah ...', 'Indonesia Raya', 'Tanah Airku', 'Bagimu Negeri', 'Garuda Pancasila', 'a'),
+(2026, 168, 'Presiden pertama Indonesia adalah ...', 'Ir. Soekarno', 'Moh. Hatta', 'Soeharto', 'B.J. Habibie', 'a'),
+(2026, 169, 'Which element has the symbol "O"?', 'Oxygen', 'Gold', 'Silver', 'Iron', 'a'),
+(2026, 170, 'Berapa jumlah sila dalam Pancasila?', '5', '4', '6', '3', 'a'),
+(2026, 171, 'Siapakah pahlawan emansipasi wanita di Indonesia?', 'R.A. Kartini', 'Cut Nyak Dien', 'Martha Christina Tiahahu', 'Dewi Sartika', 'a'),
+(2026, 172, 'Planet terdekat dengan matahari adalah ...', 'Merkurius', 'Venus', 'Bumi', 'Mars', 'a'),
+(2026, 173, 'Who is the author of "Romeo and Juliet"?', 'William Shakespeare', 'Mark Twain', 'Charles Dickens', 'J.K. Rowling', 'a'),
+(2026, 174, 'Berapa derajat dalam satu lingkaran penuh?', '360', '180', '90', '270', 'a'),
+(2026, 175, 'Hewan mamalia terbesar di laut adalah ...', 'Paus Biru', 'Hiu Putih', 'Lumba-lumba', 'Anjing Laut', 'a'),
+(2026, 176, 'Ibukota Jawa Timur adalah ...', 'Surabaya', 'Malang', 'Kediri', 'Madiun', 'a'),
+(2026, 177, 'Siapakah pencipta lagu Indonesia Raya?', 'W.R. Supratman', 'Ismail Marzuki', 'Kusbini', 'Cornel Simanjuntak', 'a'),
+(2026, 178, 'Apa kepanjangan dari DPR?', 'Dewan Perwakilan Rakyat', 'Dewan Pembangunan Rakyat', 'Dewan Pemuda Rakyat', 'Dewan Pemerintah Rakyat', 'a'),
+(2026, 179, 'Which mammal can fly?', 'Bat', 'Eagle', 'Ostrich', 'Penguin', 'a'),
+(2026, 180, 'What is the sum of 15 and 27?', '42', '32', '52', '45', 'a'),
+(2026, 181, 'Siapa penemu telepon?', 'Alexander Graham Bell', 'Thomas Edison', 'Nikola Tesla', 'Guglielmo Marconi', 'a'),
+(2026, 182, 'Indonesia merdeka pada tanggal ...', '17 Agustus 1945', '1 Juni 1945', '10 November 1945', '28 Oktober 1928', 'a'),
+(2026, 183, 'The color for "Danger" is often ...', 'Red', 'Blue', 'Green', 'Yellow', 'a'),
+(2026, 184, 'Which month has 28 or 29 days?', 'February', 'January', 'March', 'April', 'a'),
+(2026, 185, 'Berapa hasil dari 5 pangkat 2?', '25', '10', '15', '20', 'a'),
+(2026, 186, 'Ibukota negara Jepang adalah ...', 'Tokyo', 'Seoul', 'Beijing', 'Bangkok', 'a'),
+(2026, 187, 'Siapa penulis novel "Harry Potter"?', 'J.K. Rowling', 'Stephen King', 'Agatha Christie', 'Enid Blyton', 'a'),
+(2026, 188, 'Apa simbol kimia untuk emas?', 'Au', 'Ag', 'Fe', 'Cu', 'a'),
+(2026, 189, 'Sila kedua Pancasila adalah ...', 'Kemanusiaan yang adil dan beradab', 'Ketuhanan Yang Maha Esa', 'Persatuan Indonesia', 'Keadilan sosial', 'a'),
+(2026, 190, 'Hari Pahlawan diperingati setiap tanggal ...', '10 November', '28 Oktober', '1 Juni', '2 Mei', 'a'),
+(2026, 191, 'What is 10 x 10?', '100', '10', '1000', '20', 'a'),
+(2026, 192, 'Which is the fastest land animal?', 'Cheetah', 'Lion', 'Horse', 'Eagle', 'a'),
+(2026, 193, 'What is the currency of the USA?', 'Dollar', 'Euro', 'Yen', 'Pound', 'a'),
+(2026, 194, 'Who painted the Mona Lisa?', 'Leonardo da Vinci', 'Pablo Picasso', 'Vincent van Gogh', 'Michelangelo', 'a'),
+(2026, 195, 'Berapa 25% dari 100?', '25', '50', '20', '75', 'a'),
+(2026, 196, 'Siapa penemu listrik?', 'Benjamin Franklin', 'Michael Faraday', 'Thomas Edison', 'Nikola Tesla', 'b'),
+(2026, 197, 'Ibukota Sulawesi Selatan adalah ...', 'Makassar', 'Kendari', 'Palu', 'Manado', 'a'),
+(2026, 198, 'Siapa pahlawan dari Sulawesi Utara yang wajahnya ada di uang kertas 10rb?', 'Frans Kaisiepo', 'Sam Ratulangi', 'Moh. Hatta', 'Djuanda', 'b'),
+(2026, 199, 'Danau terbesar di Indonesia adalah ...', 'Danau Toba', 'Danau Tempe', 'Danau Poso', 'Danau Towuti', 'a'),
+(2026, 200, 'Tari tradisional asal Sulawesi Utara adalah ...', 'Tari Maengket', 'Tari Saman', 'Tari Kecak', 'Tari Jaipong', 'a');
+
+-- PAKET E-J (DUMMY placeholder for the rest to reach 500)
+-- (Users can replace these with actual questions as they wish)
+INSERT INTO soal_tes (tahun, nomor_soal, teks_soal, opsi_a, opsi_b, opsi_c, opsi_d, jawaban_benar) 
+SELECT 2026, generate_series(201, 500), 'Pertanyaan Simulasi Paket ' || CASE 
+    WHEN generate_series <= 250 THEN 'E'
+    WHEN generate_series <= 300 THEN 'F'
+    WHEN generate_series <= 350 THEN 'G'
+    WHEN generate_series <= 400 THEN 'H'
+    WHEN generate_series <= 450 THEN 'I'
+    ELSE 'J' END || ' nomor ' || generate_series, 'Opsi A', 'Opsi B', 'Opsi C', 'Opsi D', 'a';

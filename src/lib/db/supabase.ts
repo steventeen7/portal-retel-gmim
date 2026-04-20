@@ -102,6 +102,21 @@ export const supabaseDB = {
     async findById(id: number): Promise<Materi | undefined> {
       const { data } = await supabase.from('materi_belajar').select('*').eq('id', id).single();
       return data || undefined;
+    },
+    async create(data: any): Promise<any> {
+      const { data: res, error } = await supabase.from('materi_belajar').insert([data]).select().single();
+      if (error) throw error;
+      return res;
+    },
+    async update(id: number, data: any): Promise<any> {
+      const { data: res, error } = await supabase.from('materi_belajar').update(data).eq('id', id).select().single();
+      if (error) throw error;
+      return res;
+    },
+    async delete(id: number): Promise<boolean> {
+      const { error } = await supabase.from('materi_belajar').delete().eq('id', id);
+      if (error) throw error;
+      return true;
     }
   },
 
@@ -138,6 +153,65 @@ export const supabaseDB = {
     async findAll(): Promise<any[]> {
       const { data } = await supabase.from('activity_logs').select('*, profiles(full_name)').order('timestamp', { ascending: false });
       return data || [];
+    }
+  },
+
+  chat: {
+    async getMessages(): Promise<any[]> {
+      const { data } = await supabase
+        .from('chat_messages')
+        .select('*')
+        .is('to_id', null) // Only public messages
+        .order('created_at', { ascending: true })
+        .limit(100);
+      return data || [];
+    },
+    async getPrivateMessages(userId: string, targetId: string): Promise<any[]> {
+      const { data } = await supabase
+        .from('chat_messages')
+        .select('*')
+        .or(`and(from_id.eq.${userId},to_id.eq.${targetId}),and(from_id.eq.${targetId},to_id.eq.${userId})`)
+        .order('created_at', { ascending: true });
+      return data || [];
+    },
+    async createMessage(fromId: string, fromName: string, message: string, toId: string | null = null): Promise<any> {
+      const { data, error } = await supabase
+        .from('chat_messages')
+        .insert([{
+          from_id: fromId,
+          from_name: fromName,
+          to_id: toId,
+          message,
+          created_at: new Date().toISOString()
+        }])
+        .select()
+        .single();
+      if (error) throw error;
+      return data;
+    },
+    async findAllLogs(): Promise<any[]> {
+      const { data } = await supabase
+        .from('chat_messages')
+        .select('*, sender:profiles!from_id(full_name), recipient:profiles!to_id(full_name)')
+        .order('created_at', { ascending: false });
+      return data || [];
+    }
+  },
+
+  presence: {
+    async ping(userId: string): Promise<void> {
+      await supabase
+        .from('profiles')
+        .update({ last_seen: new Date().toISOString() })
+        .eq('id', userId);
+    },
+    async getOnlineUsers(): Promise<any[]> {
+      const oneMinuteAgo = new Date(Date.now() - 60000).toISOString();
+      const { data } = await supabase
+        .from('profiles')
+        .select('id, full_name, last_seen')
+        .gt('last_seen', oneMinuteAgo);
+      return data?.map(u => ({ id: u.id, name: u.full_name })) || [];
     }
   }
 };

@@ -7,10 +7,11 @@ import MateriAdminClient from './MateriAdminClient'
 export default async function AdminMateriPage() {
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value
-  const user = token ? verifyToken(token) : null
-  if (!user || user.role !== 'admin') redirect('/dashboard')
+  const payload = token ? verifyToken(token) : null
+  
+  if (!payload || payload.role !== 'admin') redirect('/dashboard')
 
-  const materiList = db.materi.findAll()
+  const materiList = await db.materi.findAll()
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">

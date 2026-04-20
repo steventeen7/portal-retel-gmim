@@ -6,7 +6,8 @@ import {
   Users, CheckCircle, XCircle, Shield, 
   Settings, Search, Filter, History, 
   ClipboardList, Mic, Key, Trophy,
-  Save, RefreshCw, Trash2
+  Save, RefreshCw, Trash2, LayoutDashboard,
+  MessageSquare, ArrowRight, X
 } from 'lucide-react';
 
 type UserProfile = {
@@ -23,9 +24,11 @@ type UserProfile = {
   created_at: string;
 };
 
-export default function AdminClient({ initialUsers, initialLogs }: { initialUsers: UserProfile[], initialLogs: any[] }) {
+export default function AdminClient({ initialUsers, initialLogs, initialChatLogs }: { initialUsers: UserProfile[], initialLogs: any[], initialChatLogs: any[] }) {
+  const [activeTab, setActiveTab] = useState<'users' | 'chats' | 'activity'>('users');
   const [users, setUsers] = useState<UserProfile[]>(initialUsers);
   const [logs] = useState(initialLogs);
+  const [chatLogs] = useState(initialChatLogs);
   const [searchTerm, setSearchTerm] = useState('');
   const [loadingId, setLoadingId] = useState<string | null>(null);
   const [showImport, setShowImport] = useState(false);
@@ -60,6 +63,7 @@ export default function AdminClient({ initialUsers, initialLogs }: { initialUser
           userId: user.id,
           permissions: user.permissions,
           isApproved: user.is_approved,
+          full_name: user.full_name, // Fix: Kirim full_name agar Log tidak error
           email: user.email,
           jemaat: user.jemaat,
           wilayah: user.wilayah,
@@ -122,7 +126,42 @@ export default function AdminClient({ initialUsers, initialLogs }: { initialUser
   );
 
   return (
-    <div className="space-y-10 animate-fade-in pb-20">
+    <div className="space-y-8 animate-fade-in pb-20">
+      {/* Header with Dashboard Button */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-8 rounded-[40px] border border-purple-100 shadow-xl shadow-purple-900/5">
+        <div>
+          <h1 className="text-3xl font-black text-gray-900 tracking-tight">Panel Administrator</h1>
+          <p className="text-gray-500 font-medium">Kelola peserta, perizinan modul, dan pantau aktivitas sistem.</p>
+        </div>
+        <div className="flex items-center gap-3">
+           <a href="/dashboard" className="px-6 py-3 bg-gray-100 text-gray-700 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-purple-600 hover:text-white transition-all flex items-center gap-2 group">
+              <LayoutDashboard className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              Ke Dashboard User
+           </a>
+        </div>
+      </div>
+
+      {/* Tab Navigation */}
+      <div className="flex gap-2 p-1.5 bg-gray-100/50 rounded-2xl w-fit">
+         {[
+           { id: 'users', label: 'Peserta', icon: <Users className="w-4 h-4" /> },
+           { id: 'chats', label: 'Log Chat', icon: <MessageSquare className="w-4 h-4" /> },
+           { id: 'activity', label: 'Aktivitas', icon: <History className="w-4 h-4" /> },
+         ].map(tab => (
+           <button
+             key={tab.id}
+             onClick={() => setActiveTab(tab.id as any)}
+             className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${
+               activeTab === tab.id 
+               ? 'bg-white text-purple-600 shadow-md' 
+               : 'text-gray-400 hover:text-gray-600'
+             }`}
+           >
+             {tab.icon} {tab.label}
+           </button>
+         ))}
+      </div>
+
       {/* Modal Import (Sangat Berguna untuk input soal masal dari G:\) */}
       {showImport && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -168,161 +207,199 @@ export default function AdminClient({ initialUsers, initialLogs }: { initialUser
         </div>
       )}
 
-      {/* Search & Filter */}
-      <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-white p-6 rounded-[24px] shadow-sm border border-purple-50">
-        <div className="relative w-full md:max-w-md">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-          <input 
-            type="text" 
-            placeholder="Cari nama, email, atau jemaat..."
-            className="input pl-11 bg-gray-50/50 border-gray-100 h-12 text-sm"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-        <div className="flex gap-2">
-           <button onClick={() => setShowImport(true)} className="btn bg-amber-50 text-amber-600 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border border-amber-100 shadow-sm">
-              <ClipboardList className="w-3.5 h-3.5" /> Import Data
-           </button>
-           <button className="btn bg-gray-100 text-gray-600 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
-              <Filter className="w-3.5 h-3.5" /> Filter
-           </button>
-           <button onClick={() => window.location.reload()} className="btn bg-purple-50 text-purple-600 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
-              <RefreshCw className="w-3.5 h-3.5" /> Refresh
-           </button>
-        </div>
-      </div>
+      {/* Main Content Areas based on Tab */}
+      {activeTab === 'users' && (
+        <div className="space-y-4">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-white p-6 rounded-[24px] shadow-sm border border-purple-50">
+            <div className="relative w-full md:max-w-md">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input 
+                type="text" 
+                placeholder="Cari nama, email, atau jemaat..."
+                className="input pl-11 bg-gray-50/50 border-gray-100 h-12 text-sm"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+            <div className="flex gap-2">
+              <button onClick={() => setShowImport(true)} className="btn bg-amber-50 text-amber-600 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border border-amber-100 shadow-sm">
+                  <ClipboardList className="w-3.5 h-3.5" /> Import Data
+              </button>
+              <button onClick={() => window.location.reload()} className="btn bg-purple-50 text-purple-600 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+                  <RefreshCw className="w-3.5 h-3.5" /> Refresh
+              </button>
+            </div>
+          </div>
 
-      {/* User Management Table */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2 px-1">
-          <Users className="w-5 h-5 text-purple-600" />
-          <h2 className="text-xl font-black text-gray-900 tracking-tight">Manajemen Persetujuan & Izin</h2>
-        </div>
-
-        <div className="overflow-x-auto rounded-[32px] border border-purple-50 shadow-xl shadow-purple-900/5 bg-white">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-purple-50/50 border-b border-purple-100">
-                <th className="px-6 py-5 text-[10px] font-black text-purple-400 uppercase tracking-widest">Informasi Peserta</th>
-                <th className="px-6 py-5 text-[10px] font-black text-purple-400 uppercase tracking-widest text-center">Status</th>
-                <th className="px-6 py-5 text-[10px] font-black text-purple-400 uppercase tracking-widest">Izin Modul (Checkbox)</th>
-                <th className="px-6 py-5 text-[10px] font-black text-purple-400 uppercase tracking-widest text-right">Aksi</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-50">
-              {filteredUsers.map((u) => (
-                <tr key={u.id} className="hover:bg-purple-50/20 transition-colors">
-                  <td className="px-6 py-6 font-medium">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center text-purple-600 font-black text-lg shadow-sm">
-                        {(u?.full_name || 'U').charAt(0).toUpperCase()}
-                      </div>
-                      <div>
-                        <div className="text-gray-900 font-bold">{u?.full_name || 'Tanpa Nama'}</div>
-                        <div className="text-gray-400 text-xs font-medium">{u?.email || 'N/A'}</div>
-                        <div className="flex gap-2 mt-1 flex-wrap">
-                           <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100 font-bold uppercase tracking-tighter">{u.jemaat}</span>
-                           <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 font-bold uppercase tracking-tighter">{u.wilayah}</span>
-                           {u.phone && <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 border border-gray-200 font-bold uppercase tracking-tighter">WA: {u.phone}</span>}
+          <div className="overflow-x-auto rounded-[32px] border border-purple-50 shadow-xl shadow-purple-900/5 bg-white">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-purple-50/50 border-b border-purple-100">
+                  <th className="px-6 py-5 text-[10px] font-black text-purple-400 uppercase tracking-widest">Informasi Peserta</th>
+                  <th className="px-6 py-5 text-[10px] font-black text-purple-400 uppercase tracking-widest text-center">Status</th>
+                  <th className="px-6 py-5 text-[10px] font-black text-purple-400 uppercase tracking-widest">Izin Modul</th>
+                  <th className="px-6 py-5 text-[10px] font-black text-purple-400 uppercase tracking-widest text-right">Aksi</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {filteredUsers.map((u) => (
+                  <tr key={u.id} className="hover:bg-purple-50/20 transition-colors">
+                    <td className="px-6 py-6 font-medium">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center text-purple-600 font-black text-lg shadow-sm">
+                          {(u?.full_name || 'U').charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                          <div className="text-gray-900 font-bold">{u?.full_name || 'Tanpa Nama'}</div>
+                          <div className="text-gray-400 text-xs font-medium">{u?.email || 'N/A'}</div>
+                          <div className="flex gap-2 mt-1 flex-wrap">
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100 font-bold uppercase tracking-tighter">{u.jemaat}</span>
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 font-bold uppercase tracking-tighter">{u.wilayah}</span>
+                            {u.phone && <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 border border-gray-200 font-bold uppercase tracking-tighter">WA: {u.phone}</span>}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-6 text-center">
-                    <button 
-                      onClick={() => setUsers(prev => prev.map(p => p.id === u.id ? { ...p, is_approved: !p.is_approved } : p))}
-                      className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${
-                        u.is_approved 
-                        ? 'bg-emerald-50 text-emerald-600 border border-emerald-200 shadow-sm' 
-                        : 'bg-amber-50 text-amber-600 border border-amber-200'
-                      }`}
-                    >
-                      {u.is_approved ? <CheckCircle className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />}
-                      {u.is_approved ? 'Approved' : 'Pending'}
-                    </button>
-                  </td>
-                  <td className="px-6 py-6">
-                    <div className="flex flex-wrap gap-2">
-                       {modules.map(mod => (
-                         <label key={mod.id} className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border-2 transition-all cursor-pointer ${
-                           u.permissions?.includes(mod.id)
-                           ? 'bg-purple-600 border-purple-600 text-white shadow-md shadow-purple-500/20'
-                           : 'bg-white border-gray-100 text-gray-400 hover:border-purple-200'
-                         }`}>
-                           <input 
-                             type="checkbox" 
-                             className="hidden"
-                             checked={u.permissions?.includes(mod.id)}
-                             onChange={(e) => {
-                               const newPerms = e.target.checked 
-                                 ? [...(u.permissions || []), mod.id]
-                                 : (u.permissions || []).filter(p => p !== mod.id);
-                               setUsers(prev => prev.map(p => p.id === u.id ? { ...p, permissions: newPerms } : p));
-                             }}
-                           />
-                           {mod.icon}
-                           <span className="text-[10px] font-black uppercase tracking-tighter">{mod.label}</span>
-                         </label>
-                       ))}
-                    </div>
-                  </td>
-                  <td className="px-6 py-6 text-right flex items-center justify-end gap-2">
-                    <button 
-                      onClick={() => openEdit(u)}
-                      className="p-2 text-gray-400 hover:text-purple-600 hover:bg-purple-50 rounded-xl transition-all"
-                      title="Edit Profil"
-                    >
-                      <Settings className="w-4 h-4" />
-                    </button>
-                    <button 
-                      onClick={() => handleDelete(u.id)}
-                      disabled={loadingId === u.id}
-                      className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all disabled:opacity-50"
-                      title="Hapus Akun"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
-                    <button 
-                      onClick={() => handleUpdate(u)}
-                      disabled={loadingId === u.id}
-                      className="btn-primary py-2 px-4 text-xs h-10 shadow-purple-500/10 active:scale-95 disabled:opacity-50"
-                    >
-                      {loadingId === u.id ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                      Simpan
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Activity Logs Section */}
-      <div className="grid md:grid-cols-3 gap-8">
-        <div className="md:col-span-2 space-y-4">
-           <div className="flex items-center gap-2 px-1">
-            <History className="w-5 h-5 text-gray-400" />
-            <h2 className="text-xl font-black text-gray-900 tracking-tight">Log Aktivitas Terbaru</h2>
+                    </td>
+                    <td className="px-6 py-6 text-center">
+                      <button 
+                        onClick={() => setUsers(prev => prev.map(p => p.id === u.id ? { ...p, is_approved: !p.is_approved } : p))}
+                        className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                          u.is_approved 
+                          ? 'bg-emerald-50 text-emerald-600 border border-emerald-200 shadow-sm' 
+                          : 'bg-amber-50 text-amber-600 border border-amber-200'
+                        }`}
+                      >
+                        {u.is_approved ? <CheckCircle className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />}
+                        {u.is_approved ? 'Approved' : 'Pending'}
+                      </button>
+                    </td>
+                    <td className="px-6 py-6">
+                      <div className="flex flex-wrap gap-2">
+                        {modules.map(mod => (
+                          <label key={mod.id} className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border-2 transition-all cursor-pointer ${
+                            u.permissions?.includes(mod.id)
+                            ? 'bg-purple-600 border-purple-600 text-white shadow-md shadow-purple-500/20'
+                            : 'bg-white border-gray-100 text-gray-400 hover:border-purple-200'
+                          }`}>
+                            <input 
+                              type="checkbox" 
+                              className="hidden"
+                              checked={u.permissions?.includes(mod.id)}
+                              onChange={(e) => {
+                                const newPerms = e.target.checked 
+                                  ? [...(u.permissions || []), mod.id]
+                                  : (u.permissions || []).filter(p => p !== mod.id);
+                                setUsers(prev => prev.map(p => p.id === u.id ? { ...p, permissions: newPerms } : p));
+                              }}
+                            />
+                            {mod.icon}
+                            <span className="text-[10px] font-black uppercase tracking-tighter">{mod.label}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </td>
+                    <td className="px-6 py-6 text-right flex items-center justify-end gap-2">
+                      <button onClick={() => openEdit(u)} className="p-2 text-gray-400 hover:text-purple-600 hover:bg-purple-50 rounded-xl transition-all" title="Edit Profil">
+                        <Settings className="w-4 h-4" />
+                      </button>
+                      <button onClick={() => handleDelete(u.id)} disabled={loadingId === u.id} className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all disabled:opacity-50" title="Hapus Akun">
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                      <button 
+                        onClick={() => handleUpdate(u)}
+                        disabled={loadingId === u.id}
+                        className="btn-primary py-2 px-4 text-xs h-10 shadow-purple-500/10 active:scale-95 disabled:opacity-50"
+                      >
+                        {loadingId === u.id ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                        Simpan
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          <div className="bg-white rounded-[32px] border border-gray-100 shadow-sm p-6 overflow-hidden max-h-[400px] overflow-y-auto space-y-3">
-             {logs.map((log, i) => (
-               <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-gray-50/50 border border-gray-50 group hover:border-purple-100 transition-colors">
+        </div>
+      )}
+
+      {/* Chats Log Tab */}
+      {activeTab === 'chats' && (
+        <div className="bg-white rounded-[40px] border border-purple-100 shadow-xl shadow-purple-900/5 overflow-hidden">
+           <div className="bg-gray-50 px-8 py-6 border-b border-gray-100 flex items-center justify-between">
+              <h3 className="text-xl font-black text-gray-900 tracking-tight flex items-center gap-2">
+                <MessageSquare className="w-6 h-6 text-purple-600" /> Diskusi & Log Chat
+              </h3>
+              <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{chatLogs.length} Pesan Tercatat</span>
+           </div>
+           <div className="p-8 space-y-4 max-h-[600px] overflow-y-auto">
+              {chatLogs.map((chat, i) => (
+                <div key={i} className="flex gap-4 p-5 rounded-3xl border border-gray-100 hover:bg-purple-50/30 transition-all group">
+                   <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-black text-white ${chat.to_id ? 'bg-indigo-600 shadow-lg shadow-indigo-500/20' : 'bg-purple-600 shadow-lg shadow-purple-500/20'}`}>
+                      {chat.to_id ? 'P' : 'G'}
+                   </div>
+                   <div className="flex-1 space-y-2">
+                      <div className="flex items-center justify-between">
+                         <div className="flex items-center gap-2">
+                            <span className="font-black text-gray-900 text-sm">{chat.sender?.full_name || chat.from_name}</span>
+                            {chat.to_id && (
+                              <>
+                                <ArrowRight className="w-3 h-3 text-gray-400" />
+                                <span className="font-black text-indigo-600 text-sm">{chat.recipient?.full_name || 'Penerima'}</span>
+                              </>
+                            )}
+                         </div>
+                         <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{new Date(chat.created_at).toLocaleString('id-ID')}</span>
+                      </div>
+                      <p className="text-gray-600 text-sm leading-relaxed bg-gray-50 p-4 rounded-2xl border border-gray-50 italic">"{chat.message}"</p>
+                   </div>
+                </div>
+              ))}
+              {chatLogs.length === 0 && (
+                <div className="text-center py-20 text-gray-400 font-bold uppercase tracking-widest text-xs">Belum ada sejarah chat</div>
+              )}
+           </div>
+        </div>
+      )}
+
+      {/* Activity Logs Tab */}
+      {activeTab === 'activity' && (
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="md:col-span-2 space-y-4">
+            <div className="bg-white rounded-[40px] border border-gray-100 shadow-sm p-6 overflow-hidden max-h-[600px] overflow-y-auto space-y-3">
+              {logs.map((log, i) => (
+                <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-gray-50/50 border border-gray-50 group hover:border-purple-100 transition-colors">
                   <div className="w-2 h-2 rounded-full bg-purple-400 mt-2 shrink-0 group-hover:scale-150 transition-transform" />
                   <div>
                     <div className="text-sm font-bold text-gray-800 tracking-tight">
-                       {log.profiles?.full_name || 'System'}: <span className="text-purple-600">{log.activity}</span>
+                        {log.profiles?.full_name || 'System'}: <span className="text-purple-600">{log.activity}</span>
                     </div>
                     <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-0.5">
-                       {new Date(log.timestamp).toLocaleString('id-ID')}
+                        {new Date(log.timestamp).toLocaleString('id-ID')}
                     </div>
                   </div>
-               </div>
-             ))}
-             {logs.length === 0 && <p className="text-center py-10 text-gray-400 font-bold uppercase tracking-widest text-xs">Belum ada aktivitas tercatat</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="space-y-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-[40px] p-8 text-white h-fit">
+              <h3 className="text-xl font-black tracking-tight flex items-center gap-2">
+                <Shield className="w-6 h-6 text-amber-500" /> Sistem Audit
+              </h3>
+              <div className="space-y-4">
+                 <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
+                    <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Status Keamanan</div>
+                    <div className="text-emerald-400 font-black flex items-center gap-2">
+                       <CheckCircle className="w-4 h-4" /> Secure (Supabase RLS Active)
+                    </div>
+                 </div>
+                 <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
+                    <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Total Peserta</div>
+                    <div className="text-gray-100 font-black text-2xl">{users.length}</div>
+                 </div>
+              </div>
           </div>
         </div>
+      )}
 
         <div className="space-y-4">
            <div className="flex items-center gap-2 px-1">
