@@ -11,40 +11,16 @@ import {
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-export default function TigaBesarClient({ user }: { user: any }) {
-  const [soal, setSoal] = useState<any[]>([]);
+export default function TigaBesarClient({ user, initialData = [] }: { user: any, initialData?: any[] }) {
+  const [soal, setSoal] = useState<any[]>(() => {
+    return [...initialData].sort(() => Math.random() - 0.5);
+  });
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [evalResult, setEvalResult] = useState<EvalResult | null>(null);
   const [isEvaluating, setIsEvaluating] = useState(false);
   
   const { speak, isRecording, transcript, startRecording, stopRecording, clearTranscript } = useVoice();
-
-  useEffect(() => {
-    loadSoal();
-  }, []);
-
-  async function loadSoal() {
-    try {
-      const { data, error } = await supabase.from('soal_tiga_besar').select('*');
-      if (error) throw error;
-      if (data) {
-        const shuffled = [...data].sort(() => Math.random() - 0.5);
-        setSoal(shuffled);
-      }
-    } catch (err: any) {
-      console.warn('Gagal memuat dari Supabase, menggunakan JSON lokal:', err.message);
-      try {
-        const fallbackRaw = await import('@/data/soal_tiga_besar.json');
-        const fallback = (fallbackRaw.default || fallbackRaw) as any[];
-        setSoal(fallback.sort(() => Math.random() - 0.5));
-      } catch (e) {
-        toast.error('Gagal memuat soal 3 besar.');
-      }
-    } finally {
-      setLoading(false);
-    }
-  }
 
   const currentQ = soal[currentIdx];
 

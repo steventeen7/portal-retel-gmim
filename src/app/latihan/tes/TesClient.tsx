@@ -38,7 +38,7 @@ type Hasil = {
 const OPSI = ['a', 'b', 'c', 'd'] as const;
 const TAHUN_LIST = [2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025, '2026 - Paket A', '2026 - Paket B', '2026 - Paket C', '2026 - Paket D', '2026 - Paket E', '2026 - Paket F', '2026 - Paket G', '2026 - Paket H', '2026 - Paket I', '2026 - Paket J'];
 
-export default function TesClient({ user }: { user: any }) {
+export default function TesClient({ user, initialData = [] }: { user: any, initialData?: Soal[] }) {
   const [selectedTahun, setSelectedTahun] = useState<number | string | null>(null);
   const [soal, setSoal] = useState<Soal[]>([]);
   const [jawaban, setJawaban] = useState<Record<number, string>>({});
@@ -59,30 +59,11 @@ export default function TesClient({ user }: { user: any }) {
     }
   }, [selectedTahun]);
 
-  async function loadSoal() {
+  function loadSoal() {
     setLoading(true);
-    let fetchedData: Soal[] = [];
     const actualTahun = typeof selectedTahun === 'string' ? 2026 : selectedTahun;
 
-    try {
-      const { data, error } = await supabase
-        .from('soal_tes')
-        .select('*')
-        .eq('tahun', actualTahun)
-        .order('id');
-      
-      if (error) throw error;
-      fetchedData = data || [];
-    } catch (e: any) {
-      console.warn('Gagal memuat dari Supabase, menggunakan JSON lokal:', e.message);
-      try {
-        const fallbackRaw = await import('@/data/soal_tes.json');
-        const fallback = (fallbackRaw.default || fallbackRaw) as Soal[];
-        fetchedData = fallback.filter((s) => s.tahun === actualTahun);
-      } catch (err) {
-        toast.error('Gagal memuat soal sama sekali.');
-      }
-    }
+    let fetchedData = initialData.filter((s) => s.tahun === actualTahun);
 
     const paketSlices: Record<string, [number, number]> = {
       '2026 - Paket A': [0, 50], '2026 - Paket B': [50, 100], '2026 - Paket C': [100, 150],

@@ -10,40 +10,16 @@ import {
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-export default function WawancaraClient({ user }: { user: any }) {
-  const [pertanyaan, setPertanyaan] = useState<any[]>([]);
+export default function WawancaraClient({ user, initialData = [] }: { user: any, initialData?: any[] }) {
+  const [pertanyaan, setPertanyaan] = useState<any[]>(() => {
+    return [...initialData].sort(() => Math.random() - 0.5);
+  });
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [evalResult, setEvalResult] = useState<EvalResult | null>(null);
   const [isEvaluating, setIsEvaluating] = useState(false);
   
   const { speak, isRecording, transcript, startRecording, stopRecording, clearTranscript } = useVoice();
-
-  useEffect(() => {
-    loadSoal();
-  }, []);
-
-  async function loadSoal() {
-    setLoading(true);
-    let fetchedData: any[] = [];
-    try {
-      const { data, error } = await supabase.from('soal_wawancara').select('*');
-      if (error) throw error;
-      fetchedData = data || [];
-    } catch (err: any) {
-      console.warn('Gagal memuat dari Supabase, menggunakan JSON lokal:', err.message);
-      try {
-        const fallbackRaw = await import('@/data/soal_wawancara.json');
-        fetchedData = (fallbackRaw.default || fallbackRaw) as any[];
-      } catch (e) {
-        toast.error('Gagal memuat soal wawancara.');
-      }
-    }
-    
-    const shuffled = (fetchedData || []).sort(() => Math.random() - 0.5);
-    setPertanyaan(shuffled);
-    setLoading(false);
-  }
 
   const currentQ = pertanyaan[currentIdx];
 

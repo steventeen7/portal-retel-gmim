@@ -28,7 +28,10 @@ export default async function WawancaraPage() {
       redirect('/dashboard?error=unauthorized&module=wawancara')
     }
 
-    return <WawancaraClient user={payload} />
+    const { db } = await import('@/lib/db')
+    const initialData = await db.soalWawancara.findAll()
+
+    return <WawancaraClient user={payload} initialData={initialData} />
   } catch (err) {
     if (isRedirectError(err)) throw err
     console.error('[WAWANCARA PAGE ERROR]', err)

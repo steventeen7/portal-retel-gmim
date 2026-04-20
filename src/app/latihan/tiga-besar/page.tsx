@@ -28,7 +28,10 @@ export default async function TigaBesarPage() {
       redirect('/dashboard?error=unauthorized&module=tiga-besar')
     }
 
-    return <TigaBesarClient user={payload} />
+    const { db } = await import('@/lib/db')
+    const initialData = await db.tigaBesar.findAll()
+
+    return <TigaBesarClient user={payload} initialData={initialData} />
   } catch (err) {
     if (isRedirectError(err)) throw err
     console.error('[TIGA BESAR PAGE ERROR]', err)

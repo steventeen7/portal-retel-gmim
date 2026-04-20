@@ -28,7 +28,10 @@ export default async function TesTertulisPage() {
       redirect('/dashboard?error=unauthorized&module=tes')
     }
 
-    return <TesClient user={payload} />
+    const { db } = await import('@/lib/db')
+    const initialData = await db.soalTes.findAll()
+
+    return <TesClient user={payload} initialData={initialData} />
   } catch (err) {
     if (isRedirectError(err)) throw err
     console.error('[TES PAGE ERROR]', err)

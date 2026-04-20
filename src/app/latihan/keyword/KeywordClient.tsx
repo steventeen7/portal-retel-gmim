@@ -9,8 +9,8 @@ import {
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-export default function KeywordClient({ user }: { user: any }) {
-  const [keywords, setKeywords] = useState<string[]>([]);
+export default function KeywordClient({ user, initialData = [] }: { user: any, initialData?: any[] }) {
+  const [keywords, setKeywords] = useState<string[]>(() => initialData.map(k => k.kata));
   const [selected, setSelected] = useState<string[]>([]);
   const [timeLeft, setTimeLeft] = useState(60);
   const [isTimerActive, setIsTimerActive] = useState(false);
@@ -19,10 +19,6 @@ export default function KeywordClient({ user }: { user: any }) {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const { speak, isRecording, transcript, startRecording, stopRecording, clearTranscript } = useVoice();
-
-  useEffect(() => {
-    loadKeywords();
-  }, []);
 
   useEffect(() => {
     if (isTimerActive && timeLeft > 0) {
@@ -37,31 +33,9 @@ export default function KeywordClient({ user }: { user: any }) {
     };
   }, [isTimerActive, timeLeft]);
 
-  async function loadKeywords() {
-    try {
-      const res = await fetch('/api/keywords');
-      const json = await res.json();
-      if (json.data) {
-        setKeywords(json.data.map((k: any) => k.kata));
-      } else {
-        throw new Error('Data keywords kosong');
-      }
-    } catch (err) {
-      console.warn('API Keywords error, fallback ke local');
-      try {
-        const fallbackRaw = await import('@/data/kata_kunci.json');
-        const fallback = (fallbackRaw.default || fallbackRaw) as any[];
-        setKeywords(fallback.map(k => k.kata));
-      } catch (e) {
-        toast.error('Gagal memuat kata kunci.');
-      }
-    }
-  }
-
   function handleAcak() {
     if (keywords.length === 0) {
-      toast.error('Mencoba memuat ulang kata kunci...');
-      loadKeywords();
+      toast.error('Gagal memuat kata kunci.');
       return;
     }
     const shuffled = [...keywords].sort(() => 0.5 - Math.random());

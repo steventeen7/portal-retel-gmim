@@ -30,7 +30,10 @@ export default async function KeywordPage() {
       redirect('/dashboard?error=unauthorized&module=keyword')
     }
 
-    return <KeywordClient user={payload} />
+    const { db } = await import('@/lib/db')
+    const initialData = await db.keywords.findAll()
+
+    return <KeywordClient user={payload} initialData={initialData} />
   } catch (err) {
     if (isRedirectError(err)) throw err
     console.error('[KEYWORD PAGE ERROR]', err)
