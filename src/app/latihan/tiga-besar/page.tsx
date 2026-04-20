@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { isRedirectError } from 'next/dist/client/components/redirect'
 import { verifyToken } from '@/lib/auth'
 import { db } from '@/lib/db'
 import TigaBesarClient from './TigaBesarClient'
@@ -19,14 +20,17 @@ export default async function TigaBesarPage() {
       redirect('/auth/login')
     }
 
-    // Check permission
     const perms = Array.isArray(user.permissions) ? user.permissions : []
-    if (user.role !== 'admin' && !perms.includes('tiga-besar')) {
+    const role = user.role || 'user'
+
+    if (role !== 'admin' && !perms.includes('tiga-besar')) {
       redirect('/dashboard?error=unauthorized&module=tiga-besar')
     }
 
     return <TigaBesarClient user={user} />
   } catch (err) {
+    if (isRedirectError(err)) throw err
+    
     console.error('[TIGA BESAR PAGE ERROR]', err)
     redirect('/auth/login')
   }

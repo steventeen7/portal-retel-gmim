@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { isRedirectError } from 'next/dist/client/components/redirect'
 import { verifyToken } from '@/lib/auth'
 import { db } from '@/lib/db'
 import TesClient from './TesClient'
@@ -19,14 +20,17 @@ export default async function TesTertulisPage() {
       redirect('/auth/login')
     }
 
-    // Check permission
     const perms = Array.isArray(user.permissions) ? user.permissions : []
-    if (user.role !== 'admin' && !perms.includes('tes')) {
+    const role = user.role || 'user'
+
+    if (role !== 'admin' && !perms.includes('tes')) {
       redirect('/dashboard?error=unauthorized&module=tes')
     }
 
     return <TesClient user={user} />
   } catch (err) {
+    if (isRedirectError(err)) throw err
+    
     console.error('[TES PAGE ERROR]', err)
     redirect('/auth/login')
   }

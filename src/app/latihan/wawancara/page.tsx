@@ -1,8 +1,9 @@
 import { cookies } from 'next/headers'
-import { verifyToken } from '@/lib/auth'
-import WawancaraClient from './WawancaraClient'
 import { redirect } from 'next/navigation'
+import { isRedirectError } from 'next/dist/client/components/redirect'
+import { verifyToken } from '@/lib/auth'
 import { db } from '@/lib/db'
+import WawancaraClient from './WawancaraClient'
 
 export default async function WawancaraPage() {
   try {
@@ -19,14 +20,17 @@ export default async function WawancaraPage() {
       redirect('/auth/login')
     }
 
-    // Check permission
     const perms = Array.isArray(user.permissions) ? user.permissions : []
-    if (user.role !== 'admin' && !perms.includes('wawancara')) {
+    const role = user.role || 'user'
+
+    if (role !== 'admin' && !perms.includes('wawancara')) {
       redirect('/dashboard?error=unauthorized&module=wawancara')
     }
 
     return <WawancaraClient user={user} />
   } catch (err) {
+    if (isRedirectError(err)) throw err
+    
     console.error('[WAWANCARA PAGE ERROR]', err)
     redirect('/auth/login')
   }
