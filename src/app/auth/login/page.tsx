@@ -23,7 +23,8 @@ export default function LoginPage() {
       })
       const data = await res.json()
       if (!res.ok) {
-        toast.error(data.error ?? 'Login gagal.')
+        const errorMsg = data.details ? `${data.error} (${data.details})` : (data.error ?? 'Login gagal.');
+        toast.error(errorMsg);
       } else {
         toast.success(`Selamat datang, ${data.user.full_name}!`)
         router.push('/dashboard')
