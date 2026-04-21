@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "app.vercel.portal_retel_gmim.twa",
+    "sha256_cert_fingerprints": ["3A:74:3D:AF:76:9A:E1:8D:2E:30:A0:35:B3:C2:DC:28:D4:E0:32:66:2F:BB:77:E3:2D:48:07:26:33:3F:B2:C9"]
+  }
+}]
