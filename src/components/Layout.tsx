@@ -156,7 +156,7 @@ export default function Layout({ children, user }: { children: React.ReactNode, 
             @ 2026 | dibuat untuk adik-adik dalam persiapan Tes Retel.
           </p>
           <p className="text-sm text-gray-500 font-medium">
-             Jika ada kendala hubungi admin: <a href="https://wa.me/6285256510571" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 font-bold underline">085256510571 (WA)</a>
+             Jika ada kendala <a href="https://whatsapp.com/channel/0029Vb8OpTRCBtxFwnFiTh2w" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 font-bold underline">klik disini</a>
           </p>
         </div>
       </footer>
