@@ -67,7 +67,7 @@ export async function evaluateAnswer(category: string, question: string, answer:
 
 export async function evaluateKeyword(keywords: string[], explanation: string): Promise<EvalResult> {
   const prompt = `
-    Anda adalah juri Pemilihan Remaja Teladan GMIM. Peserta harus membahas dan menguraikan satu kata kunci berikut dari perspektif pemuda Kristen dan visi GMIM: ${keywords.join(', ')}.
+    Anda adalah juri Pemilihan Remaja Teladan GMIM. Peserta harus membahas dan menguraikan satu kata kunci berikut dari perspektif remaja Kristen dan visi GMIM: ${keywords.join(', ')}.
     
     Penjelasan Peserta: ${explanation}
     

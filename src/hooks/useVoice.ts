@@ -6,6 +6,10 @@ export function useVoice() {
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState('');
   const recognitionRef = useRef<any>(null);
+  // Ref untuk mengetahui apakah user masih ingin merekam (belum klik stop)
+  const isListeningRef = useRef(false);
+  // Buffer final transcript yang terakumulasi antar sesi restart
+  const finalBufferRef = useRef('');
 
   // ─── Text-to-Speech (TTS) ────────────────────────────────────────────────
   const speak = useCallback((text: string, voiceIndex: number = 0) => {
@@ -18,7 +22,6 @@ export function useVoice() {
       const idVoices = voices.filter(v => v.lang.includes('id'));
       
       if (idVoices.length > 0) {
-        // Pilih suara berdasarkan voiceIndex (modulus array length agar aman)
         utterance.voice = idVoices[voiceIndex % idVoices.length];
       }
       
@@ -28,29 +31,10 @@ export function useVoice() {
     }
   }, []);
 
-  // ─── Speech-to-Text (STT) ────────────────────────────────────────────────
-  const stopRecording = useCallback(() => {
-    if (recognitionRef.current) {
-      try {
-        recognitionRef.current.stop();
-      } catch (e) {
-        // Ignore errors if already stopped
-      }
-      recognitionRef.current = null;
-    }
-    setIsRecording(false);
-  }, []);
-
-  const startRecording = useCallback(() => {
+  // ─── Internal: buat satu sesi Recognition ────────────────────────────────
+  const createSession = useCallback(() => {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    
-    if (!SpeechRecognition) {
-      alert('Browser Anda tidak mendukung Web Speech API.');
-      return;
-    }
-
-    // Pastikan session lama mati
-    stopRecording();
+    if (!SpeechRecognition) return;
 
     const recognition = new SpeechRecognition();
     recognition.lang = 'id-ID';
@@ -58,36 +42,56 @@ export function useVoice() {
     recognition.interimResults = true;
 
     recognition.onstart = () => setIsRecording(true);
-    
+
     recognition.onresult = (event: any) => {
-      let combined = '';
+      // Ambil semua hasil FINAL dari sesi ini
+      let sessionFinal = '';
       for (let i = 0; i < event.results.length; i++) {
-        let chunk = event.results[i][0].transcript.trim();
-        if (!chunk) continue;
-        
-        // Fix untuk bug di HP (Android Chrome) di mana engine Speech API menumpuk 
-        // histori keseluruhan kalimat ke dalam setiap index result baru 
-        // (contoh: [0]="cinta", [1]="cinta kasih", [2]="cinta kasih agape")
-        if (combined.length > 0 && chunk.toLowerCase().startsWith(combined.toLowerCase())) {
-           combined = chunk;
-        } else {
-           combined += (combined ? ' ' : '') + chunk;
+        if (event.results[i].isFinal) {
+          sessionFinal += event.results[i][0].transcript.trim() + ' ';
         }
       }
-      
+
+      // Ambil HANYA satu interim terbaru (anti-duplikasi Android)
+      let interim = '';
+      const last = event.results[event.results.length - 1];
+      if (last && !last.isFinal) {
+        interim = last[0].transcript.trim();
+      }
+
+      // Gabungkan: buffer sesi sebelumnya + final sesi ini + interim saat ini
+      const combined = (finalBufferRef.current + ' ' + sessionFinal + ' ' + interim)
+        .replace(/\s+/g, ' ')
+        .trim();
       setTranscript(combined);
     };
 
     recognition.onerror = (event: any) => {
       console.error('Speech recognition error', event.error);
-      if (event.error !== 'no-speech') {
-        stopRecording();
+      // 'no-speech' dan 'aborted' bukan error fatal — biarkan onend menangani restart
+      if (event.error !== 'no-speech' && event.error !== 'aborted') {
+        isListeningRef.current = false;
+        setIsRecording(false);
+        recognitionRef.current = null;
       }
     };
-    
+
     recognition.onend = () => {
-      setIsRecording(false);
       recognitionRef.current = null;
+      // Jika user BELUM klik stop, simpan teks final lalu restart otomatis
+      if (isListeningRef.current) {
+        // Simpan teks final terbaru ke buffer permanen sebelum restart
+        setTranscript(prev => {
+          finalBufferRef.current = prev;
+          return prev;
+        });
+        // Restart setelah jeda singkat agar tidak bentrok
+        setTimeout(() => {
+          if (isListeningRef.current) createSession();
+        }, 200);
+      } else {
+        setIsRecording(false);
+      }
     };
 
     try {
@@ -96,16 +100,37 @@ export function useVoice() {
     } catch (e) {
       console.error('Recognition start error', e);
     }
-  }, [stopRecording]);
+  }, []);
 
-  const clearTranscript = useCallback(() => setTranscript(''), []);
+  // ─── Public API ───────────────────────────────────────────────────────────
+  const stopRecording = useCallback(() => {
+    isListeningRef.current = false;
+    if (recognitionRef.current) {
+      try { recognitionRef.current.stop(); } catch (_) {}
+      recognitionRef.current = null;
+    }
+    setIsRecording(false);
+  }, []);
 
-  // Membersihkan recognition saat unmount
+  const startRecording = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    // Reset buffer dan mulai sesi baru
+    finalBufferRef.current = '';
+    isListeningRef.current = true;
+    stopRecording();
+    setTimeout(() => createSession(), 100);
+  }, [stopRecording, createSession]);
+
+  const clearTranscript = useCallback(() => {
+    setTranscript('');
+    finalBufferRef.current = '';
+  }, []);
+
+  // Cleanup saat unmount
   useEffect(() => {
     return () => {
-      if (recognitionRef.current) {
-        recognitionRef.current.abort();
-      }
+      isListeningRef.current = false;
+      if (recognitionRef.current) recognitionRef.current.abort();
     };
   }, []);
 
