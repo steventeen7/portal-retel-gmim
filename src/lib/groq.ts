@@ -10,6 +10,7 @@ export type EvalResult = {
   correlation: number;
   performance: number;
   feedback: string;
+  expected_answer?: string;
 };
 
 export async function evaluateAnswer(category: string, question: string, answer: string): Promise<EvalResult> {
@@ -26,12 +27,15 @@ export async function evaluateAnswer(category: string, question: string, answer:
     2. Correlation: Apakah jawaban dihubungkan dengan nilai-nilai Kristiani, Alkitab, atau visi Remaja GMIM?
     3. Performance: (Berdasarkan teks) Apakah struktur bahasa menunjukkan ketenangan dan keyakinan?
     
+    Sebagai tambahan, berikan 'expected_answer' yang berisi "Jawaban Paling Tepat & Penjelasannya" menurut standar juri.
+    
     Format balasan Anda harus dalam JSON murni:
     {
       "content": number,
       "correlation": number,
       "performance": number,
-      "feedback": "string (singkat & motivatif dalam Bahasa Indonesia)"
+      "feedback": "string (singkat & motivatif dalam Bahasa Indonesia)",
+      "expected_answer": "string (Jawaban ideal beserta penjelasannya)"
     }
   `;
 
@@ -48,6 +52,7 @@ export async function evaluateAnswer(category: string, question: string, answer:
       correlation: result.correlation || 0,
       performance: result.performance || 0,
       feedback: result.feedback || 'Gagal mengevaluasi jawaban.',
+      expected_answer: result.expected_answer || '',
     };
   } catch (error) {
     console.error('Groq Eval Error:', error);
@@ -62,16 +67,19 @@ export async function evaluateAnswer(category: string, question: string, answer:
 
 export async function evaluateKeyword(keywords: string[], explanation: string): Promise<EvalResult> {
   const prompt = `
-    Anda adalah juri Pemilihan Remaja Teladan GMIM. Peserta harus menjelaskan hubungan antara 3 kata kunci berikut: ${keywords.join(', ')}.
+    Anda adalah juri Pemilihan Remaja Teladan GMIM. Peserta harus membahas dan menguraikan satu kata kunci berikut dari perspektif pemuda Kristen dan visi GMIM: ${keywords.join(', ')}.
     
     Penjelasan Peserta: ${explanation}
+    
+    Sebagai tambahan, berikan 'expected_answer' yang berisi "Jawaban Paling Tepat & Penjelasannya" (bagaimana seharusnya kata kunci tersebut dijawab) menurut standar juri.
     
     Berikan penilaian JSON:
     {
       "content": number,
       "correlation": number,
       "performance": number,
-      "feedback": "string (Bahasa Indonesia)"
+      "feedback": "string (Bahasa Indonesia)",
+      "expected_answer": "string (Penjelasan ideal untuk kata kunci tersebut)"
     }
   `;
 
@@ -82,7 +90,14 @@ export async function evaluateKeyword(keywords: string[], explanation: string): 
       response_format: { type: 'json_object' },
     });
 
-    return JSON.parse(chatCompletion.choices[0].message.content || '{}');
+    const result = JSON.parse(chatCompletion.choices[0].message.content || '{}');
+    return {
+      content: result.content || 0,
+      correlation: result.correlation || 0,
+      performance: result.performance || 0,
+      feedback: result.feedback || 'Gagal AI',
+      expected_answer: result.expected_answer || ''
+    };
   } catch (error) {
     console.error('Groq Keyword Eval Error:', error);
     return { content: 0, correlation: 0, performance: 0, feedback: 'Error AI.' };

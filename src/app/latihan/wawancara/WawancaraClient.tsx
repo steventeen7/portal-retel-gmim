@@ -66,6 +66,12 @@ export default function WawancaraClient({ user, initialData = [] }: { user: any,
         })
       });
 
+      
+      // Auto speak the feedback and expected answer
+      const randomVoiceIdx = Math.floor(Math.random() * 5);
+      const textToSpeak = `Feedback Juri: ${result.feedback}. Jawaban paling tepat: ${result.expected_answer}`;
+      setTimeout(() => speak(textToSpeak, randomVoiceIdx), 500);
+
       toast.success('Penilaian AI selesai & tersimpan!');
     } catch (err) {
       toast.error('Gagal melakukan penilaian AI.');
@@ -245,6 +251,18 @@ export default function WawancaraClient({ user, initialData = [] }: { user: any,
                 </div>
                 <h3 className="text-2xl font-black tracking-tight">Analisis Jawaban</h3>
                 <p className="text-indigo-100/80 leading-relaxed font-medium">"{evalResult.feedback}"</p>
+                
+                {evalResult.expected_answer && (
+                   <div className="mt-4 p-4 bg-indigo-950/50 rounded-2xl border border-indigo-700/50">
+                      <div className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-1">
+                         Jawaban Paling Tepat
+                      </div>
+                      <p className="text-sm font-medium text-indigo-200">
+                         {evalResult.expected_answer}
+                      </p>
+                   </div>
+                )}
+                
                 <div className="pt-6">
                    <button onClick={handleNext} className="w-full py-4 bg-white text-indigo-900 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-50 transition-colors shadow-lg active:scale-95">
                       Lanjut ke Soal Berikutnya

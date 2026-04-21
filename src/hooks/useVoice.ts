@@ -8,11 +8,20 @@ export function useVoice() {
   const recognitionRef = useRef<any>(null);
 
   // ─── Text-to-Speech (TTS) ────────────────────────────────────────────────
-  const speak = useCallback((text: string) => {
+  const speak = useCallback((text: string, voiceIndex: number = 0) => {
     if (typeof window !== 'undefined' && window.speechSynthesis) {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'id-ID';
+      
+      const voices = window.speechSynthesis.getVoices();
+      const idVoices = voices.filter(v => v.lang.includes('id'));
+      
+      if (idVoices.length > 0) {
+        // Pilih suara berdasarkan voiceIndex (modulus array length agar aman)
+        utterance.voice = idVoices[voiceIndex % idVoices.length];
+      }
+      
       utterance.rate = 1.0;
       utterance.pitch = 1.0;
       window.speechSynthesis.speak(utterance);
@@ -52,22 +61,23 @@ export function useVoice() {
     
     recognition.onresult = (event: any) => {
       let finalTranscript = '';
-      for (let i = event.resultIndex; i < event.results.length; ++i) {
+      
+      // 1. Ambil semua teks yang sudah final
+      for (let i = 0; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
-          // Hanya tambahkan hasil final ke buffer utama jika diinginkan, 
-          // tapi biasanya kita proses ulang semua untuk akurasi.
+          finalTranscript += event.results[i][0].transcript + ' ';
         }
       }
       
-      // Cara paling aman: Membangun ulang dari semua results di event saat ini
-      let currentFull = '';
-      for (let i = 0; i < event.results.length; i++) {
-        const text = event.results[i][0].transcript;
-        if (text) {
-          currentFull += text.trim() + ' ';
-        }
+      // 2. Ambil HANYA interim result yang paling terakhir (mencegah bug duplikasi kata di beberapa browser)
+      let interimTranscript = '';
+      const lastResult = event.results[event.results.length - 1];
+      if (lastResult && !lastResult.isFinal) {
+        interimTranscript = lastResult[0].transcript;
       }
-      setTranscript(currentFull.trim());
+      
+      const currentFull = finalTranscript + ' ' + interimTranscript;
+      setTranscript(currentFull.replace(/\s+/g, ' ').trim());
     };
 
     recognition.onerror = (event: any) => {

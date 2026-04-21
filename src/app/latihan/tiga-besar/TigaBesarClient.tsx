@@ -56,6 +56,10 @@ export default function TigaBesarClient({ user, initialData = [] }: { user: any,
         })
       });
 
+      const randomVoiceIdx = Math.floor(Math.random() * 5);
+      const textToSpeak = `Komentar Juri: ${result.feedback}. Jawaban Paling Tepat: ${result.expected_answer}`;
+      setTimeout(() => speak(textToSpeak, randomVoiceIdx), 500);
+
       toast.success('Penilaian Juri selesai & tersimpan!');
     } catch (err) {
       toast.error('Evaluasi AI Gagal.');
@@ -193,6 +197,17 @@ export default function TigaBesarClient({ user, initialData = [] }: { user: any,
                  <p className="text-gray-300 leading-relaxed font-medium italic text-lg opacity-90">
                    "{evalResult.feedback}"
                  </p>
+                 
+                 {evalResult.expected_answer && (
+                    <div className="mt-4 p-4 bg-gray-800 rounded-2xl border border-gray-700">
+                       <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">
+                          Jawaban Standar Juri
+                       </div>
+                       <p className="text-sm font-medium text-amber-100">
+                          {evalResult.expected_answer}
+                       </p>
+                    </div>
+                 )}
               </div>
               <div className="pt-10">
                  <button onClick={handleNext} className="w-full py-5 bg-amber-500 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-amber-600 transition-all shadow-xl shadow-amber-500/30 active:scale-95">
