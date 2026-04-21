@@ -12,7 +12,15 @@ export const metadata: Metadata = {
   keywords: 'Latihan, RETEL, GMIM, Remaja Teladan, Seleksi, Sinode GMIM',
   manifest: '/manifest.json',
   themeColor: '#7c3aed',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Latihan RETEL',
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover',
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
