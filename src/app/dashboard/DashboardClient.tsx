@@ -45,9 +45,9 @@ export default function DashboardClient({
   }, [searchParams]);
 
   const isPending = user && user.is_approved === false && user.role !== 'admin';
-  const waChannelLink = "https://whatsapp.com/channel/0029Vb8OpTRCBtxFwnFiTh2w";
-  const waLink = waChannelLink;
-  const waActivationLink = waChannelLink;
+  const waNumber = "6285256510571";
+  const waLink = `https://wa.me/${waNumber}?text=Syalom%20Kak,%20Saya%20ingin%20meminta%20izin%20akses%20untuk%20modul%20${deniedModule}%20di%20Portal%20RETEL.%20Terima%20kasih.`;
+  const waActivationLink = `https://wa.me/${waNumber}?text=Syalom%20Kak,%20Saya%20${user?.full_name}%20dari%20Jemaat%20${user?.jemaat}.%20Tolong%20diaktivasi%20akun%20saya%20untuk%20persiapan%20tes.`;
 
   const menuItems = [
     {

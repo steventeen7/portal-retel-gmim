@@ -52,7 +52,7 @@ export default function RegisterPage() {
         toast.error(errorMsg);
       } else {
         const waMsg = `Syalom%20Kak,%20Saya%20${form.full_name}%20dari%20Jemaat%20${form.jemaat}.%20Tolong%20diaktivasi%20untuk%20tesnya`;
-        const waLink = `https://whatsapp.com/channel/0029Vb8OpTRCBtxFwnFiTh2w`;
+        const waLink = `https://wa.me/6285256510571?text=${waMsg}`;
         
         toast.success(
           (t) => (
