@@ -8,6 +8,7 @@
   "background_color": "#ffffff",
   "theme_color": "#7c3aed",
   "orientation": "portrait",
+  "prefer_related_applications": false,
   "categories": [
     "education",
     "test preparation"
@@ -16,23 +17,23 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "/app-icon.jpg",
+      "src": "/app-icon.png",
       "sizes": "1024x1024",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/app-icon.jpg",
+      "src": "/app-icon.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "maskable"
     }
   ],
   "screenshots": [
     {
-      "src": "/app-icon.jpg",
+      "src": "/app-icon.png",
       "sizes": "1024x1024",
-      "type": "image/jpeg",
+      "type": "image/png",
       "label": "Tampilan Latihan RETEL GMIM"
     }
   ]
