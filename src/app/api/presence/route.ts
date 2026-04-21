@@ -23,6 +23,12 @@ export async function POST(req: NextRequest) {
   if (!payload) return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
 
   try {
+    // Verifikasi sesi (Single Device Login)
+    const user = await db.users.findById(payload.id);
+    if (user && user.session_id && user.session_id !== payload.session_id) {
+       return NextResponse.json({ error: 'MULTI_DEVICE_LOGIN' }, { status: 403 });
+    }
+
     await db.presence.ping(payload.id);
     return NextResponse.json({ success: true });
   } catch (err) {

@@ -15,12 +15,28 @@ export default function Layout({ children, user }: { children: React.ReactNode, 
   useEffect(() => {
     if (!user) return;
     
-    const ping = () => fetch('/api/presence', { method: 'POST' }).catch(() => {});
+    const ping = async () => {
+      try {
+        const res = await fetch('/api/presence', { method: 'POST' });
+        if (res.status === 403) {
+          const data = await res.json();
+          if (data.error === 'MULTI_DEVICE_LOGIN') {
+             toast.error('Akun ini Login dengan di beberapa device', { id: 'session-clash', duration: 10000 });
+             // Force logout locally and redirect
+             await fetch('/api/auth/logout', { method: 'POST' });
+             router.push('/auth/login');
+             router.refresh();
+          }
+        }
+      } catch (err) {
+        console.error('Presence ping failed:', err);
+      }
+    };
+
     ping(); // Initial ping
-    
     const interval = setInterval(ping, 20000); // Ping every 20s
     return () => clearInterval(interval);
-  }, [user]);
+  }, [user, router]);
 
   const menu = [
     { href: '/', label: 'Beranda' },

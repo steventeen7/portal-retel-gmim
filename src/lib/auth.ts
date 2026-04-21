@@ -22,6 +22,7 @@ export type JWTPayload = {
   email: string
   full_name: string
   role: string
+  session_id?: string
   permissions?: string[]
   is_approved?: boolean
 }

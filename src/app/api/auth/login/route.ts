@@ -37,11 +37,19 @@ export async function POST(req: NextRequest) {
       )
     }
 
+    // 3. Generate session_id baru
+    const sessionId = Date.now().toString();
+
+    // 4. Update session_id di database
+    await db.users.update(user.id, { session_id: sessionId });
+
+    // 5. Buat Token JWT dengan session_id
     const token = await signToken({
       id: user.id,
       email: user.email,
       full_name: user.full_name,
       role: user.role,
+      session_id: sessionId,
       permissions: Array.isArray(user.permissions) ? user.permissions : [],
       is_approved: user.is_approved
     })
