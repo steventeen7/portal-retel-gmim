@@ -60,24 +60,22 @@ export function useVoice() {
     recognition.onstart = () => setIsRecording(true);
     
     recognition.onresult = (event: any) => {
-      let finalTranscript = '';
-      
-      // 1. Ambil semua teks yang sudah final
-      for (let i = 0; i < event.results.length; ++i) {
-        if (event.results[i].isFinal) {
-          finalTranscript += event.results[i][0].transcript + ' ';
+      let combined = '';
+      for (let i = 0; i < event.results.length; i++) {
+        let chunk = event.results[i][0].transcript.trim();
+        if (!chunk) continue;
+        
+        // Fix untuk bug di HP (Android Chrome) di mana engine Speech API menumpuk 
+        // histori keseluruhan kalimat ke dalam setiap index result baru 
+        // (contoh: [0]="cinta", [1]="cinta kasih", [2]="cinta kasih agape")
+        if (combined.length > 0 && chunk.toLowerCase().startsWith(combined.toLowerCase())) {
+           combined = chunk;
+        } else {
+           combined += (combined ? ' ' : '') + chunk;
         }
       }
       
-      // 2. Ambil HANYA interim result yang paling terakhir (mencegah bug duplikasi kata di beberapa browser)
-      let interimTranscript = '';
-      const lastResult = event.results[event.results.length - 1];
-      if (lastResult && !lastResult.isFinal) {
-        interimTranscript = lastResult[0].transcript;
-      }
-      
-      const currentFull = finalTranscript + ' ' + interimTranscript;
-      setTranscript(currentFull.replace(/\s+/g, ' ').trim());
+      setTranscript(combined);
     };
 
     recognition.onerror = (event: any) => {
