@@ -266,7 +266,7 @@ export default function RegisterPage() {
         </div>
 
         <p className="text-center text-[10px] font-bold text-gray-400 mt-10 uppercase tracking-[0.2em]">
-          © PORTAL RETEL GMIM
+          © LATIHAN RETEL GMIM
         </p>
       </div>
     </div>

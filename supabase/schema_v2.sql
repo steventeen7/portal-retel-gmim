@@ -4,7 +4,7 @@
 
 -- 1. Tabel Profiles (Extensi dari Auth users atau pengganti tabel users lokal)
 CREATE TABLE IF NOT EXISTS profiles (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  id TEXT PRIMARY KEY,
   email TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL, -- Hanya jika tidak menggunakan Supabase Auth penuh
   full_name TEXT NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS profiles (
 -- 2. Tabel Activity Logs
 CREATE TABLE IF NOT EXISTS activity_logs (
   id SERIAL PRIMARY KEY,
-  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  user_id TEXT REFERENCES profiles(id) ON DELETE CASCADE,
   activity TEXT NOT NULL,
   timestamp TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS soal_tes (
 -- 4. Tabel Nilai User
 CREATE TABLE IF NOT EXISTS nilai_user (
   id SERIAL PRIMARY KEY,
-  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  user_id TEXT REFERENCES profiles(id) ON DELETE CASCADE,
   tahun INT,
   skor INT,
   jawaban JSONB,
@@ -88,9 +88,9 @@ CREATE TABLE IF NOT EXISTS materi_belajar (
 -- 9. Tabel Chat Messages
 CREATE TABLE IF NOT EXISTS chat_messages (
   id SERIAL PRIMARY KEY,
-  from_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  from_id TEXT REFERENCES profiles(id) ON DELETE CASCADE,
   from_name TEXT NOT NULL,
-  to_id UUID REFERENCES profiles(id) ON DELETE SET NULL,
+  to_id TEXT REFERENCES profiles(id) ON DELETE SET NULL,
   message TEXT NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS chat_messages (
 -- 10. Tabel Simulasi History
 CREATE TABLE IF NOT EXISTS simulation_history (
   id SERIAL PRIMARY KEY,
-  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  user_id TEXT REFERENCES profiles(id) ON DELETE CASCADE,
   total_soal INT,
   skor INT,
   waktu_tempuh INT,

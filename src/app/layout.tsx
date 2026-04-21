@@ -7,9 +7,12 @@ import Layout from '@/components/Layout'
 import { verifyToken } from '@/lib/auth'
 
 export const metadata: Metadata = {
-  title: 'Portal Persiapan RETEL GMIM — Media Pembelajaran Remaja Teladan',
-  description: 'Portal resmi Media Pembelajaran Remaja untuk Pemilihan Remaja Teladan Sinode GMIM. Persiapkan diri Anda dengan materi, tes, dan panduan wawancara.',
-  keywords: 'RETEL, GMIM, Remaja Teladan, Seleksi, Sinode GMIM',
+  title: 'Latihan RETEL GMIM — Media Pembelajaran Remaja Teladan',
+  description: 'Aplikasi Latihan resmi Media Pembelajaran Remaja untuk Pemilihan Remaja Teladan Sinode GMIM.',
+  keywords: 'Latihan, RETEL, GMIM, Remaja Teladan, Seleksi, Sinode GMIM',
+  manifest: '/manifest.json',
+  themeColor: '#7c3aed',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -28,6 +31,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
       </head>
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js');
+                });
+              }
+            `,
+          }}
+        />
         <Toaster
           position="top-right"
           toastOptions={{

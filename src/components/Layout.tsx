@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { LogOut, User, ShieldCheck } from 'lucide-react';
@@ -7,8 +7,21 @@ import toast from 'react-hot-toast';
 import ChatWidget from './ChatWidget';
 
 export default function Layout({ children, user }: { children: React.ReactNode, user?: any }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+
+  // Global Presence Tracking
+  useEffect(() => {
+    if (!user) return;
+    
+    const ping = () => fetch('/api/presence', { method: 'POST' }).catch(() => {});
+    ping(); // Initial ping
+    
+    const interval = setInterval(ping, 20000); // Ping every 20s
+    return () => clearInterval(interval);
+  }, [user]);
+
   const menu = [
     { href: '/', label: 'Beranda' },
     { href: '/latihan/tes', label: 'Tes Tertulis' },
@@ -17,8 +30,6 @@ export default function Layout({ children, user }: { children: React.ReactNode, 
     { href: '/latihan/tiga-besar', label: 'Latihan 3 Besar' },
     { href: '/belajar', label: 'Belajar' },
   ];
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -39,8 +50,8 @@ export default function Layout({ children, user }: { children: React.ReactNode, 
           <div className="flex justify-between items-center py-4">
             <Link href="/" className="text-xl font-black tracking-tight shrink-0 flex items-center gap-2 hover:opacity-80 transition-opacity">
                <ShieldCheck className="w-6 h-6 text-purple-300" />
-               <span className="hidden sm:inline">Portal Persiapan Retel GMIM</span>
-               <span className="sm:hidden">Portal RETEL</span>
+               <span className="hidden sm:inline">Latihan RETEL GMIM</span>
+               <span className="sm:hidden">Latihan RETEL</span>
             </Link>
 
             {/* Hamburger Toggle (Mobile Only) */}

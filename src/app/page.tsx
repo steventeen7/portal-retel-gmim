@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="space-y-8">
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl p-8 text-center">
-        <h1 className="text-4xl font-bold mb-4">Portal Persiapan Pemilihan Remaja Teladan GMIM</h1>
+        <h1 className="text-4xl font-bold mb-4">Latihan RETEL GMIM</h1>
         <p className="text-lg">Persiapkan dirimu menjadi remaja teladan yang berakar, bertumbuh, dan berbuah bagi Kristus</p>
       </div>
       

@@ -1,0 +1,17 @@
+{
+  "name": "Latihan RETEL GMIM",
+  "short_name": "Latihan RETEL",
+  "description": "Aplikasi Latihan resmi Media Pembelajaran Remaja untuk Pemilihan Remaja Teladan Sinode GMIM.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

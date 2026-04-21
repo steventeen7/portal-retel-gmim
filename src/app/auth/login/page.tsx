@@ -54,7 +54,7 @@ export default function LoginPage() {
               <Cross className="w-8 h-8 text-white group-hover:rotate-12 transition-transform" />
             </div>
             <h1 className="text-3xl font-black text-gray-900 tracking-tight">Masuk</h1>
-            <p className="text-gray-500 text-sm mt-2 font-medium">Portal Latihan Remaja Teladan GMIM</p>
+            <p className="text-gray-500 text-sm mt-2 font-medium">Latihan Remaja Teladan GMIM</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -128,7 +128,7 @@ export default function LoginPage() {
         </div>
 
         <p className="text-center text-[10px] font-bold text-gray-400 mt-10 uppercase tracking-[0.2em]">
-          © PORTAL RETEL GMIM
+          © LATIHAN RETEL GMIM
         </p>
       </div>
     </div>

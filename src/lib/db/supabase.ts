@@ -12,7 +12,6 @@ export const supabaseDB = {
       return data || undefined;
     },
     async findById(id: string): Promise<User | undefined> {
-      if (!isUUID(id)) return undefined;
       try {
         const { data } = await supabase.from('profiles').select('*').eq('id', id).single();
         return data || undefined;
@@ -40,7 +39,6 @@ export const supabaseDB = {
       return data || [];
     },
     async update(id: string, data: any): Promise<any> {
-      if (!isUUID(id)) throw new Error('Invalid ID format');
       try {
         const { data: updated, error } = await supabase
           .from('profiles')
@@ -55,7 +53,6 @@ export const supabaseDB = {
       }
     },
     async delete(id: string): Promise<boolean> {
-      if (!isUUID(id)) throw new Error('Invalid ID format');
       try {
         const { error } = await supabase.from('profiles').delete().eq('id', id);
         if (error) throw error;
