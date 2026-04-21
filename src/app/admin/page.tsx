@@ -30,7 +30,7 @@ export default async function AdminPage() {
       {/* Footer Design */}
       <footer className="mt-20 py-10 border-t border-gray-100 opacity-50">
          <div className="max-w-7xl mx-auto px-6 text-center">
-            <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">PORTAL RESMI RETEL GMIM • ADVANCED ADMIN PANEL</p>
+            <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em]">LATIHAN RESMI RETEL GMIM • ADVANCED ADMIN PANEL</p>
          </div>
       </footer>
     </div>
