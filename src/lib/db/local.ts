@@ -336,20 +336,29 @@ export const localDB = {
   // ─── Chat ──────────────────────────────────────────────────────────────────
   chat: {
     getMessages(): any[] {
-      return readJSON<any>('chat_messages.json')
+      const messages = readJSON<any>('chat_messages.json')
+      return messages.filter((m: any) => !m.to_id) // Only public messages
     },
-    createMessage(fromId: string, fromName: string, message: string): any {
+    getPrivateMessages(userId: string, targetId: string): any[] {
+      const messages = readJSON<any>('chat_messages.json')
+      return messages.filter((m: any) => 
+        (m.from_id === userId && m.to_id === targetId) || 
+        (m.from_id === targetId && m.to_id === userId)
+      )
+    },
+    createMessage(fromId: string, fromName: string, message: string, toId: string | null = null): any {
       const messages = readJSON<any>('chat_messages.json')
       const newMsg = {
         id: Date.now().toString(),
         from_id: fromId,
         from_name: fromName,
+        to_id: toId,
         message,
         created_at: new Date().toISOString()
       }
       messages.push(newMsg)
-      // Simpan hanya 100 pesan terakhir untuk ringan
-      if (messages.length > 100) {
+      // Simpan hanya 1000 pesan terakhir (bertambah dari 100 untuk histori lebih baik)
+      if (messages.length > 1000) {
         messages.shift()
       }
       writeJSON('chat_messages.json', messages)

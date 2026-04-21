@@ -76,7 +76,13 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
       fetchedData = fetchedData.slice(start, end);
     }
 
-    setSoal(fetchedData);
+    // Fix duplicate nomor_soal by re-assigning based on index
+    const normalizedData = fetchedData.map((s, idx) => ({
+      ...s,
+      nomor_soal: idx + 1
+    }));
+
+    setSoal(normalizedData);
     setLoading(false);
   }
 

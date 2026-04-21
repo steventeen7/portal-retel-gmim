@@ -71,14 +71,14 @@ export const supabaseDB = {
       try {
         const { data, error } = await supabase.from('soal_tes').select('*').eq('tahun', tahun).order('nomor_soal');
         if (!error && data && data.length > 0) return data;
-      } catch (err) {}
+      } catch (err) { }
       return localDB.soalTes.findByTahun(tahun);
     },
     async findAll(): Promise<SoalTes[]> {
       try {
         const { data, error } = await supabase.from('soal_tes').select('*').order('tahun', { ascending: false }).order('nomor_soal');
         if (!error && data && data.length > 0) return data;
-      } catch (err) {}
+      } catch (err) { }
       return localDB.soalTes.findAll();
     },
     async getTahunList(): Promise<number[]> {
@@ -88,7 +88,7 @@ export const supabaseDB = {
           const tahunSet = new Set(data.map(d => d.tahun));
           return Array.from(tahunSet).sort((a, b) => b - a);
         }
-      } catch (err) {}
+      } catch (err) { }
       return localDB.soalTes.getTahunList();
     }
   },
@@ -114,14 +114,14 @@ export const supabaseDB = {
       try {
         const { data, error } = await supabase.from('soal_wawancara').select('*');
         if (!error && data && data.length > 0) return data;
-      } catch (err) {}
+      } catch (err) { }
       return localDB.soalWawancara.findAll();
     },
     async findByKategori(kategori: string): Promise<SoalWawancara[]> {
       try {
         const { data, error } = await supabase.from('soal_wawancara').select('*').eq('kategori', kategori);
         if (!error && data && data.length > 0) return data;
-      } catch (err) {}
+      } catch (err) { }
       return localDB.soalWawancara.findByKategori(kategori);
     }
   },
@@ -131,21 +131,21 @@ export const supabaseDB = {
       try {
         const { data, error } = await supabase.from('materi_belajar').select('*');
         if (!error && data && data.length > 0) return data;
-      } catch (err) {}
+      } catch (err) { }
       return localDB.materi.findAll();
     },
     async findByKategori(kategori: string): Promise<Materi[]> {
       try {
         const { data, error } = await supabase.from('materi_belajar').select('*').eq('kategori', kategori);
         if (!error && data && data.length > 0) return data;
-      } catch (err) {}
+      } catch (err) { }
       return localDB.materi.findByKategori(kategori);
     },
     async findById(id: number): Promise<Materi | undefined> {
       try {
         const { data, error } = await supabase.from('materi_belajar').select('*').eq('id', id).single();
         if (!error && data) return data;
-      } catch (err) {}
+      } catch (err) { }
       return localDB.materi.findById(id);
     },
     async create(data: any): Promise<any> {
@@ -170,7 +170,7 @@ export const supabaseDB = {
       try {
         const { data, error } = await supabase.from('kata_kunci').select('*');
         if (!error && data && data.length > 0) return data;
-      } catch(err) {}
+      } catch (err) { }
       return localDB.keywords.findAll();
     }
   },
@@ -180,11 +180,11 @@ export const supabaseDB = {
       try {
         const { data, error } = await supabase.from('soal_tiga_besar').select('*');
         if (!error && data && data.length > 0) return data;
-      } catch (err) {}
+      } catch (err) { }
       return localDB.tigaBesar.findAll();
     }
   },
-  
+
   simulationHistory: {
     async create(data: any): Promise<any> {
       const { data: result, error } = await supabase.from('simulation_history').insert([data]).select().single();
