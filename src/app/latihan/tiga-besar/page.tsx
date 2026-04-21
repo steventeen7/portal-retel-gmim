@@ -21,14 +21,20 @@ export default async function TigaBesarPage() {
       redirect('/auth/login')
     }
 
-    const perms = Array.isArray(payload.permissions) ? payload.permissions : []
-    const role = payload.role || 'user'
+    const { db } = await import('@/lib/db')
+    const currentUser = await db.users.findById(payload.id)
+    
+    if (!currentUser) {
+      redirect('/auth/login')
+    }
+
+    const perms = Array.isArray(currentUser.permissions) ? currentUser.permissions : []
+    const role = currentUser.role || 'user'
 
     if (role !== 'admin' && !perms.includes('tiga-besar')) {
       redirect('/dashboard?error=unauthorized&module=tiga-besar')
     }
 
-    const { db } = await import('@/lib/db')
     const initialData = await db.tigaBesar.findAll()
 
     return <TigaBesarClient user={payload} initialData={initialData} />

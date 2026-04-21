@@ -27,13 +27,16 @@ export default function ProfilePage() {
       const res = await fetch('/api/auth/me');
       if (res.ok) {
         const data = await res.json();
-        setUser(data);
+        const profile = data.user;
+        if (!profile) return;
+        
+        setUser(profile);
         setFormData({
-          full_name: data.full_name || '',
-          jemaat: data.jemaat || '',
-          wilayah: data.wilayah || '',
-          rayon: data.rayon || '',
-          phone: data.phone || '',
+          full_name: profile.full_name || '',
+          jemaat: profile.jemaat || '',
+          wilayah: profile.wilayah || '',
+          rayon: profile.rayon || '',
+          phone: profile.phone || '',
         });
       } else {
         router.push('/auth/login');

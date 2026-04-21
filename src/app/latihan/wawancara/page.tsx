@@ -21,14 +21,20 @@ export default async function WawancaraPage() {
       redirect('/auth/login')
     }
 
-    const perms = Array.isArray(payload.permissions) ? payload.permissions : []
-    const role = payload.role || 'user'
+    const { db } = await import('@/lib/db')
+    const currentUser = await db.users.findById(payload.id)
+    
+    if (!currentUser) {
+      redirect('/auth/login')
+    }
+
+    const perms = Array.isArray(currentUser.permissions) ? currentUser.permissions : []
+    const role = currentUser.role || 'user'
 
     if (role !== 'admin' && !perms.includes('wawancara')) {
       redirect('/dashboard?error=unauthorized&module=wawancara')
     }
 
-    const { db } = await import('@/lib/db')
     const initialData = await db.soalWawancara.findAll()
 
     return <WawancaraClient user={payload} initialData={initialData} />

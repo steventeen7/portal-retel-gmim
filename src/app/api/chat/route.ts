@@ -22,9 +22,9 @@ export async function GET(req: NextRequest) {
       const messages = await db.chat.getMessages();
       return NextResponse.json(messages);
     }
-  } catch (err) {
+  } catch (err: any) {
     console.error('API Chat Get Error:', err);
-    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ error: err.message || 'Server error' }, { status: 500 });
   }
 }
 
@@ -49,8 +49,8 @@ export async function POST(req: NextRequest) {
     }
     
     return NextResponse.json(newMsg);
-  } catch (err) {
+  } catch (err: any) {
     console.error('API Chat Post Error:', err);
-    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ error: err.message || 'Server error' }, { status: 500 });
   }
 }

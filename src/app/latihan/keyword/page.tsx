@@ -22,15 +22,20 @@ export default async function KeywordPage() {
       redirect('/auth/login')
     }
 
-    const perms = Array.isArray(payload.permissions) ? payload.permissions : []
-    const role = payload.role || 'user'
+    const { db } = await import('@/lib/db')
+    const currentUser = await db.users.findById(payload.id)
+    
+    if (!currentUser) {
+      redirect('/auth/login')
+    }
 
-    // Check permission - Langsung dari Token
+    const perms = Array.isArray(currentUser.permissions) ? currentUser.permissions : []
+    const role = currentUser.role || 'user'
+
     if (role !== 'admin' && !perms.includes('keyword')) {
       redirect('/dashboard?error=unauthorized&module=keyword')
     }
 
-    const { db } = await import('@/lib/db')
     const initialData = await db.keywords.findAll()
 
     return <KeywordClient user={payload} initialData={initialData} />

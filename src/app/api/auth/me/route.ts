@@ -8,11 +8,19 @@ export async function GET(req: NextRequest) {
   }
 
   const payload = await verifyToken(token)
-  if (!payload) {
+  if (!payload || !payload.id) {
     return NextResponse.json({ error: 'Token tidak valid atau sudah kadaluarsa.' }, { status: 401 })
   }
 
-  return NextResponse.json({ user: payload })
+  const { db } = await import('@/lib/db')
+  const user = await db.users.findById(payload.id)
+
+  if (!user) {
+     return NextResponse.json({ error: 'Pengguna tidak ditemukan.' }, { status: 404 })
+  }
+
+  // Return the latest data from DB
+  return NextResponse.json({ user })
 }
 
 export async function DELETE() {

@@ -6,10 +6,7 @@ import { supabaseDB } from './supabase'
 // Note: Supabase methods are ASYNC, local methods are SYNC (wrapped in async for consistency).
 // ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ─── ───
 
-const isProd = process.env.NODE_ENV === 'production';
-const hasSupabase = !!process.env.NEXT_PUBLIC_SUPABASE_URL;
+const mode = 'supabase'; // Force Supabase as requested
 
-const mode = process.env.DB_MODE || (hasSupabase ? 'supabase' : 'local');
-
-export const db: any = mode === 'supabase' ? supabaseDB : localDB;
+export const db: any = supabaseDB;
 export const dbMode = mode;
