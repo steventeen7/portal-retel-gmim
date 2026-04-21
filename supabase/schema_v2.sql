@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS profiles (
   role TEXT DEFAULT 'user',
   is_approved BOOLEAN DEFAULT false, -- Izin akses pendaftaran
   permissions JSONB DEFAULT '[]',     -- Modul yang bisa diakses (ex: ["tes", "wawancara"])
+  last_seen TIMESTAMP WITH TIME ZONE,  -- Tracking Online Status
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
@@ -82,6 +83,26 @@ CREATE TABLE IF NOT EXISTS materi_belajar (
   kategori TEXT NOT NULL,
   judul TEXT NOT NULL,
   konten TEXT NOT NULL
+);
+
+-- 9. Tabel Chat Messages
+CREATE TABLE IF NOT EXISTS chat_messages (
+  id SERIAL PRIMARY KEY,
+  from_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  from_name TEXT NOT NULL,
+  to_id UUID REFERENCES profiles(id) ON DELETE SET NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- 10. Tabel Simulasi History
+CREATE TABLE IF NOT EXISTS simulation_history (
+  id SERIAL PRIMARY KEY,
+  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  total_soal INT,
+  skor INT,
+  waktu_tempuh INT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
 -- Trigger untuk update timestamp jika diperlukan (opsional)
