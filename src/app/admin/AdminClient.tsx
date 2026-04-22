@@ -7,8 +7,9 @@ import {
   Settings, Search, Filter, History, 
   ClipboardList, Mic, Key, Trophy,
   Save, RefreshCw, Trash2, LayoutDashboard,
-  MessageSquare, ArrowRight, X
+  MessageSquare, ArrowRight, X, BookOpen, BarChart3
 } from 'lucide-react';
+import Link from 'next/link';
 
 type UserProfile = {
   id: string;
@@ -139,6 +140,34 @@ export default function AdminClient({ initialUsers, initialLogs, initialChatLogs
               Ke Dashboard User
            </a>
         </div>
+      </div>
+
+      {/* Modul CRUD Administrasi Soal */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <Link href="/admin/soal-tes" className="p-4 bg-white rounded-[24px] border border-purple-50 shadow-sm flex flex-col justify-center items-center gap-3 hover:border-purple-200 hover:shadow-md transition-all group">
+            <div className="p-3 bg-purple-50 text-purple-600 rounded-2xl group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all"><ClipboardList className="w-6 h-6"/></div>
+            <span className="font-black text-[10px] uppercase tracking-widest text-gray-700">Soal Tes Tertulis</span>
+        </Link>
+        <Link href="/admin/wawancara" className="p-4 bg-white rounded-[24px] border border-purple-50 shadow-sm flex flex-col justify-center items-center gap-3 hover:border-purple-200 hover:shadow-md transition-all group">
+            <div className="p-3 bg-indigo-50 text-indigo-600 rounded-2xl group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all"><Mic className="w-6 h-6"/></div>
+            <span className="font-black text-[10px] uppercase tracking-widest text-gray-700">Wawancara AI</span>
+        </Link>
+        <Link href="/admin/kata-kunci" className="p-4 bg-white rounded-[24px] border border-purple-50 shadow-sm flex flex-col justify-center items-center gap-3 hover:border-purple-200 hover:shadow-md transition-all group">
+            <div className="p-3 bg-pink-50 text-pink-600 rounded-2xl group-hover:scale-110 group-hover:bg-pink-600 group-hover:text-white transition-all"><Key className="w-6 h-6"/></div>
+            <span className="font-black text-[10px] uppercase tracking-widest text-gray-700">Kata Kunci</span>
+        </Link>
+        <Link href="/admin/tiga-besar" className="p-4 bg-white rounded-[24px] border border-purple-50 shadow-sm flex flex-col justify-center items-center gap-3 hover:border-purple-200 hover:shadow-md transition-all group">
+            <div className="p-3 bg-amber-50 text-amber-600 rounded-2xl group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all"><Trophy className="w-6 h-6"/></div>
+            <span className="font-black text-[10px] uppercase tracking-widest text-gray-700">Soal 3 Besar</span>
+        </Link>
+        <Link href="/admin/materi" className="p-4 bg-white rounded-[24px] border border-purple-50 shadow-sm flex flex-col justify-center items-center gap-3 hover:border-purple-200 hover:shadow-md transition-all group">
+            <div className="p-3 bg-emerald-50 text-emerald-600 rounded-2xl group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all"><BookOpen className="w-6 h-6"/></div>
+            <span className="font-black text-[10px] uppercase tracking-widest text-gray-700">Materi Terbaca</span>
+        </Link>
+        <Link href="/admin/hasil-tes" className="p-4 bg-white rounded-[24px] border border-purple-50 shadow-sm flex flex-col justify-center items-center gap-3 hover:border-purple-200 hover:shadow-md transition-all group">
+            <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all"><BarChart3 className="w-6 h-6"/></div>
+            <span className="font-black text-[10px] uppercase tracking-widest text-gray-700">Skor & Hasil</span>
+        </Link>
       </div>
 
       {/* Tab Navigation */}

@@ -2,7 +2,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { verifyToken } from '@/lib/auth'
 import { db } from '@/lib/db'
-import { BarChart3, TrendingUp, Calendar, CheckCircle2, Award, ClipboardList, ArrowUpRight } from 'lucide-react'
+import { BarChart3, TrendingUp, Calendar, CheckCircle2, Award, ClipboardList, ArrowUpRight, Mic } from 'lucide-react'
 
 export default async function LaporanPage() {
   const cookieStore = await cookies()
@@ -11,6 +11,7 @@ export default async function LaporanPage() {
   if (!user) redirect('/auth/login')
 
   const riwayat = await db.nilaiUser.findByUser(user.id)
+  const simHistory = await db.simulationHistory.findByUser(user.id)
   
   // Grouping data per tahun untuk ringkasan
   const summaryPerTahun = riwayat.reduce((acc: any, curr: any) => {
@@ -135,6 +136,53 @@ export default async function LaporanPage() {
                      </tbody>
                   </table>
                </div>
+            </div>
+
+            {/* Simulation History Table */}
+            <div className="space-y-6 mt-16 pb-20">
+               <div className="flex items-center gap-2 px-2">
+                  <Mic className="w-5 h-5 text-gray-400" />
+                  <h2 className="text-xl font-black text-gray-900 tracking-tight uppercase tracking-widest">Detail Riwayat Latihan Tambahan & Simulasi Akhir</h2>
+               </div>
+               {simHistory.length === 0 ? (
+                 <div className="bg-gray-50 rounded-3xl p-10 text-center border border-gray-100">
+                    <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">Belum ada riwayat pengerjaan simulasi / tes lisan.</p>
+                 </div>
+               ) : (
+                 <div className="bg-white rounded-[32px] border border-gray-100 shadow-xl shadow-purple-900/5 overflow-hidden">
+                    <table className="w-full text-left border-collapse">
+                       <thead>
+                          <tr className="bg-indigo-50/50 border-b border-indigo-100">
+                             <th className="px-8 py-5 text-[10px] font-black text-indigo-400 uppercase tracking-widest">Tanggal / Waktu</th>
+                             <th className="px-8 py-5 text-[10px] font-black text-indigo-400 uppercase tracking-widest">Durasi Tempuh</th>
+                             <th className="px-8 py-5 text-[10px] font-black text-indigo-400 uppercase tracking-widest">Skor Akhir (100)</th>
+                          </tr>
+                       </thead>
+                       <tbody className="divide-y divide-gray-50">
+                          {simHistory.map((n: any) => (
+                             <tr key={n.id} className="hover:bg-indigo-50/10 transition-colors group">
+                                <td className="px-8 py-5 text-sm font-bold text-gray-700">
+                                   {new Date(n.created_at).toLocaleString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                                </td>
+                                <td className="px-8 py-5">
+                                   <span className="px-3 py-1 bg-white border border-indigo-100 text-indigo-700 rounded-full text-[10px] font-black tracking-widest uppercase shadow-sm">
+                                      {n.waktu_tempuh} detik
+                                   </span>
+                                </td>
+                                <td className="px-8 py-5">
+                                   <div className="flex items-center gap-2">
+                                      <div className="text-lg font-black text-gray-900">{Math.round(n.skor)}</div>
+                                      <div className={`h-1.5 w-16 bg-gray-100 rounded-full overflow-hidden relative`}>
+                                         <div className="absolute inset-0 bg-indigo-600 rounded-full" style={{ width: `${Math.min(100, n.skor)}%` }}></div>
+                                      </div>
+                                   </div>
+                                </td>
+                             </tr>
+                          ))}
+                       </tbody>
+                    </table>
+                 </div>
+               )}
             </div>
           </div>
         )}
