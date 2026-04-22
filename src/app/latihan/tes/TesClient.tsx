@@ -36,7 +36,11 @@ type Hasil = {
 };
 
 const OPSI = ['a', 'b', 'c', 'd'] as const;
-const TAHUN_LIST = [2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025, '2026 - Paket A', '2026 - Paket B', '2026 - Paket C', '2026 - Paket D', '2026 - Paket E', '2026 - Paket F', '2026 - Paket G', '2026 - Paket H', '2026 - Paket I', '2026 - Paket J'];
+const TAHUN_LIST = [
+  2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025, 
+  '2026 - Paket A', '2026 - Paket B', '2026 - Paket C', '2026 - Paket D', '2026 - Paket E', '2026 - Paket F', '2026 - Paket G', '2026 - Paket H', '2026 - Paket I', '2026 - Paket J',
+  'Rangkuman 1 (2019-2025)', 'Rangkuman 2 (2019-2025)', 'Rangkuman 3 (2019-2025)'
+];
 
 export default function TesClient({ user, initialData = [] }: { user: any, initialData?: Soal[] }) {
   const [selectedTahun, setSelectedTahun] = useState<number | string | null>(null);
@@ -61,7 +65,11 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
 
   function loadSoal() {
     setLoading(true);
-    const actualTahun = typeof selectedTahun === 'string' ? 2026 : selectedTahun;
+    let actualTahun: string | number = selectedTahun;
+    if (selectedTahun === 'Rangkuman 1 (2019-2025)') actualTahun = 2091;
+    if (selectedTahun === 'Rangkuman 2 (2019-2025)') actualTahun = 2092;
+    if (selectedTahun === 'Rangkuman 3 (2019-2025)') actualTahun = 2093;
+    if (typeof selectedTahun === 'string' && selectedTahun.startsWith('2026')) actualTahun = 2026;
 
     let fetchedData = initialData.filter((s) => s.tahun === actualTahun);
 
@@ -176,8 +184,8 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
             >
               <div className="absolute -right-4 -top-4 w-12 h-12 bg-purple-50 rounded-full group-hover:scale-[3] transition-transform duration-500" />
               <div className="relative">
-                <div className="text-2xl font-black text-purple-600 mb-1">{t}</div>
-                <div className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Tahun Soal</div>
+                <div className="text-2xl font-black text-purple-600 mb-1 leading-tight">{t}</div>
+                <div className="text-[10px] uppercase font-bold text-gray-400 tracking-widest mt-2">{typeof t === 'string' && t.startsWith('Rangkuman') ? 'Bonus Eksklusif' : 'Tahun Soal'}</div>
               </div>
             </button>
           ))}
