@@ -4,6 +4,9 @@
 -- Kolom: tahun, nomor_soal, teks_soal, opsi_a, opsi_b, opsi_c, opsi_d, jawaban_benar
 -- ============================================================
 
+-- Bersihkan data lama jika ada (menghindari duplikat)
+DELETE FROM soal_tes WHERE tahun IN (2091, 2092, 2093);
+
 INSERT INTO soal_tes (tahun, nomor_soal, teks_soal, opsi_a, opsi_b, opsi_c, opsi_d, jawaban_benar) VALUES
 (2091, 1, 'Siapakah yang menjadi raja Israel yang pertama?', 'Daud', 'Yerobeam', 'Salomo', 'Saul', 'd'),
 (2091, 2, 'Kepala Kepolisian Republik Indonesia adalah :', 'Badrodin Haiti', 'Badarudin Haiti', 'Badridon Haiti', 'Budi Gunawan', 'a'),
