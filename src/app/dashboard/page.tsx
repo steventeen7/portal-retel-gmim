@@ -36,8 +36,8 @@ export default async function DashboardPage() {
   const soalCount = allSoal?.length || 0;
   const allWawancara = await db.soalWawancara.findAll();
   const wawancaraCount = allWawancara?.length || 0;
-  // Fallback if materials not exist yet
   const materiCount = 0;
+  const nilaiTertulis = await db.nilaiUser.findByUser(user.id);
 
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><RefreshCw className="w-8 h-8 text-purple-600 animate-spin" /></div>}>
@@ -50,6 +50,7 @@ export default async function DashboardPage() {
         soalCount={soalCount}
         wawancaraCount={wawancaraCount}
         materiCount={materiCount}
+        nilaiTertulis={nilaiTertulis}
       />
     </Suspense>
   )

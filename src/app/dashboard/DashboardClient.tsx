@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { 
   ClipboardList, BookOpen, Mic, Trophy, ArrowRight, TrendingUp, 
-  Lock, MessageCircle, Star
+  Lock, MessageCircle, Star, BarChart3
 } from 'lucide-react';
 
 type DashboardProps = {
@@ -17,10 +17,11 @@ type DashboardProps = {
   soalCount: number;
   wawancaraCount: number;
   materiCount: number;
+  nilaiTertulis: any[];
 };
 
 export default function DashboardClient({ 
-  user, riwayat, avgSkor, bestSkor, tahunList, soalCount, wawancaraCount, materiCount 
+  user, riwayat, avgSkor, bestSkor, tahunList, soalCount, wawancaraCount, materiCount, nilaiTertulis 
 }: DashboardProps) {
   const searchParams = useSearchParams();
   const [showDenied, setShowDenied] = useState(false);
@@ -236,6 +237,59 @@ export default function DashboardClient({
             </div>
           </div>
         )}
+
+        {/* Rekap Nilai Tes Tertulis */}
+        {nilaiTertulis && nilaiTertulis.length > 0 && (
+          <div className="animate-fade-in-up mt-10">
+            <h2 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-3">
+              <span className="w-2 h-8 bg-purple-600 rounded-full" />
+              Rekap Nilai Tes Tertulis
+            </h2>
+            <div className="bg-white rounded-[32px] overflow-hidden border border-gray-100 shadow-sm">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-purple-50/50 border-b border-purple-100">
+                    <th className="px-8 py-5 text-left text-[10px] font-black text-purple-400 uppercase tracking-[0.2em]">Paket / Tahun</th>
+                    <th className="px-6 py-5 text-center text-[10px] font-black text-purple-400 uppercase tracking-[0.2em]">Skor</th>
+                    <th className="px-6 py-5 text-right text-[10px] font-black text-purple-400 uppercase tracking-[0.2em]">Tanggal</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-50">
+                  {nilaiTertulis.slice(0, 8).map((n: any, idx: number) => (
+                    <tr key={idx} className="hover:bg-purple-50/20 transition-colors">
+                      <td className="px-8 py-5">
+                        <div className="text-gray-900 font-bold">Paket Tahun {n.tahun}</div>
+                        <div className="text-[10px] text-gray-400 font-black uppercase mt-1">Tes Tertulis</div>
+                      </td>
+                      <td className="px-6 py-5 text-center">
+                        <span className={`text-xl font-black ${n.skor >= 50 ? 'text-purple-600' : 'text-amber-500'}`}>
+                          {n.skor}
+                        </span>
+                        <span className="text-[10px] text-gray-400 font-bold ml-1">poin</span>
+                      </td>
+                      <td className="px-8 py-5 text-right text-gray-400 text-sm font-medium">
+                        {new Date(n.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              {nilaiTertulis.length > 8 && (
+                <div className="px-8 py-4 border-t border-gray-50 text-center">
+                  <a href="/laporan" className="text-[10px] font-black text-purple-600 uppercase tracking-widest hover:underline flex items-center justify-center gap-1">
+                    Lihat semua {nilaiTertulis.length} riwayat <BarChart3 className="w-3 h-3" />
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        <div className="mt-10 mb-4 text-center">
+          <a href="/laporan" className="inline-flex items-center gap-2 px-6 py-3 bg-purple-50 text-purple-700 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-purple-600 hover:text-white transition-all">
+            <BarChart3 className="w-4 h-4" /> Lihat Laporan Lengkap
+          </a>
+        </div>
       </main>
 
       {/* Access Denied Modal */}

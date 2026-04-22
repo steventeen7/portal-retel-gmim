@@ -65,11 +65,14 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
 
   function loadSoal() {
     setLoading(true);
-    let actualTahun: string | number | null = selectedTahun;
+    let actualTahun: number | null = null;
     if (selectedTahun === 'Rangkuman 1 (2019-2025)') actualTahun = 2091;
-    if (selectedTahun === 'Rangkuman 2 (2019-2025)') actualTahun = 2092;
-    if (selectedTahun === 'Rangkuman 3 (2019-2025)') actualTahun = 2093;
-    if (typeof selectedTahun === 'string' && selectedTahun.startsWith('2026')) actualTahun = 2026;
+    else if (selectedTahun === 'Rangkuman 2 (2019-2025)') actualTahun = 2092;
+    else if (selectedTahun === 'Rangkuman 3 (2019-2025)') actualTahun = 2093;
+    else if (typeof selectedTahun === 'string' && selectedTahun.startsWith('2026')) actualTahun = 2026;
+    else if (typeof selectedTahun === 'number') actualTahun = selectedTahun;
+
+    if (actualTahun === null) { setLoading(false); return; }
 
     let fetchedData = initialData.filter((s) => s.tahun === actualTahun);
 
