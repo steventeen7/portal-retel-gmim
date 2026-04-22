@@ -152,6 +152,26 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
        document.exitFullscreen();
        setIsFullscreen(false);
     }
+
+    // Tentukan tahun aktual untuk disimpan
+    let tahunSimpan: number = 0;
+    if (selectedTahun === 'Rangkuman 1 (2019-2025)') tahunSimpan = 2091;
+    else if (selectedTahun === 'Rangkuman 2 (2019-2025)') tahunSimpan = 2092;
+    else if (selectedTahun === 'Rangkuman 3 (2019-2025)') tahunSimpan = 2093;
+    else if (typeof selectedTahun === 'string' && selectedTahun.startsWith('2026')) tahunSimpan = 2026;
+    else if (typeof selectedTahun === 'number') tahunSimpan = selectedTahun;
+
+    // Simpan skor ke Supabase via API
+    try {
+      await fetch('/api/nilai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tahun: tahunSimpan, skor: res.skor, jawaban }),
+      });
+    } catch {
+      // simpan gagal tapi tetap tampilkan hasil
+    }
+
     toast.success(`Skor Anda: ${res.skor} poin`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsSubmitting(false);
