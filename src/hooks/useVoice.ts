@@ -12,6 +12,8 @@ export function useVoice() {
   const finalBufferRef = useRef('');
   // Buffer sementara untuk final dari sesi AKTIF saja (mencegah komit interim)
   const lastSessionFinalRef = useRef('');
+  // Array untuk menyimpan final per index agar bisa mengatasi bug Android yg me-replace index
+  const sessionFinalsRef = useRef<string[]>([]);
   // Timer untuk memastikan batas waktu 60 detik
   const recordingTimerRef = useRef<any>(null);
 
@@ -35,6 +37,32 @@ export function useVoice() {
     }
   }, []);
 
+  // Helper untuk mencegah kata ganda saat menggabungkan string.
+  // Terkadang API di HP mengulang kata terakhir dari final di awal interim.
+  const mergeWithOverlapFix = useCallback((text1: string, text2: string) => {
+    if (!text1) return text2;
+    if (!text2) return text1;
+    
+    const words1 = text1.split(' ');
+    const words2 = text2.split(' ');
+    
+    let overlapCount = 0;
+    const maxOverlap = Math.min(words1.length, words2.length);
+    
+    for (let i = 1; i <= maxOverlap; i++) {
+        const suffix = words1.slice(-i).join(' ').toLowerCase();
+        const prefix = words2.slice(0, i).join(' ').toLowerCase();
+        if (suffix === prefix) {
+            overlapCount = i;
+        }
+    }
+    
+    if (overlapCount > 0) {
+        return text1 + ' ' + words2.slice(overlapCount).join(' ');
+    }
+    return text1 + ' ' + text2;
+  }, []);
+
   // ─── Internal: buat satu sesi Recognition ────────────────────────────────
   const createSession = useCallback(() => {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
@@ -48,28 +76,37 @@ export function useVoice() {
     recognition.onstart = () => setIsRecording(true);
 
     recognition.onresult = (event: any) => {
-      // Ambil semua hasil FINAL dari sesi ini
-      let sessionFinal = '';
-      for (let i = 0; i < event.results.length; i++) {
+      // Deteksi jika Android mereset resultIndex ke 0 secara internal tanpa onend
+      if (event.resultIndex === 0 && sessionFinalsRef.current.length > 0) {
+        // Komit sesi sebelumnya ke buffer utama untuk mencegah teks hilang
+        const previousSession = sessionFinalsRef.current.filter(Boolean).join(' ').trim();
+        if (previousSession) {
+          finalBufferRef.current = mergeWithOverlapFix(finalBufferRef.current, previousSession);
+        }
+        // Reset array sesi ini
+        sessionFinalsRef.current = [];
+      }
+
+      let interim = '';
+
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        const transcript = event.results[i][0].transcript.trim();
         if (event.results[i].isFinal) {
-          sessionFinal += event.results[i][0].transcript.trim() + ' ';
+          sessionFinalsRef.current[i] = transcript;
+        } else {
+          interim += transcript + ' ';
         }
       }
-      
-      // Simpan sessionFinal agar tidak terbawa dengan interim saat restart
+
+      const sessionFinal = sessionFinalsRef.current.filter(Boolean).join(' ').trim();
       lastSessionFinalRef.current = sessionFinal;
 
-      // Ambil HANYA satu interim terbaru (anti-duplikasi Android)
-      let interim = '';
-      const last = event.results[event.results.length - 1];
-      if (last && !last.isFinal) {
-        interim = last[0].transcript.trim();
-      }
+      let cleanInterim = interim.replace(/\s+/g, ' ').trim();
 
-      // Gabungkan: buffer permanen + final sesi aktif + interim saat ini
-      const combined = (finalBufferRef.current + ' ' + sessionFinal + ' ' + interim)
-        .replace(/\s+/g, ' ')
-        .trim();
+      // Menggabungkan dengan pintar untuk mencegah kata dobel di perbatasan
+      const part1 = mergeWithOverlapFix(finalBufferRef.current, sessionFinal);
+      const combined = mergeWithOverlapFix(part1, cleanInterim);
+      
       setTranscript(combined);
     };
 
@@ -92,9 +129,10 @@ export function useVoice() {
         
         // Cukup komit session final yang valid, buang interim yang hilang (mencegah double)
         if (lastSessionFinalRef.current.trim()) {
-           finalBufferRef.current = (finalBufferRef.current + ' ' + lastSessionFinalRef.current).replace(/\s+/g, ' ').trim();
+           finalBufferRef.current = mergeWithOverlapFix(finalBufferRef.current, lastSessionFinalRef.current);
            lastSessionFinalRef.current = '';
         }
+        sessionFinalsRef.current = [];
         
         // Memastikan frontend merender sinkronisasi buffer terbaru
         setTranscript(finalBufferRef.current);
@@ -114,7 +152,7 @@ export function useVoice() {
     } catch (e) {
       console.error('Recognition start error', e);
     }
-  }, []);
+  }, [mergeWithOverlapFix]);
 
   // ─── Public API ───────────────────────────────────────────────────────────
   const stopRecording = useCallback(() => {
@@ -132,6 +170,7 @@ export function useVoice() {
     // Reset buffers dan mulai sesi baru
     finalBufferRef.current = '';
     lastSessionFinalRef.current = '';
+    sessionFinalsRef.current = [];
     
     isListeningRef.current = true;
     
@@ -152,6 +191,7 @@ export function useVoice() {
     setTranscript('');
     finalBufferRef.current = '';
     lastSessionFinalRef.current = '';
+    sessionFinalsRef.current = [];
   }, []);
 
   // Cleanup saat unmount
