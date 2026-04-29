@@ -1,42 +1,33 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase/client';
+import { NextResponse } from 'next/server';
 import { getSupabaseAdmin } from '@/lib/supabase/admin';
 
-export async function GET(req: NextRequest) {
-  const diagnostics = {
-    mode: 'supabase',
-    runtime: typeof window === 'undefined' ? 'server' : 'client',
+export async function GET() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  const results: any = {
     env: {
-      url: process.env.NEXT_PUBLIC_SUPABASE_URL ? 'PRESENT' : 'MISSING',
-      anon_key: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? 'PRESENT' : 'MISSING',
-      service_key: process.env.SUPABASE_SERVICE_ROLE_KEY ? 'PRESENT' : 'MISSING',
-      service_key_len: process.env.SUPABASE_SERVICE_ROLE_KEY?.length || 0,
+      url_exists: !!url,
+      url_value: url ? (url.substring(0, 10) + '...') : 'missing',
+      service_key_exists: !!serviceKey,
+      service_key_length: serviceKey?.length,
+      anon_key_exists: !!anonKey,
+      anon_key_length: anonKey?.length,
     },
-    anon_connection: 'UNKNOWN',
-    admin_connection: 'UNKNOWN',
-    errors: {
-      anon: null as any,
-      admin: null as any
-    },
+    tests: {}
   };
 
   try {
-    const { error } = await supabase.from('profiles').select('count', { count: 'exact', head: true });
-    diagnostics.anon_connection = error ? 'FAILED' : 'SUCCESS';
-    if (error) diagnostics.errors.anon = error.message;
+    const admin = getSupabaseAdmin();
+    const { data: profiles, error: pError } = await admin.from('profiles').select('count').limit(1);
+    results.tests.admin_profiles = pError ? { status: 'error', message: pError.message } : { status: 'ok', count: profiles };
+    
+    const { data: materi, error: mError } = await admin.from('materi_belajar').select('count').limit(1);
+    results.tests.admin_materi = mError ? { status: 'error', message: mError.message } : { status: 'ok', count: materi };
   } catch (err: any) {
-    diagnostics.anon_connection = 'ERROR';
-    diagnostics.errors.anon = err.message;
+    results.tests.crash = err.message;
   }
 
-  try {
-    const { error } = await getSupabaseAdmin().from('materi_belajar').select('count', { count: 'exact', head: true });
-    diagnostics.admin_connection = error ? 'FAILED' : 'SUCCESS';
-    if (error) diagnostics.errors.admin = error.message;
-  } catch (err: any) {
-    diagnostics.admin_connection = 'ERROR';
-    diagnostics.errors.admin = err.message;
-  }
-
-  return NextResponse.json(diagnostics);
+  return NextResponse.json(results);
 }
