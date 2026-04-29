@@ -1,10 +1,16 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || ''
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
 const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || ''
 
-if (!serviceRoleKey && typeof window === 'undefined') {
-  console.warn('[SUPABASE ADMIN] Warning: SUPABASE_SERVICE_ROLE_KEY is missing! Admin operations will fail.')
+// Debug log di runtime (server-side only)
+if (typeof window === 'undefined') {
+  console.log('[SUPABASE ADMIN] URL present:', !!supabaseUrl)
+  console.log('[SUPABASE ADMIN] Service key present:', !!serviceRoleKey, '| length:', serviceRoleKey.length)
+}
+
+if (!supabaseUrl || !serviceRoleKey) {
+  console.error('[SUPABASE ADMIN] CRITICAL: Missing env vars! supabaseUrl:', !!supabaseUrl, '| serviceRoleKey:', !!serviceRoleKey)
 }
 
 /**
@@ -12,20 +18,13 @@ if (!serviceRoleKey && typeof window === 'undefined') {
  * HANYA digunakan di sisi server (API routes / Server Components).
  * Client ini mem-bypass RLS — jangan pernah expose ke browser.
  */
-export const supabaseAdmin = supabaseUrl && serviceRoleKey
-  ? createClient(supabaseUrl, serviceRoleKey, {
-      auth: {
-        autoRefreshToken: false,
-        persistSession: false,
-      },
-    })
-  : createClient(
-      supabaseUrl || 'https://placeholder.supabase.co',
-      serviceRoleKey || 'placeholder',
-      {
-        auth: {
-          autoRefreshToken: false,
-          persistSession: false,
-        },
-      }
-    )
+export const supabaseAdmin = createClient(
+  supabaseUrl || 'https://placeholder.supabase.co',
+  serviceRoleKey || 'placeholder-key',
+  {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  }
+)
