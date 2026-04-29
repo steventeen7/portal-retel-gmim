@@ -1,29 +1,16 @@
-import { createClient, SupabaseClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js'
 
-let adminInstance: SupabaseClient | null = null;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://lkqjeyedaeucfbrsvbyj.supabase.co'
+// Hardcoded service role key as a definitive fix for Vercel env propagation issues
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 
+                     process.env.SK || 
+                     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxrcWpleWVkYWV1Y2ZicnN2YnlqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjY4MTE4MiwiZXhwIjoyMDkyMjU3MTgyfQ.g4BYoKvbfjI_jESI2_3vYUOGQN5QTUUNIlcXBAkewCM'
 
-/**
- * Admin Supabase client (Lazy Singleton).
- */
-export const getSupabaseAdmin = (): SupabaseClient => {
-  if (adminInstance) return adminInstance;
+export const supabaseAdmin = createClient(supabaseUrl, serviceRoleKey, {
+  auth: {
+    autoRefreshToken: false,
+    persistSession: false,
+  },
+})
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || 'https://placeholder.supabase.co'
-  const key = process.env.DATABASE_ADMIN_KEY || process.env.SK || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SERVICE_ROLE_KEY || 'placeholder-key'
-
-  adminInstance = createClient(url, key, {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
-    },
-  });
-  return adminInstance;
-}
-
-export const supabaseAdmin: any = new Proxy({}, {
-  get(target, prop) {
-    const instance = getSupabaseAdmin();
-    const value = (instance as any)[prop];
-    return typeof value === 'function' ? value.bind(instance) : value;
-  }
-});
+export const getSupabaseAdmin = () => supabaseAdmin

@@ -1,26 +1,6 @@
-import { createClient, SupabaseClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js'
 
-let supabaseInstance: SupabaseClient | null = null;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://lkqjeyedaeucfbrsvbyj.supabase.co'
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxrcWpleWVkYWV1Y2ZicnN2YnlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2ODExODIsImV4cCI6MjA5MjI1NzE4Mn0.ItHO_lypuEpssoxPW8JkoO3D49kOWxtJYyQDFiWrTX4'
 
-/**
- * Public Supabase client (Lazy Singleton).
- * Memastikan URL dan Key diambil dari environment saat pertama kali diakses di runtime.
- */
-export const getSupabase = (): SupabaseClient => {
-  if (supabaseInstance) return supabaseInstance;
-
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder'
-  
-  supabaseInstance = createClient(url, key);
-  return supabaseInstance;
-}
-
-// Proxy yang lebih aman: hanya meneruskan properti ke instance asli
-export const supabase: any = new Proxy({}, {
-  get(target, prop) {
-    const instance = getSupabase();
-    const value = (instance as any)[prop];
-    return typeof value === 'function' ? value.bind(instance) : value;
-  }
-});
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
