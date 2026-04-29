@@ -2,34 +2,21 @@ import { createClient } from '@supabase/supabase-js'
 
 /**
  * Admin Supabase client menggunakan Service Role Key.
- * Dibuat sebagai getter agar selalu mengambil nilai env terbaru saat runtime
+ * Menggunakan Proxy agar selalu mengambil nilai env terbaru saat runtime
  * dan menghindari caching 'placeholder' saat build.
  */
-export const getSupabaseAdmin = () => {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+const createAdminClient = () => {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || 'https://placeholder.supabase.co'
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-key'
 
-  if (!supabaseUrl || !serviceRoleKey) {
-    if (typeof window === 'undefined') {
-      console.error('[SUPABASE ADMIN] Missing env vars!', {
-        url: !!supabaseUrl,
-        key: !!serviceRoleKey
-      })
-    }
-    // Fallback ke placeholder agar tidak crash saat build static
-    return createClient(
-      supabaseUrl || 'https://placeholder.supabase.co',
-      serviceRoleKey || 'placeholder-key',
-      {
-        auth: {
-          autoRefreshToken: false,
-          persistSession: false,
-        },
-      }
-    )
+  if (typeof window === 'undefined' && (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY)) {
+    console.error('[SUPABASE ADMIN] Runtime env vars missing!', {
+      url: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+      key: !!process.env.SUPABASE_SERVICE_ROLE_KEY
+    })
   }
 
-  return createClient(supabaseUrl, serviceRoleKey, {
+  return createClient(url, key, {
     auth: {
       autoRefreshToken: false,
       persistSession: false,
@@ -37,5 +24,13 @@ export const getSupabaseAdmin = () => {
   })
 }
 
-// Export instance untuk kemudahan penggunaan (tapi getSupabaseAdmin lebih aman)
-export const supabaseAdmin = getSupabaseAdmin()
+// Proxy agar tetap bisa import { supabaseAdmin } dan panggil .from()
+export const supabaseAdmin: any = new Proxy({}, {
+  get(target, prop) {
+    const client = createAdminClient();
+    return (client as any)[prop];
+  }
+});
+
+// Helper function untuk penggunaan eksplisit
+export const getSupabaseAdmin = () => createAdminClient();
