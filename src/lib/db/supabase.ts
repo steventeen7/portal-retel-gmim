@@ -83,7 +83,7 @@ export const supabaseDB = {
       try {
         const { data, error } = await supabase.from('soal_tes').select('tahun');
         if (!error && data && data.length > 0) {
-          const tahunSet = new Set(data.map(d => d.tahun));
+          const tahunSet = new Set(data.map((d: any) => d.tahun));
           return Array.from(tahunSet).sort((a, b) => b - a);
         }
       } catch (err) { }
