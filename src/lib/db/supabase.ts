@@ -260,7 +260,7 @@ export const supabaseDB = {
         .from('profiles')
         .select('id, full_name, last_seen')
         .gt('last_seen', oneMinuteAgo);
-      return data?.map(u => ({ id: u.id, name: u.full_name })) || [];
+      return data?.map((u: any) => ({ id: u.id, name: u.full_name })) || [];
     }
   }
 };
