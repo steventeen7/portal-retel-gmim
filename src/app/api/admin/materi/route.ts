@@ -1,20 +1,33 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { db } from '@/lib/db'
+import { supabaseAdmin } from '@/lib/supabase/admin'
 import { verifyToken } from '@/lib/auth'
 
 export async function POST(req: NextRequest) {
   return await handleRequest(req, async (data) => {
-    return await db.materi.create(data)
+    const { judul, kategori, konten } = data
+    const { data: res, error } = await supabaseAdmin
+      .from('materi_belajar')
+      .insert([{ judul, kategori, konten }])
+      .select()
+      .single()
+    if (error) throw new Error(error.message)
+    return res
   })
 }
 
 export async function PUT(req: NextRequest) {
   return await handleRequest(req, async (data) => {
-    const { id, ...updateData } = data
+    const { id, judul, kategori, konten } = data
     if (!id) throw new Error('ID materi diperlukan')
-    const updated = await db.materi.update(id, updateData)
-    if (!updated) throw new Error('Materi tidak ditemukan')
-    return updated
+    const { data: res, error } = await supabaseAdmin
+      .from('materi_belajar')
+      .update({ judul, kategori, konten })
+      .eq('id', id)
+      .select()
+      .single()
+    if (error) throw new Error(error.message)
+    if (!res) throw new Error('Materi tidak ditemukan')
+    return res
   })
 }
 
@@ -22,8 +35,11 @@ export async function DELETE(req: NextRequest) {
   return await handleRequest(req, async (data) => {
     const { id } = data
     if (!id) throw new Error('ID materi diperlukan')
-    const success = await db.materi.delete(id)
-    if (!success) throw new Error('Gagal menghapus materi')
+    const { error } = await supabaseAdmin
+      .from('materi_belajar')
+      .delete()
+      .eq('id', id)
+    if (error) throw new Error(error.message)
     return { success: true }
   })
 }
@@ -41,12 +57,16 @@ async function handleRequest(req: NextRequest, action: (data: any) => Promise<an
     const data = await req.json()
     const result = await action(data)
 
-    if (db.logs) {
-      await db.logs.create(payload.id, `Mengelola materi belajar: ${req.method}`)
-    }
+    // Log aktivitas
+    await supabaseAdmin.from('activity_logs').insert([{
+      user_id: payload.id,
+      activity: `Mengelola materi belajar: ${req.method}`,
+      timestamp: new Date().toISOString()
+    }])
 
     return NextResponse.json({ success: true, data: result })
   } catch (err: any) {
+    console.error('[API /admin/materi]', err)
     return NextResponse.json({ error: err.message || 'Server error' }, { status: 500 })
   }
 }

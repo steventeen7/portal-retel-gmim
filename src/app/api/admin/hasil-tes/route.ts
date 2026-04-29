@@ -1,18 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase/client';
+import { supabaseAdmin } from '@/lib/supabase/admin';
 
 export async function GET(req: NextRequest) {
   try {
-    // Ambil data nilai tertulis (Tahun)
-    const { data: tertulis, error: err1 } = await supabase
+    const { data: tertulis, error: err1 } = await supabaseAdmin
       .from('nilai_user')
       .select('*, profiles(id, full_name, jemaat, email)')
       .order('created_at', { ascending: false });
       
     if (err1) throw err1;
 
-    // Ambil data simulasi (Wawancara, Keyword, 3 Besar)
-    const { data: simulasi, error: err2 } = await supabase
+    const { data: simulasi, error: err2 } = await supabaseAdmin
       .from('simulation_history')
       .select('*, profiles(id, full_name, jemaat, email)')
       .order('created_at', { ascending: false });
@@ -32,10 +30,10 @@ export async function DELETE(req: NextRequest) {
 
     let error;
     if (type === 'tertulis') {
-      const { error: e } = await supabase.from('nilai_user').delete().eq('id', id);
+      const { error: e } = await supabaseAdmin.from('nilai_user').delete().eq('id', id);
       error = e;
     } else {
-      const { error: e } = await supabase.from('simulation_history').delete().eq('id', id);
+      const { error: e } = await supabaseAdmin.from('simulation_history').delete().eq('id', id);
       error = e;
     }
 
