@@ -79,6 +79,12 @@ CREATE POLICY "Allow read profiles"
 ON profiles FOR SELECT
 USING (true);
 
+-- User bisa update profile mereka sendiri (terutama untuk last_seen)
+CREATE POLICY "Allow update own profile"
+ON profiles FOR UPDATE
+USING (true)
+WITH CHECK (true);
+
 -- Service role bisa semua
 CREATE POLICY "Allow all for service_role profiles"
 ON profiles FOR ALL

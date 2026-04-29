@@ -84,7 +84,7 @@ export const supabaseDB = {
         const { data, error } = await supabase.from('soal_tes').select('tahun');
         if (!error && data && data.length > 0) {
           const tahunSet = new Set(data.map((d: any) => d.tahun));
-           return Array.from(tahunSet).sort((a: any, b: any) => b - a) as number[];
+          return Array.from(tahunSet).sort((a: any, b: any) => b - a) as number[];
         }
       } catch (err) { }
       return localDB.soalTes.getTahunList();
@@ -249,7 +249,7 @@ export const supabaseDB = {
 
   presence: {
     async ping(userId: string): Promise<void> {
-      await supabase
+      await getSupabaseAdmin()
         .from('profiles')
         .update({ last_seen: new Date().toISOString() })
         .eq('id', userId);
