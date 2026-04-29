@@ -9,7 +9,7 @@ export const getSupabaseAdmin = (): SupabaseClient => {
   if (adminInstance) return adminInstance;
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || 'https://placeholder.supabase.co'
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SERVICE_ROLE_KEY || 'placeholder-key'
+  const key = process.env.SK || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SERVICE_ROLE_KEY || 'placeholder-key'
 
   adminInstance = createClient(url, key, {
     auth: {
