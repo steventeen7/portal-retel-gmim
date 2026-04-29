@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabaseAdmin } from '@/lib/supabase/admin'
+import { getSupabaseAdmin } from '@/lib/supabase/admin'
 import { verifyToken } from '@/lib/auth'
 
 export async function POST(req: NextRequest) {
   return await handleRequest(req, async (data) => {
     const { judul, kategori, konten } = data
-    const { data: res, error } = await supabaseAdmin
+    const { data: res, error } = await getSupabaseAdmin()
       .from('materi_belajar')
       .insert([{ judul, kategori, konten }])
       .select()
@@ -19,7 +19,7 @@ export async function PUT(req: NextRequest) {
   return await handleRequest(req, async (data) => {
     const { id, judul, kategori, konten } = data
     if (!id) throw new Error('ID materi diperlukan')
-    const { data: res, error } = await supabaseAdmin
+    const { data: res, error } = await getSupabaseAdmin()
       .from('materi_belajar')
       .update({ judul, kategori, konten })
       .eq('id', id)
@@ -35,7 +35,7 @@ export async function DELETE(req: NextRequest) {
   return await handleRequest(req, async (data) => {
     const { id } = data
     if (!id) throw new Error('ID materi diperlukan')
-    const { error } = await supabaseAdmin
+    const { error } = await getSupabaseAdmin()
       .from('materi_belajar')
       .delete()
       .eq('id', id)
@@ -58,7 +58,7 @@ async function handleRequest(req: NextRequest, action: (data: any) => Promise<an
     const result = await action(data)
 
     // Log aktivitas
-    await supabaseAdmin.from('activity_logs').insert([{
+    await getSupabaseAdmin().from('activity_logs').insert([{
       user_id: payload.id,
       activity: `Mengelola materi belajar: ${req.method}`,
       timestamp: new Date().toISOString()

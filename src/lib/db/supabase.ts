@@ -1,5 +1,5 @@
 import { supabase } from '../supabase/client';
-import { supabaseAdmin } from '../supabase/admin';
+import { getSupabaseAdmin } from '../supabase/admin';
 import { User, SoalTes, NilaiUser, SoalWawancara, Materi, localDB } from './local';
 
 function isUUID(uuid: string) {
@@ -21,7 +21,7 @@ export const supabaseDB = {
       }
     },
     async create(data: any): Promise<any> {
-      const { data: newUser, error } = await supabaseAdmin
+      const { data: newUser, error } = await getSupabaseAdmin()
         .from('profiles')
         .insert([{
           ...data,
@@ -36,12 +36,12 @@ export const supabaseDB = {
       return newUser;
     },
     async findAll(): Promise<any[]> {
-      const { data } = await supabaseAdmin.from('profiles').select('*').order('created_at', { ascending: false });
+      const { data } = await getSupabaseAdmin().from('profiles').select('*').order('created_at', { ascending: false });
       return data || [];
     },
     async update(id: string, data: any): Promise<any> {
       try {
-        const { data: updated, error } = await supabaseAdmin
+        const { data: updated, error } = await getSupabaseAdmin()
           .from('profiles')
           .update(data)
           .eq('id', id)
@@ -55,7 +55,7 @@ export const supabaseDB = {
     },
     async delete(id: string): Promise<boolean> {
       try {
-        const { error } = await supabaseAdmin.from('profiles').delete().eq('id', id);
+        const { error } = await getSupabaseAdmin().from('profiles').delete().eq('id', id);
         if (error) throw error;
         return true;
       } catch (err) {
@@ -197,10 +197,10 @@ export const supabaseDB = {
 
   logs: {
     async create(userId: string, activity: string): Promise<void> {
-      await supabaseAdmin.from('activity_logs').insert([{ user_id: userId, activity, timestamp: new Date().toISOString() }]);
+      await getSupabaseAdmin().from('activity_logs').insert([{ user_id: userId, activity, timestamp: new Date().toISOString() }]);
     },
     async findAll(): Promise<any[]> {
-      const { data } = await supabaseAdmin.from('activity_logs').select('*, profiles(full_name)').order('timestamp', { ascending: false });
+      const { data } = await getSupabaseAdmin().from('activity_logs').select('*, profiles(full_name)').order('timestamp', { ascending: false });
       return data || [];
     }
   },
@@ -224,7 +224,7 @@ export const supabaseDB = {
       return data || [];
     },
     async createMessage(fromId: string, fromName: string, message: string, toId: string | null = null): Promise<any> {
-      const { data, error } = await supabaseAdmin
+      const { data, error } = await getSupabaseAdmin()
         .from('chat_messages')
         .insert([{
           from_id: fromId,
@@ -239,7 +239,7 @@ export const supabaseDB = {
       return data;
     },
     async findAllLogs(): Promise<any[]> {
-      const { data } = await supabaseAdmin
+      const { data } = await getSupabaseAdmin()
         .from('chat_messages')
         .select('*, sender:profiles!from_id(full_name), recipient:profiles!to_id(full_name)')
         .order('created_at', { ascending: false });
