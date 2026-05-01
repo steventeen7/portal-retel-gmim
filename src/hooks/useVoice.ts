@@ -10,6 +10,8 @@ export function useVoice() {
   
   // Buffer utama yang sudah final
   const finalTranscriptRef = useRef('');
+  // Simpan sementara session final jika ada
+  const lastSessionTextRef = useRef('');
   // Timer untuk limit pengerjaan
   const recordingTimerRef = useRef<any>(null);
 
@@ -35,6 +37,7 @@ export function useVoice() {
 
   // ─── Internal: buat satu sesi Recognition ────────────────────────────────
   const createSession = useCallback(() => {
+    if (typeof window === 'undefined') return;
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!SpeechRecognition) return;
 
@@ -65,7 +68,6 @@ export function useVoice() {
       }
 
       // Update UI dengan gabungan buffer utama + session final + interim
-      // Kita tidak langsung update finalTranscriptRef di sini agar tidak dobel saat restart
       const currentDisplay = [finalTranscriptRef.current, sessionFinal, interimTranscript]
         .filter(Boolean)
         .join(' ')
@@ -74,13 +76,10 @@ export function useVoice() {
       
       setTranscript(currentDisplay);
       
-      // Simpan sementara session final jika ada
       if (sessionFinal) {
         lastSessionTextRef.current = sessionFinal;
       }
     };
-
-    const lastSessionTextRef = useRef('');
 
     recognition.onerror = (event: any) => {
       console.error('Speech recognition error', event.error);
@@ -140,6 +139,7 @@ export function useVoice() {
     
     // Reset state
     finalTranscriptRef.current = '';
+    lastSessionTextRef.current = '';
     setTranscript('');
     isListeningRef.current = true;
     
@@ -154,6 +154,7 @@ export function useVoice() {
 
   const clearTranscript = useCallback(() => {
     finalTranscriptRef.current = '';
+    lastSessionTextRef.current = '';
     setTranscript('');
   }, []);
 
