@@ -289,7 +289,7 @@ export default function DashboardClient({
              ) : (
                <div className="py-20 text-center">
                   <Trophy className="w-16 h-16 text-gray-100 mx-auto mb-4" />
-                  <p className="text-gray-400 font-bold">Data ranking belum tersedia atau sedang diperbarui.</p>
+                  <p className="text-gray-400 font-bold">Data Nilai belum di publikasikan oleh KPRS</p>
                </div>
              )}
            </div>

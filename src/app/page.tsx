@@ -109,7 +109,7 @@ export default function Home() {
           ) : (
             <div className="py-24 text-center">
                <Trophy className="w-16 h-16 text-gray-100 mx-auto mb-4" />
-               <p className="text-gray-400 font-bold">Data ranking belum dipublikasikan di NEVOS.</p>
+               <p className="text-gray-400 font-bold">Data Nilai belum di publikasikan oleh KPRS</p>
             </div>
           )}
         </div>
