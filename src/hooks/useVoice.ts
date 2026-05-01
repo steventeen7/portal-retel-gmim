@@ -10,7 +10,7 @@ export function useVoice() {
   
   // Buffer utama yang sudah final
   const finalTranscriptRef = useRef('');
-  // Simpan sementara session final jika ada
+  // Buffer sementara sesi aktif
   const lastSessionTextRef = useRef('');
   // Timer untuk limit pengerjaan
   const recordingTimerRef = useRef<any>(null);
@@ -37,7 +37,6 @@ export function useVoice() {
 
   // ─── Internal: buat satu sesi Recognition ────────────────────────────────
   const createSession = useCallback(() => {
-    if (typeof window === 'undefined') return;
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!SpeechRecognition) return;
 
@@ -46,7 +45,6 @@ export function useVoice() {
 
     const recognition = new SpeechRecognition();
     recognition.lang = 'id-ID';
-    // Gunakan continuous: false di mobile seringkali lebih stabil untuk mencegah pengulangan
     recognition.continuous = false; 
     recognition.interimResults = true;
 
@@ -67,7 +65,6 @@ export function useVoice() {
         }
       }
 
-      // Update UI dengan gabungan buffer utama + session final + interim
       const currentDisplay = [finalTranscriptRef.current, sessionFinal, interimTranscript]
         .filter(Boolean)
         .join(' ')
@@ -90,12 +87,10 @@ export function useVoice() {
     };
 
     recognition.onend = () => {
-      // Masukkan hasil akhir sesi ini ke buffer utama
       if (lastSessionTextRef.current) {
         const current = finalTranscriptRef.current.trim();
         const added = lastSessionTextRef.current.trim();
         
-        // Cek overlap sederhana untuk mencegah pengulangan kata di perbatasan sesi
         if (!current.toLowerCase().endsWith(added.toLowerCase())) {
            finalTranscriptRef.current = (current + ' ' + added).trim();
         }
@@ -104,7 +99,6 @@ export function useVoice() {
 
       recognitionRef.current = null;
       
-      // Restart otomatis jika user masih dalam mode "Listening"
       if (isListeningRef.current) {
         setTimeout(() => {
           if (isListeningRef.current) createSession();
@@ -137,13 +131,11 @@ export function useVoice() {
   const startRecording = useCallback(() => {
     if (typeof window === 'undefined') return;
     
-    // Reset state
     finalTranscriptRef.current = '';
-    lastSessionTextRef.current = '';
     setTranscript('');
+    lastSessionTextRef.current = '';
     isListeningRef.current = true;
     
-    // Auto stop setelah 60 detik
     if (recordingTimerRef.current) clearTimeout(recordingTimerRef.current);
     recordingTimerRef.current = setTimeout(() => {
         stopRecording();
@@ -154,11 +146,10 @@ export function useVoice() {
 
   const clearTranscript = useCallback(() => {
     finalTranscriptRef.current = '';
-    lastSessionTextRef.current = '';
     setTranscript('');
+    lastSessionTextRef.current = '';
   }, []);
 
-  // Cleanup saat unmount
   useEffect(() => {
     return () => {
       isListeningRef.current = false;
