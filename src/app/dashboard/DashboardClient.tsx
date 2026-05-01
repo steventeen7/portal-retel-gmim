@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { 
   ClipboardList, BookOpen, Mic, Trophy, ArrowRight, TrendingUp, 
-  Lock, MessageCircle, Star, BarChart3, Package
+  Lock, MessageCircle, Star, BarChart3, Package, Medal, Users
 } from 'lucide-react';
 
 function formatPaketLabel(tahun: number): string {
@@ -33,8 +33,11 @@ export default function DashboardClient({
   const searchParams = useSearchParams();
   const [showDenied, setShowDenied] = useState(false);
   const [deniedModule, setDeniedModule] = useState('');
+  const [ranking, setRanking] = useState<any[]>([]);
+  const [loadingRanking, setLoadingRanking] = useState(true);
 
   useEffect(() => {
+    fetchRanking();
     const error = searchParams.get('error');
     if (error === 'unauthorized' || error === 'no-permission') {
       setShowDenied(true);
@@ -51,6 +54,19 @@ export default function DashboardClient({
       setDeniedModule('Penuh');
     }
   }, [searchParams]);
+
+  async function fetchRanking() {
+    try {
+      setLoadingRanking(true);
+      const res = await fetch('/api/ranking');
+      const json = await res.json();
+      setRanking(json.data || []);
+    } catch (e) {
+      console.error('Gagal fetch ranking');
+    } finally {
+      setLoadingRanking(false);
+    }
+  }
 
   const isPending = user && user.is_approved === false && user.role !== 'admin';
   const waNumber = "6285256510571";
@@ -203,6 +219,80 @@ export default function DashboardClient({
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Ranking Nasional Section */}
+        <div className="mb-16 animate-fade-in-up">
+           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+              <div>
+                <h2 className="text-2xl font-black text-gray-900 flex items-center gap-3">
+                  <span className="w-2 h-8 bg-amber-500 rounded-full" />
+                  🏆 20 Besar Ranking Nasional
+                </h2>
+                <p className="text-gray-500 text-sm font-medium mt-1">Peringkat nilai Tes Tertulis tertinggi dari seluruh Rayon 2026 (Live dari NEVOS)</p>
+              </div>
+              {ranking.length > 0 && (
+                <div className="bg-amber-50 px-4 py-2 rounded-xl border border-amber-100 flex items-center gap-2">
+                   <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                   <span className="text-[10px] font-black text-amber-700 uppercase tracking-widest">Real-time Data</span>
+                </div>
+              )}
+           </div>
+
+           <div className="bg-white rounded-[40px] border border-gray-100 shadow-xl overflow-hidden">
+             {loadingRanking ? (
+               <div className="py-20 text-center space-y-4">
+                  <div className="w-10 h-10 border-4 border-amber-100 border-t-amber-500 rounded-full animate-spin mx-auto" />
+                  <p className="text-gray-400 font-bold text-xs uppercase tracking-widest">Mengolah Data Nasional...</p>
+               </div>
+             ) : ranking.length > 0 ? (
+               <div className="overflow-x-auto">
+                 <table className="w-full">
+                    <thead>
+                      <tr className="bg-gray-50/50 border-b border-gray-100">
+                        <th className="px-8 py-5 text-left text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Rank</th>
+                        <th className="px-6 py-5 text-left text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Peserta</th>
+                        <th className="px-6 py-5 text-left text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Jemaat / Rayon</th>
+                        <th className="px-8 py-5 text-right text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Nilai</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-50">
+                      {ranking.map((p, i) => (
+                        <tr key={i} className={`hover:bg-amber-50/20 transition-colors ${i < 3 ? 'bg-amber-50/10' : ''}`}>
+                          <td className="px-8 py-6">
+                            <div className="flex items-center justify-center w-10 h-10 rounded-2xl bg-gray-50 font-black text-gray-900 border border-gray-100">
+                              {i + 1 === 1 ? <Medal className="w-5 h-5 text-yellow-500" /> : 
+                               i + 1 === 2 ? <Medal className="w-5 h-5 text-slate-400" /> :
+                               i + 1 === 3 ? <Medal className="w-5 h-5 text-amber-600" /> : 
+                               i + 1}
+                            </div>
+                          </td>
+                          <td className="px-6 py-6">
+                            <div className="text-sm font-black text-gray-900">{p.name}</div>
+                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-gray-100 rounded-lg text-[9px] font-bold text-gray-400 uppercase mt-1">
+                               <Users className="w-3 h-3" /> {p.event.replace('Pemilihan Remaja Teladan ', '')}
+                            </div>
+                          </td>
+                          <td className="px-6 py-6">
+                             <div className="text-xs font-bold text-gray-700">{p.jemaat}</div>
+                             <div className="text-[10px] font-black text-purple-500 uppercase tracking-wider mt-0.5">{p.rayon}</div>
+                          </td>
+                          <td className="px-8 py-6 text-right">
+                             <div className="text-2xl font-black text-gray-900">{p.score}</div>
+                             <div className="text-[9px] font-black text-gray-400 uppercase">Poin</div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                 </table>
+               </div>
+             ) : (
+               <div className="py-20 text-center">
+                  <Trophy className="w-16 h-16 text-gray-100 mx-auto mb-4" />
+                  <p className="text-gray-400 font-bold">Data ranking belum tersedia atau sedang diperbarui.</p>
+               </div>
+             )}
+           </div>
         </div>
 
         {/* Riwayat */}
