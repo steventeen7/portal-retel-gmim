@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import toast from 'react-hot-toast';;
+import toast from 'react-hot-toast';
 import { 
   ClipboardList, Plus, Save, Trash2, Edit3, XCircle, RefreshCw, 
   ArrowLeft, ToggleLeft, ToggleRight, Power, Layers, Search

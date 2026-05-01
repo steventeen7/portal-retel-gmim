@@ -19,12 +19,12 @@ export async function GET(req: NextRequest) {
     if (!res.ok) throw new Error('Gagal mengambil detail dari NEVOS');
     const html = await res.text();
 
-    // Extract event title
-    const titleMatch = html.match(/<h1[^>]*>(.*?)<\/h1>/s);
+    // Extract event title — use [\s\S] instead of /s flag for broader TS target compat
+    const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
     const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : '';
 
     // Extract categories
-    const categoryRegex = /<a[^>]*href=['"]ujipublik_peserta\.php\?[^'"]*id_kategori=(\d+)[^'"]*['"][^>]*>(.*?)<\/a>/g;
+    const categoryRegex = /<a[^>]*href=['"]ujipublik_peserta\.php\?[^'"]*id_kategori=(\d+)[^'"]*['"][^>]*>([\s\S]*?)<\/a>/g;
     let catMatch;
     const categories: { id: string; name: string; sig: string }[] = [];
     while ((catMatch = categoryRegex.exec(html)) !== null) {
