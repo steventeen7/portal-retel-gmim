@@ -8,11 +8,12 @@ import {
   Lock, MessageCircle, Star, BarChart3, Package, Medal, Users
 } from 'lucide-react';
 
-function formatPaketLabel(tahun: number): string {
+function formatPaketLabel(tahun: number, paket?: string): string {
   if (tahun === 2091) return 'Rangkuman 1 (2019-2025)';
   if (tahun === 2092) return 'Rangkuman 2 (2019-2025)';
   if (tahun === 2093) return 'Rangkuman 3 (2019-2025)';
-  return `Paket Tahun ${tahun}`;
+  if (tahun === 2026) return `2026 - Paket ${paket || 'A'}`;
+  return `Paket Tahun ${tahun}${paket && paket !== 'A' ? ` - ${paket}` : ''}`;
 }
 
 type DashboardProps = {
@@ -357,7 +358,7 @@ export default function DashboardClient({
                       <td className="px-8 py-5">
                         <div className="text-gray-900 font-bold flex items-center gap-1.5">
                           <Package className="w-3.5 h-3.5 text-purple-400" />
-                          {formatPaketLabel(n.tahun)}
+                          {formatPaketLabel(n.tahun, n.paket)}
                         </div>
                         <div className="text-[10px] text-gray-400 font-black uppercase mt-1">Tes Tertulis</div>
                       </td>

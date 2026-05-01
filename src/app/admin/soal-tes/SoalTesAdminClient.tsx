@@ -20,11 +20,13 @@ type SoalTes = {
   opsi_d: string;
   jawaban_benar: string;
   tipe_soal: string;
+  paket: string;
 };
 
 type PaketAktif = {
   id: number;
   tahun: number;
+  paket: string;
   label: string;
   is_active: boolean;
 };
@@ -54,7 +56,8 @@ export default function SoalTesAdminClient({ initialSoal }: { initialSoal: SoalT
     opsi_c: '',
     opsi_d: '',
     jawaban_benar: 'a',
-    tipe_soal: 'pilihan_ganda'
+    tipe_soal: 'pilihan_ganda',
+    paket: 'A'
   });
 
   useEffect(() => {
@@ -105,7 +108,7 @@ export default function SoalTesAdminClient({ initialSoal }: { initialSoal: SoalT
       });
       const json = await res.json();
       if (json.error) throw new Error(json.error);
-      setPaketList(prev => prev.map(p => p.tahun === paket.tahun ? { ...p, is_active: newStatus } : p));
+      setPaketList(prev => prev.map(p => (p.tahun === paket.tahun && p.paket === paket.paket) ? { ...p, is_active: newStatus } : p));
       toast.success(`Paket "${paket.label}" ${newStatus ? 'diaktifkan' : 'dinonaktifkan'}!`);
     } catch (err: any) {
       toast.error('Gagal mengubah status: ' + err.message);
@@ -115,13 +118,13 @@ export default function SoalTesAdminClient({ initialSoal }: { initialSoal: SoalT
   }
 
   const resetForm = () => {
-    setForm({ tahun: 2026, nomor_soal: 1, teks_soal: '', opsi_a: '', opsi_b: '', opsi_c: '', opsi_d: '', jawaban_benar: 'a', tipe_soal: 'pilihan_ganda' });
+    setForm({ tahun: 2026, nomor_soal: 1, teks_soal: '', opsi_a: '', opsi_b: '', opsi_c: '', opsi_d: '', jawaban_benar: 'a', tipe_soal: 'pilihan_ganda', paket: 'A' });
     setEditingId(null);
     setShowForm(false);
   };
 
   const handleEdit = (s: SoalTes) => {
-    setForm({ tahun: s.tahun, nomor_soal: s.nomor_soal, teks_soal: s.teks_soal || '', opsi_a: s.opsi_a || '', opsi_b: s.opsi_b || '', opsi_c: s.opsi_c || '', opsi_d: s.opsi_d || '', jawaban_benar: s.jawaban_benar, tipe_soal: s.tipe_soal || 'pilihan_ganda' });
+    setForm({ tahun: s.tahun, nomor_soal: s.nomor_soal, teks_soal: s.teks_soal || '', opsi_a: s.opsi_a || '', opsi_b: s.opsi_b || '', opsi_c: s.opsi_c || '', opsi_d: s.opsi_d || '', jawaban_benar: s.jawaban_benar, tipe_soal: s.tipe_soal || 'pilihan_ganda', paket: s.paket || 'A' });
     setEditingId(s.id);
     setShowForm(true);
   };
@@ -242,7 +245,7 @@ export default function SoalTesAdminClient({ initialSoal }: { initialSoal: SoalT
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {paketList.map(paket => {
-                const soalCount = soalList.filter(s => s.tahun === paket.tahun).length;
+                const soalCount = soalList.filter(s => s.tahun === paket.tahun && (s.paket || 'A') === (paket.paket || 'A')).length;
                 return (
                   <div
                     key={paket.id}
@@ -330,6 +333,7 @@ export default function SoalTesAdminClient({ initialSoal }: { initialSoal: SoalT
                 <div className="flex-1 space-y-3">
                   <div className="flex items-center gap-3">
                     <span className="text-[10px] font-black px-3 py-1 bg-purple-50 text-purple-600 rounded-full uppercase tracking-widest">Tahun {s.tahun}</span>
+                    <span className="text-[10px] font-black px-3 py-1 bg-amber-50 text-amber-600 rounded-full uppercase tracking-widest">Paket {s.paket || 'A'}</span>
                     <span className="text-[10px] font-black px-3 py-1 bg-gray-100 text-gray-600 rounded-full uppercase tracking-widest">No. {s.nomor_soal}</span>
                   </div>
                   <h3 className="text-base font-bold text-gray-900">{s.teks_soal}</h3>
@@ -363,10 +367,16 @@ export default function SoalTesAdminClient({ initialSoal }: { initialSoal: SoalT
               <button onClick={resetForm} className="p-2 hover:bg-white/10 rounded-xl"><XCircle className="w-6 h-6" /></button>
             </div>
             <form onSubmit={handleSubmit} className="p-8 space-y-6">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-3 gap-6">
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">Tahun/Paket</label>
+                  <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">Tahun</label>
                   <input type="number" required className="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl p-4 font-bold text-gray-700 outline-none focus:border-purple-500" value={form.tahun} onChange={e => setForm({...form, tahun: Number(e.target.value)})} />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">Paket</label>
+                  <select className="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl p-4 font-bold text-gray-700 outline-none focus:border-purple-500" value={form.paket} onChange={e => setForm({...form, paket: e.target.value})}>
+                    {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'].map(p => <option key={p} value={p}>Paket {p}</option>)}
+                  </select>
                 </div>
                 <div className="space-y-1.5">
                   <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">Nomor Soal</label>

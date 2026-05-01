@@ -1,20 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseAdmin } from '@/lib/supabase/admin';
 
-// GET: Ambil daftar paket (tahun unik) beserta status aktif/nonaktif
+// GET: Ambil daftar paket (tahun + paket unik) beserta status aktif/nonaktif
 export async function GET() {
   try {
     const supabase = getSupabaseAdmin();
     
-    // Cek tabel paket_aktif, kalau belum ada akan dibuat lewat SQL
     const { data: paketData, error } = await supabase
       .from('paket_aktif')
       .select('*')
-      .order('tahun', { ascending: false });
+      .order('tahun', { ascending: false })
+      .order('paket', { ascending: true });
 
     if (error) {
-      // Jika tabel belum ada, kembalikan error yang jelas
-      return NextResponse.json({ error: error.message, needSetup: true }, { status: 500 });
+      return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
     return NextResponse.json({ data: paketData || [] });
@@ -27,31 +26,36 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { action, tahun, label, is_active } = body;
+    const { action, tahun, paket, label, is_active } = body;
     const supabase = getSupabaseAdmin();
 
     if (action === 'sync') {
-      // Ambil semua tahun unik dari soal_tes
+      // Ambil semua kombinasi tahun & paket unik dari soal_tes
       const { data: soalData, error: soalError } = await supabase
         .from('soal_tes')
-        .select('tahun');
+        .select('tahun, paket');
 
       if (soalError) throw soalError;
 
-      const uniqueTahun = [...new Set((soalData || []).map((s: any) => s.tahun))];
+      // Group by tahun & paket
+      const uniqueCombos = Array.from(new Set((soalData || []).map((s: any) => `${s.tahun}|${s.paket || 'A'}`)));
 
       // Get existing paket
-      const { data: existingPaket } = await supabase.from('paket_aktif').select('tahun');
-      const existingTahunSet = new Set((existingPaket || []).map((p: any) => p.tahun));
+      const { data: existingPaket } = await supabase.from('paket_aktif').select('tahun, paket');
+      const existingSet = new Set((existingPaket || []).map((p: any) => `${p.tahun}|${p.paket || 'A'}`));
 
       // Insert paket baru yang belum ada
-      const toInsert = uniqueTahun
-        .filter(t => !existingTahunSet.has(t))
-        .map(t => ({
-          tahun: t,
-          label: labelFromTahun(t as number),
-          is_active: true,
-        }));
+      const toInsert = uniqueCombos
+        .filter(c => !existingSet.has(c))
+        .map(c => {
+          const [t, p] = c.split('|');
+          return {
+            tahun: parseInt(t),
+            paket: p,
+            label: labelFromTahunPaket(parseInt(t), p),
+            is_active: true,
+          };
+        });
 
       if (toInsert.length > 0) {
         await supabase.from('paket_aktif').insert(toInsert);
@@ -60,7 +64,8 @@ export async function POST(req: NextRequest) {
       const { data: finalData } = await supabase
         .from('paket_aktif')
         .select('*')
-        .order('tahun', { ascending: false });
+        .order('tahun', { ascending: false })
+        .order('paket', { ascending: true });
 
       return NextResponse.json({ data: finalData || [], synced: toInsert.length });
     }
@@ -68,7 +73,7 @@ export async function POST(req: NextRequest) {
     if (action === 'toggle') {
       const { data, error } = await supabase
         .from('paket_aktif')
-        .upsert({ tahun, label, is_active }, { onConflict: 'tahun' })
+        .upsert({ tahun, paket, label, is_active }, { onConflict: 'tahun, paket' })
         .select()
         .single();
 
@@ -82,9 +87,10 @@ export async function POST(req: NextRequest) {
   }
 }
 
-function labelFromTahun(tahun: number): string {
+function labelFromTahunPaket(tahun: number, paket: string): string {
   if (tahun === 2091) return 'Rangkuman 1 (2019-2025)';
   if (tahun === 2092) return 'Rangkuman 2 (2019-2025)';
   if (tahun === 2093) return 'Rangkuman 3 (2019-2025)';
-  return `Paket Tahun ${tahun}`;
+  if (tahun === 2026) return `2026 - Paket ${paket}`;
+  return `Paket Tahun ${tahun}${paket !== 'A' ? ` - ${paket}` : ''}`;
 }

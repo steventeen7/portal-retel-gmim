@@ -18,6 +18,7 @@ type Soal = {
   opsi_c: string;
   opsi_d: string;
   jawaban_benar: string;
+  paket?: string;
 };
 
 type HasilDetail = {
@@ -37,7 +38,9 @@ type Hasil = {
 };
 
 type PaketAktif = {
+  id: number;
   tahun: number;
+  paket: string;
   label: string;
   is_active: boolean;
 };
@@ -105,25 +108,38 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
   function loadSoal() {
     setLoading(true);
     let actualTahun: number | null = null;
+    let targetPaket: string | null = null;
+
     if (selectedTahun === 'Rangkuman 1 (2019-2025)') actualTahun = 2091;
     else if (selectedTahun === 'Rangkuman 2 (2019-2025)') actualTahun = 2092;
     else if (selectedTahun === 'Rangkuman 3 (2019-2025)') actualTahun = 2093;
-    else if (typeof selectedTahun === 'string' && selectedTahun.startsWith('2026')) actualTahun = 2026;
+    else if (typeof selectedTahun === 'string' && selectedTahun.startsWith('2026')) {
+      actualTahun = 2026;
+      const match = selectedTahun.match(/Paket ([A-J])/);
+      if (match) targetPaket = match[1];
+    }
     else if (typeof selectedTahun === 'number') actualTahun = selectedTahun;
 
     if (actualTahun === null) { setLoading(false); return; }
 
     let fetchedData = initialData.filter((s) => s.tahun === actualTahun);
 
-    const paketSlices: Record<string, [number, number]> = {
-      '2026 - Paket A': [0, 50], '2026 - Paket B': [50, 100], '2026 - Paket C': [100, 150],
-      '2026 - Paket D': [150, 200], '2026 - Paket E': [200, 250], '2026 - Paket F': [250, 300],
-      '2026 - Paket G': [300, 350], '2026 - Paket H': [350, 400], '2026 - Paket I': [400, 450],
-      '2026 - Paket J': [450, 500],
-    };
-    if (typeof selectedTahun === 'string' && paketSlices[selectedTahun]) {
-      const [start, end] = paketSlices[selectedTahun];
-      fetchedData = fetchedData.slice(start, end);
+    // Jika ada target paket spesifik (A-J), filter berdasarkan kolom paket
+    if (targetPaket) {
+      fetchedData = fetchedData.filter(s => (s.paket || 'A') === targetPaket);
+    } 
+    // Fallback logic slice jika kolom paket belum terisi (untuk keamanan data lama)
+    else if (typeof selectedTahun === 'string' && selectedTahun.includes('2026')) {
+      const paketSlices: Record<string, [number, number]> = {
+        '2026 - Paket A': [0, 50], '2026 - Paket B': [50, 100], '2026 - Paket C': [100, 150],
+        '2026 - Paket D': [150, 200], '2026 - Paket E': [200, 250], '2026 - Paket F': [250, 300],
+        '2026 - Paket G': [300, 350], '2026 - Paket H': [350, 400], '2026 - Paket I': [400, 450],
+        '2026 - Paket J': [450, 500],
+      };
+      if (paketSlices[selectedTahun]) {
+        const [start, end] = paketSlices[selectedTahun];
+        fetchedData = fetchedData.slice(start, end);
+      }
     }
 
     // Fix duplicate nomor_soal by re-assigning based on index

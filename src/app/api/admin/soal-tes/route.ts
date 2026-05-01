@@ -4,10 +4,15 @@ import { supabase } from '@/lib/supabase/client';
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const tahun = searchParams.get('tahun');
+  const paket = searchParams.get('paket');
   
-  let query = supabase.from('soal_tes').select('*').order('tahun', { ascending: false }).order('nomor_soal', { ascending: true });
+  let query = supabase.from('soal_tes').select('*').order('tahun', { ascending: false }).order('paket', { ascending: true }).order('nomor_soal', { ascending: true });
+  
   if (tahun) {
     query = query.eq('tahun', parseInt(tahun));
+  }
+  if (paket) {
+    query = query.eq('paket', paket);
   }
   
   const { data, error } = await query;
@@ -18,6 +23,9 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    // Default paket A if empty
+    if (!body.paket) body.paket = 'A';
+    
     const { data, error } = await supabase.from('soal_tes').insert([body]).select().single();
     if (error) throw error;
     return NextResponse.json({ data });
