@@ -41,6 +41,16 @@ export default function HasilTesRetelClient() {
 
   useEffect(() => {
     fetchData();
+
+    // Listen for messages from iframe (proxy)
+    const handleMessage = (e: MessageEvent) => {
+      if (e.data === 'close_detail') {
+        setShowDetail(false);
+        setSelectedItem(null);
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
   }, []);
 
   async function fetchData() {
