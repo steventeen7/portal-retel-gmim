@@ -20,39 +20,45 @@ export async function GET(req: NextRequest) {
   try {
     const url = `https://nevos.gmim.or.id/${targetPath}`;
     const res = await fetch(url, {
-      next: { revalidate: 300 }, // Cache lebih pendek
+      next: { revalidate: 300 },
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; PortalRetelGMIM/1.0)' }
     });
 
     if (!res.ok) throw new Error(`NEVOS merespon dengan status ${res.status}`);
     let html = await res.text();
 
-    // 1. REWRITE ASSETS (CSS, JS, Images) ke absolute URL NEVOS
-    // Kita biarkan ini langsung ke NEVOS karena biasanya tidak kena blokir frame
-    html = html.replace(/(href|src)="(?!\/|http|\/\/|data:)([^"]+)"/g, '$1="https://nevos.gmim.or.id/$2"')
-               .replace(/(href|src)='(?!\/|http|\/\/|data:)([^']+)'/g, "$1='https://nevos.gmim.or.id/$2'");
-    
-    // 2. REWRITE LINKS (.php) agar tetap lewat PROXY kita
-    // Ini kunci agar "Lihat Peserta" dan navigasi lain di dalam iframe tidak kena "Refused to Connect"
-    // Contoh: href="ujipublik_peserta.php?id=123" -> href="/api/uji-publik-detail?path=ujipublik_peserta.php?id=123"
-    
+    // 1. REWRITE LINKS (.php) agar tetap lewat PROXY kita
+    // Lakukan ini DULU sebelum merubah yang lain jadi absolute
     const proxyBase = '/api/uji-publik-detail?path=';
     
-    // Match links yang ke .php
-    html = html.replace(/href=["'](ujipublik_[^"']+\.php[^"']*)["']/g, (match, p1) => {
-      return `href="${proxyBase}${encodeURIComponent(p1)}"`;
+    // Match links yang ke .php (baik relatif maupun yang mungkin sudah absolute)
+    // Kita tangkap semua yang mengandung ujipublik_...php
+    html = html.replace(/href=["']((?:https:\/\/nevos\.gmim\.or\.id\/)?(ujipublik_[^"']+\.php[^"']*))["']/g, (match, p1, p2) => {
+      // p1 adalah full link, p2 adalah path-nya saja
+      return `href="${proxyBase}${encodeURIComponent(p2)}"`;
     });
 
-    // 3. Tambahkan script kecil untuk menangani link "Kembali" agar menutup iframe di portal kita
-    // Jika link mengandung 'ujipublik.php', kita buat dia memicu penutupan di parent
+    // 2. REWRITE ASSETS (CSS, JS, Images) ke absolute URL NEVOS
+    html = html.replace(/(href|src)="(?!\/|http|\/\/|data:)([^"]+)"/g, '$1="https://nevos.gmim.or.id/$2"')
+               .replace(/(href|src)='(?!\/|http|\/\/|data:)([^']+)'/g, "$1='https://nevos.gmim.or.id/$2'");
+
+    // 3. Tambahkan script bridge
     const injectScript = `
       <script>
+        // Paksa semua link .php tetap lewat proxy jika ada yang terlewat regex
         document.addEventListener('click', function(e) {
           const link = e.target.closest('a');
-          if (link && (link.href.includes('ujipublik.php') || link.getAttribute('href').includes('ujipublik.php'))) {
+          if (!link) return;
+          const href = link.getAttribute('href') || '';
+          
+          if (href.includes('ujipublik.php')) {
             e.preventDefault();
-            // Kirim pesan ke parent window untuk menutup detail
             window.parent.postMessage('close_detail', '*');
+          } else if (href.includes('.php') && !href.includes('/api/')) {
+            // Jika ada link .php yang belum diproxy, arahkan manual
+            e.preventDefault();
+            const cleanPath = href.replace('https://nevos.gmim.or.id/', '');
+            window.location.href = '${proxyBase}' + encodeURIComponent(cleanPath);
           }
         });
       </script>
@@ -67,6 +73,7 @@ export async function GET(req: NextRequest) {
       headers: {
         'Content-Type': 'text/html; charset=utf-8',
         'Cache-Control': 'public, s-maxage=300',
+        'X-Frame-Options': 'ALLOWALL'
       }
     });
   } catch (error: any) {
