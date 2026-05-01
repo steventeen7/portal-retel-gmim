@@ -1,10 +1,10 @@
-import UjiPublikClient from './UjiPublikClient';
+import HasilTesRetelClient from './UjiPublikClient';
 
 export const metadata = {
-  title: 'Uji Publik - Transparansi Data Peserta | Latihan RETEL GMIM',
-  description: 'Daftar kegiatan aktif Remaja Teladan GMIM dengan data peserta terbuka untuk transparansi dan verifikasi publik.',
+  title: 'Hasil Tes Retel GMIM - Data Peserta Remaja Teladan',
+  description: 'Data peserta kegiatan Remaja Teladan GMIM untuk transparansi dan verifikasi publik dari sistem NEVOS.',
 };
 
-export default function UjiPublikPage() {
-  return <UjiPublikClient />;
+export default function HasilTesRetelPage() {
+  return <HasilTesRetelClient />;
 }

@@ -6,15 +6,11 @@ export function useVoice() {
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState('');
   const recognitionRef = useRef<any>(null);
-  // Ref untuk mengetahui apakah user masih ingin merekam (belum klik stop)
   const isListeningRef = useRef(false);
-  // Buffer final transcript yang terakumulasi antar sesi restart
-  const finalBufferRef = useRef('');
-  // Buffer sementara untuk final dari sesi AKTIF saja (mencegah komit interim)
-  const lastSessionFinalRef = useRef('');
-  // Array untuk menyimpan final per index agar bisa mengatasi bug Android yg me-replace index
-  const sessionFinalsRef = useRef<string[]>([]);
-  // Timer untuk memastikan batas waktu 60 detik
+  
+  // Buffer utama yang sudah final
+  const finalTranscriptRef = useRef('');
+  // Timer untuk limit pengerjaan
   const recordingTimerRef = useRef<any>(null);
 
   // ─── Text-to-Speech (TTS) ────────────────────────────────────────────────
@@ -37,110 +33,83 @@ export function useVoice() {
     }
   }, []);
 
-  // Helper untuk mencegah kata ganda saat menggabungkan string.
-  // Terkadang API di HP mengulang kata terakhir dari final di awal interim.
-  const mergeWithOverlapFix = useCallback((text1: string, text2: string) => {
-    if (!text1) return text2;
-    if (!text2) return text1;
-    
-    const words1 = text1.split(' ');
-    const words2 = text2.split(' ');
-    
-    let overlapCount = 0;
-    const maxOverlap = Math.min(words1.length, words2.length);
-    
-    for (let i = 1; i <= maxOverlap; i++) {
-        const suffix = words1.slice(-i).join(' ').toLowerCase();
-        const prefix = words2.slice(0, i).join(' ').toLowerCase();
-        if (suffix === prefix) {
-            overlapCount = i;
-        }
-    }
-    
-    if (overlapCount > 0) {
-        return text1 + ' ' + words2.slice(overlapCount).join(' ');
-    }
-    return text1 + ' ' + text2;
-  }, []);
-
   // ─── Internal: buat satu sesi Recognition ────────────────────────────────
   const createSession = useCallback(() => {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!SpeechRecognition) return;
 
+    // Jika sudah ada sesi aktif, jangan buat baru
+    if (recognitionRef.current) return;
+
     const recognition = new SpeechRecognition();
     recognition.lang = 'id-ID';
-    recognition.continuous = true;
+    // Gunakan continuous: false di mobile seringkali lebih stabil untuk mencegah pengulangan
+    recognition.continuous = false; 
     recognition.interimResults = true;
 
-    recognition.onstart = () => setIsRecording(true);
+    recognition.onstart = () => {
+      setIsRecording(true);
+    };
 
     recognition.onresult = (event: any) => {
-      // Deteksi jika Android mereset resultIndex ke 0 secara internal tanpa onend
-      if (event.resultIndex === 0 && sessionFinalsRef.current.length > 0) {
-        // Komit sesi sebelumnya ke buffer utama untuk mencegah teks hilang
-        const previousSession = sessionFinalsRef.current.filter(Boolean).join(' ').trim();
-        if (previousSession) {
-          finalBufferRef.current = mergeWithOverlapFix(finalBufferRef.current, previousSession);
-        }
-        // Reset array sesi ini
-        sessionFinalsRef.current = [];
-      }
-
-      let interim = '';
+      let interimTranscript = '';
+      let sessionFinal = '';
 
       for (let i = event.resultIndex; i < event.results.length; ++i) {
-        const transcript = event.results[i][0].transcript.trim();
+        const text = event.results[i][0].transcript;
         if (event.results[i].isFinal) {
-          sessionFinalsRef.current[i] = transcript;
+          sessionFinal += text;
         } else {
-          interim += transcript + ' ';
+          interimTranscript += text;
         }
       }
 
-      const sessionFinal = sessionFinalsRef.current.filter(Boolean).join(' ').trim();
-      lastSessionFinalRef.current = sessionFinal;
-
-      let cleanInterim = interim.replace(/\s+/g, ' ').trim();
-
-      // Menggabungkan dengan pintar untuk mencegah kata dobel di perbatasan
-      const part1 = mergeWithOverlapFix(finalBufferRef.current, sessionFinal);
-      const combined = mergeWithOverlapFix(part1, cleanInterim);
+      // Update UI dengan gabungan buffer utama + session final + interim
+      // Kita tidak langsung update finalTranscriptRef di sini agar tidak dobel saat restart
+      const currentDisplay = [finalTranscriptRef.current, sessionFinal, interimTranscript]
+        .filter(Boolean)
+        .join(' ')
+        .replace(/\s+/g, ' ')
+        .trim();
       
-      setTranscript(combined);
+      setTranscript(currentDisplay);
+      
+      // Simpan sementara session final jika ada
+      if (sessionFinal) {
+        lastSessionTextRef.current = sessionFinal;
+      }
     };
+
+    const lastSessionTextRef = useRef('');
 
     recognition.onerror = (event: any) => {
       console.error('Speech recognition error', event.error);
-      // 'no-speech' dan 'aborted' bukan error fatal — biarkan onend menangani restart
-      // Ini memastikan walaupun diam (silence), proses restart terus berjalan
-      if (event.error !== 'no-speech' && event.error !== 'aborted') {
+      if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
         isListeningRef.current = false;
         setIsRecording(false);
-        recognitionRef.current = null;
-        if (recordingTimerRef.current) clearTimeout(recordingTimerRef.current);
       }
     };
 
     recognition.onend = () => {
-      recognitionRef.current = null;
-      // Jika user BELUM klik stop (atau waktu belum 60 detik), komit final teks lalu restart otomatis
-      if (isListeningRef.current) {
+      // Masukkan hasil akhir sesi ini ke buffer utama
+      if (lastSessionTextRef.current) {
+        const current = finalTranscriptRef.current.trim();
+        const added = lastSessionTextRef.current.trim();
         
-        // Cukup komit session final yang valid, buang interim yang hilang (mencegah double)
-        if (lastSessionFinalRef.current.trim()) {
-           finalBufferRef.current = mergeWithOverlapFix(finalBufferRef.current, lastSessionFinalRef.current);
-           lastSessionFinalRef.current = '';
+        // Cek overlap sederhana untuk mencegah pengulangan kata di perbatasan sesi
+        if (!current.toLowerCase().endsWith(added.toLowerCase())) {
+           finalTranscriptRef.current = (current + ' ' + added).trim();
         }
-        sessionFinalsRef.current = [];
-        
-        // Memastikan frontend merender sinkronisasi buffer terbaru
-        setTranscript(finalBufferRef.current);
-        
-        // Restart setelah jeda singkat agar tidak bentrok sesi
+        lastSessionTextRef.current = '';
+      }
+
+      recognitionRef.current = null;
+      
+      // Restart otomatis jika user masih dalam mode "Listening"
+      if (isListeningRef.current) {
         setTimeout(() => {
           if (isListeningRef.current) createSession();
-        }, 200);
+        }, 100);
       } else {
         setIsRecording(false);
       }
@@ -151,47 +120,41 @@ export function useVoice() {
       recognitionRef.current = recognition;
     } catch (e) {
       console.error('Recognition start error', e);
+      recognitionRef.current = null;
     }
-  }, [mergeWithOverlapFix]);
+  }, []);
 
   // ─── Public API ───────────────────────────────────────────────────────────
   const stopRecording = useCallback(() => {
     isListeningRef.current = false;
     if (recordingTimerRef.current) clearTimeout(recordingTimerRef.current);
+    
     if (recognitionRef.current) {
       try { recognitionRef.current.stop(); } catch (_) { }
-      recognitionRef.current = null;
     }
     setIsRecording(false);
   }, []);
 
   const startRecording = useCallback(() => {
     if (typeof window === 'undefined') return;
-    // Reset buffers dan mulai sesi baru
-    finalBufferRef.current = '';
-    lastSessionFinalRef.current = '';
-    sessionFinalsRef.current = [];
     
+    // Reset state
+    finalTranscriptRef.current = '';
+    setTranscript('');
     isListeningRef.current = true;
     
-    // Set 60 detik hard limit (sesuai request)
+    // Auto stop setelah 60 detik
     if (recordingTimerRef.current) clearTimeout(recordingTimerRef.current);
     recordingTimerRef.current = setTimeout(() => {
         stopRecording();
-    }, 60000); // 60 detik absolute maks
+    }, 60000);
     
-    stopRecording();
-    // Re-enable flag karena stopRecording mematikannya
-    isListeningRef.current = true;
-    
-    setTimeout(() => createSession(), 100);
-  }, [stopRecording, createSession]);
+    createSession();
+  }, [createSession, stopRecording]);
 
   const clearTranscript = useCallback(() => {
+    finalTranscriptRef.current = '';
     setTranscript('');
-    finalBufferRef.current = '';
-    lastSessionFinalRef.current = '';
-    sessionFinalsRef.current = [];
   }, []);
 
   // Cleanup saat unmount
@@ -199,7 +162,9 @@ export function useVoice() {
     return () => {
       isListeningRef.current = false;
       if (recordingTimerRef.current) clearTimeout(recordingTimerRef.current);
-      if (recognitionRef.current) recognitionRef.current.abort();
+      if (recognitionRef.current) {
+        try { recognitionRef.current.abort(); } catch (_) {}
+      }
     };
   }, []);
 

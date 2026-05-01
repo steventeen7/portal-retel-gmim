@@ -14,14 +14,19 @@ export async function GET() {
     const regex = /<td class='text-center'>(\d+)<\/td>\s*<td><strong>(.*?)<\/strong><\/td>\s*<td class='text-center'>(.*?)<\/td>\s*<td class='text-center'><span class='badge-kategori'>(.*?)<\/span><\/td>\s*<td class='text-center'><a href='(.*?)'/g;
     let match;
     const results = [];
+    let counter = 1;
     while ((match = regex.exec(html)) !== null) {
-      results.push({
-        no: match[1],
-        title: match[2],
-        date: match[3],
-        category: match[4],
-        detailUrl: match[5],
-      });
+      const title = match[2];
+      // Hanya tampilkan kegiatan Remaja Teladan
+      if (title.toLowerCase().includes('remaja teladan')) {
+        results.push({
+          no: String(counter++),
+          title,
+          date: match[3],
+          category: match[4],
+          detailUrl: match[5],
+        });
+      }
     }
 
     return NextResponse.json({ data: results });

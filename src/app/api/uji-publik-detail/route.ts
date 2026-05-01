@@ -12,50 +12,41 @@ export async function GET(req: NextRequest) {
   try {
     const url = `https://nevos.gmim.or.id/ujipublik_detail.php?id=${id}&sig=${sig}`;
     const res = await fetch(url, {
-      next: { revalidate: 900 }, // cache 15 menit
+      next: { revalidate: 900 },
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; PortalRetelGMIM/1.0)' }
     });
 
     if (!res.ok) throw new Error('Gagal mengambil detail dari NEVOS');
-    const html = await res.text();
+    let html = await res.text();
 
-    // Extract event title — use [\s\S] instead of /s flag for broader TS target compat
-    const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
-    const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '').trim() : '';
+    // Fix relative URLs ke absolute supaya CSS/JS/gambar NEVOS tetap muncul
+    html = html
+      .replace(/(href|src)="(?!http|\/\/|data:)([^"]+)"/g, '$1="https://nevos.gmim.or.id/$2"')
+      .replace(/(href|src)='(?!http|\/\/|data:)([^']+)'/g, "$1='https://nevos.gmim.or.id/$2'");
 
-    // Extract categories
-    const categoryRegex = /<a[^>]*href=['"]ujipublik_peserta\.php\?[^'"]*id_kategori=(\d+)[^'"]*['"][^>]*>([\s\S]*?)<\/a>/g;
-    let catMatch;
-    const categories: { id: string; name: string; sig: string }[] = [];
-    while ((catMatch = categoryRegex.exec(html)) !== null) {
-      const hrefMatch = html.substring(catMatch.index, catMatch.index + 500).match(/href=['"]ujipublik_peserta\.php\?([^'"]+)['"]/);
-      if (hrefMatch) {
-        const params = new URLSearchParams(hrefMatch[1]);
-        categories.push({
-          id: params.get('id_kategori') || catMatch[1],
-          name: catMatch[2].replace(/<[^>]+>/g, '').trim(),
-          sig: params.get('sig') || ''
-        });
+    // Hapus meta X-Frame-Options jika ada dalam HTML
+    html = html.replace(/<meta[^>]*X-Frame-Options[^>]*>/gi, '');
+
+    return new NextResponse(html, {
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        // Tidak set X-Frame-Options agar bisa di-embed
+        'Cache-Control': 'public, s-maxage=900',
       }
-    }
-
-    // Also try table rows to get categories
-    const rowRegex = /<tr>[\s\S]*?<td[^>]*>(.*?)<\/td>[\s\S]*?<td[^>]*><a[^>]*href='(ujipublik_peserta\.php\?[^']+)'[^>]*>/g;
-    let rowMatch;
-    const tableRows: { name: string; href: string }[] = [];
-    while ((rowMatch = rowRegex.exec(html)) !== null) {
-      const name = rowMatch[1].replace(/<[^>]+>/g, '').trim();
-      if (name && !name.match(/^No$/) && !name.match(/^Kategori/)) {
-        const params = new URLSearchParams(rowMatch[2].split('?')[1]);
-        tableRows.push({
-          name,
-          href: rowMatch[2]
-        });
-      }
-    }
-
-    return NextResponse.json({ title, categories, tableRows, rawHtml: html.substring(0, 5000) });
+    });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return new NextResponse(`
+      <html><body style="font-family:sans-serif;padding:40px;text-align:center;">
+        <h2 style="color:#dc2626">Gagal memuat data</h2>
+        <p style="color:#6b7280">${error.message}</p>
+        <a href="https://nevos.gmim.or.id/ujipublik_detail.php?id=${id}&sig=${sig}" 
+           target="_blank" style="color:#7c3aed;font-weight:bold;">
+          Buka langsung di NEVOS →
+        </a>
+      </body></html>
+    `, { 
+      status: 500,
+      headers: { 'Content-Type': 'text/html; charset=utf-8' }
+    });
   }
 }

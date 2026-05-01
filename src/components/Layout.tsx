@@ -45,7 +45,7 @@ export default function Layout({ children, user }: { children: React.ReactNode, 
     { href: '/latihan/keyword', label: 'Latihan Kata Kunci' },
     { href: '/latihan/tiga-besar', label: 'Latihan 3 Besar' },
     { href: '/belajar', label: 'Belajar' },
-    { href: '/uji-publik', label: 'Uji Publik' },
+    { href: '/uji-publik', label: 'Hasil Tes Retel' },
   ];
 
   const handleLogout = async () => {
