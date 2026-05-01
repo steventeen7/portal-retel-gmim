@@ -13,7 +13,7 @@ export async function GET() {
     const mainHtml = await mainRes.text();
 
     // Regex untuk mencari link detail kegiatan Remaja Teladan 2026
-    const eventRegex = /<td class='text-center'>\d+<\/td>\s*<td><strong>(.*?)<\/strong><\/td>.*?<a href='(ujipublik_detail\.php\?id=\d+&sig=[a-f0-9]+)'/gs;
+    const eventRegex = /<td class='text-center'>\d+<\/td>\s*<td><strong>([\s\S]*?)<\/strong><\/td>[\s\S]*?<a href='(ujipublik_detail\.php\?id=\d+&sig=[a-f0-9]+)'/g;
     let match;
     const events = [];
 
@@ -58,11 +58,11 @@ export async function GET() {
           // Parse tabel peserta
           // Baris: <tr>...<td>NO</td><td>NAMA</td><td>JEMAAT<br>RAYON</td>...<td>NILAI</td>...</tr>
           // Nilai ada di kolom ke-10 (indeks 9 jika di-split td)
-          const rowRegex = /<tr>\s*<td>\d+<\/td>\s*<td>(.*?)<\/td>\s*<td>(.*?)<\/td>.*?<\/tr>/gs;
+          const rowRegex = /<tr>\s*<td>\d+<\/td>\s*<td>([\s\S]*?)<\/td>\s*<td>([\s\S]*?)<\/td>[\s\S]*?<\/tr>/g;
           let rowMatch;
           
           // Cleaner regex for score - look for the 10th <td>
-          const tableRegex = /<table.*?>(.*?)<\/table>/s;
+          const tableRegex = /<table.*?>([\s\S]*?)<\/table>/;
           const tableMatch = pHtml.match(tableRegex);
           if (tableMatch) {
             const tableContent = tableMatch[1];
