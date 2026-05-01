@@ -3,8 +3,15 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
-import { BarChart3, Search, Trash2, ArrowLeft, ClipboardList, Mic } from 'lucide-react';
+import { BarChart3, Search, Trash2, ArrowLeft, ClipboardList, Mic, Package } from 'lucide-react';
 import Link from 'next/link';
+
+function formatPaketLabel(tahun: number): string {
+  if (tahun === 2091) return 'Rangkuman 1 (2019-2025)';
+  if (tahun === 2092) return 'Rangkuman 2 (2019-2025)';
+  if (tahun === 2093) return 'Rangkuman 3 (2019-2025)';
+  return `Paket Tahun ${tahun}`;
+}
 
 export default function HasilTesAdminClient({ initialTertulis, initialSimulasi }: { initialTertulis: any[], initialSimulasi: any[] }) {
   const router = useRouter();
@@ -105,8 +112,9 @@ export default function HasilTesAdminClient({ initialTertulis, initialSimulasi }
                         <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-0.5">{d.profiles?.jemaat || 'Tanpa Jemaat'}</div>
                      </td>
                      <td className="px-6 py-4">
-                        <span className="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-[10px] font-black tracking-widest uppercase">
-                           PAKET TAHUN {d.tahun}
+                        <span className="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-[10px] font-black tracking-widest uppercase flex items-center gap-1.5 w-fit">
+                           <Package className="w-3 h-3" />
+                           {formatPaketLabel(d.tahun)}
                         </span>
                      </td>
                      <td className="px-6 py-4 text-center">

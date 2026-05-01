@@ -2,7 +2,14 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { verifyToken } from '@/lib/auth'
 import { db } from '@/lib/db'
-import { BarChart3, TrendingUp, Calendar, CheckCircle2, Award, ClipboardList, ArrowUpRight, Mic } from 'lucide-react'
+import { BarChart3, TrendingUp, Calendar, CheckCircle2, Award, ClipboardList, ArrowUpRight, Mic, Package } from 'lucide-react'
+
+function formatPaketLabel(tahun: number): string {
+  if (tahun === 2091) return 'Rangkuman 1 (2019-2025)';
+  if (tahun === 2092) return 'Rangkuman 2 (2019-2025)';
+  if (tahun === 2093) return 'Rangkuman 3 (2019-2025)';
+  return `Paket Tahun ${tahun}`;
+}
 
 export default async function LaporanPage() {
   const cookieStore = await cookies()
@@ -116,8 +123,9 @@ export default async function LaporanPage() {
                                  {new Date(n.created_at).toLocaleString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
                               </td>
                               <td className="px-8 py-5">
-                                 <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-[10px] font-black tracking-widest uppercase">
-                                    Soal {n.tahun}
+                                 <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-[10px] font-black tracking-widest uppercase flex items-center gap-1.5 w-fit">
+                                    <Package className="w-3 h-3" />
+                                    {formatPaketLabel(n.tahun)}
                                  </span>
                               </td>
                               <td className="px-8 py-5">

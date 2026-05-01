@@ -5,7 +5,7 @@ import { supabase } from '@/lib/supabase/client';
 import toast from 'react-hot-toast';
 import { 
   CheckCircle2, XCircle, ChevronLeft, Send, RotateCcw, 
-  Trophy, Info, BookOpen, Maximize2, Minimize2, AlertCircle
+  Trophy, Info, BookOpen, Maximize2, Minimize2, AlertCircle, RefreshCw, Package
 } from 'lucide-react';
 
 type Soal = {
@@ -33,14 +33,31 @@ type Hasil = {
   kosong: number;
   total: number;
   detail: Record<string, HasilDetail>;
+  paketLabel: string;
+};
+
+type PaketAktif = {
+  tahun: number;
+  label: string;
+  is_active: boolean;
 };
 
 const OPSI = ['a', 'b', 'c', 'd'] as const;
-const TAHUN_LIST = [
+
+// Fallback static list jika API paket belum tersedia
+const TAHUN_LIST_FALLBACK: (number | string)[] = [
   2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025, 
   '2026 - Paket A', '2026 - Paket B', '2026 - Paket C', '2026 - Paket D', '2026 - Paket E', '2026 - Paket F', '2026 - Paket G', '2026 - Paket H', '2026 - Paket I', '2026 - Paket J',
   'Rangkuman 1 (2019-2025)', 'Rangkuman 2 (2019-2025)', 'Rangkuman 3 (2019-2025)'
 ];
+
+function getLabelFromTahun(tahun: number | string): string {
+  if (tahun === 2091 || tahun === 'Rangkuman 1 (2019-2025)') return 'Rangkuman 1 (2019-2025)';
+  if (tahun === 2092 || tahun === 'Rangkuman 2 (2019-2025)') return 'Rangkuman 2 (2019-2025)';
+  if (tahun === 2093 || tahun === 'Rangkuman 3 (2019-2025)') return 'Rangkuman 3 (2019-2025)';
+  if (typeof tahun === 'string') return tahun;
+  return `Paket Tahun ${tahun}`;
+}
 
 export default function TesClient({ user, initialData = [] }: { user: any, initialData?: Soal[] }) {
   const [selectedTahun, setSelectedTahun] = useState<number | string | null>(null);
@@ -52,6 +69,28 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
   const [showConfirm, setShowConfirm] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const testContainerRef = useRef<HTMLDivElement>(null);
+  const [paketList, setPaketList] = useState<PaketAktif[]>([]);
+  const [paketLoadError, setPaketLoadError] = useState(false);
+  const [paketLoading, setPaketLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchPaket() {
+      try {
+        const res = await fetch('/api/admin/paket-aktif');
+        const json = await res.json();
+        if (!json.error && json.data?.length > 0) {
+          setPaketList(json.data.filter((p: PaketAktif) => p.is_active));
+        } else {
+          setPaketLoadError(true);
+        }
+      } catch {
+        setPaketLoadError(true);
+      } finally {
+        setPaketLoading(false);
+      }
+    }
+    fetchPaket();
+  }, []);
 
   useEffect(() => {
     if (selectedTahun) {
@@ -145,8 +184,10 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
 
   async function submitTes() {
     setIsSubmitting(true);
-    const res = hitungSkor();
-    setHasil(res);
+    const skorResult = hitungSkor();
+    const paketLabel = getLabelFromTahun(selectedTahun!);
+    const hasila: Hasil = { ...skorResult, paketLabel };
+    setHasil(hasila);
     setShowConfirm(false);
     if (document.fullscreenElement) {
        document.exitFullscreen();
@@ -166,13 +207,13 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
       await fetch('/api/nilai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tahun: tahunSimpan, skor: res.skor, jawaban }),
+        body: JSON.stringify({ tahun: tahunSimpan, skor: skorResult.skor, jawaban }),
       });
     } catch {
       // simpan gagal tapi tetap tampilkan hasil
     }
 
-    toast.success(`Skor Anda: ${res.skor} poin`);
+    toast.success(`Skor Anda: ${skorResult.skor} poin`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsSubmitting(false);
   }
@@ -188,31 +229,53 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
   const progress = soal.length > 0 ? (totalJawab / soal.length) * 100 : 0;
 
   if (!selectedTahun) {
+    // Tentukan daftar paket yang ditampilkan
+    const displayList: (number | string)[] = paketLoadError || paketList.length === 0
+      ? TAHUN_LIST_FALLBACK
+      : paketList.map(p => {
+          if (p.tahun === 2091) return 'Rangkuman 1 (2019-2025)';
+          if (p.tahun === 2092) return 'Rangkuman 2 (2019-2025)';
+          if (p.tahun === 2093) return 'Rangkuman 3 (2019-2025)';
+          // Untuk tahun 2026, expand ke paket A-J jika ada soalnya
+          return p.tahun;
+        });
+
     return (
       <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
         <div>
           <h1 className="text-3xl font-black text-gray-900 mb-2">📝 Tes Tertulis</h1>
-          <p className="text-gray-600">Pilih tahun soal untuk mulai simulasi ujian Remaja Teladan.</p>
+          <p className="text-gray-600">Pilih paket soal untuk mulai simulasi ujian Remaja Teladan.</p>
           <div className="mt-3 inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] font-black uppercase tracking-widest">
             Aturan: Benar (+2), Salah (-1), Kosong (0)
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {TAHUN_LIST.map((t) => (
-            <button
-              key={t}
-              onClick={() => setSelectedTahun(t)}
-              className="group relative bg-white p-6 rounded-3xl border-2 border-purple-50 hover:border-purple-400 transition-all shadow-sm hover:shadow-xl hover:shadow-purple-900/5 overflow-hidden"
-            >
-              <div className="absolute -right-4 -top-4 w-12 h-12 bg-purple-50 rounded-full group-hover:scale-[3] transition-transform duration-500" />
-              <div className="relative">
-                <div className="text-2xl font-black text-purple-600 mb-1 leading-tight">{t}</div>
-                <div className="text-[10px] uppercase font-bold text-gray-400 tracking-widest mt-2">{typeof t === 'string' && t.startsWith('Rangkuman') ? 'Bonus Eksklusif' : 'Tahun Soal'}</div>
-              </div>
-            </button>
-          ))}
-        </div>
+        {paketLoading ? (
+          <div className="text-center py-12">
+            <RefreshCw className="w-8 h-8 text-purple-400 animate-spin mx-auto mb-3" />
+            <p className="text-gray-400 font-bold text-xs uppercase tracking-widest">Memuat daftar paket soal...</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {displayList.map((t) => (
+              <button
+                key={t}
+                onClick={() => setSelectedTahun(t)}
+                className="group relative bg-white p-6 rounded-3xl border-2 border-purple-50 hover:border-purple-400 transition-all shadow-sm hover:shadow-xl hover:shadow-purple-900/5 overflow-hidden text-left"
+              >
+                <div className="absolute -right-4 -top-4 w-12 h-12 bg-purple-50 rounded-full group-hover:scale-[3] transition-transform duration-500" />
+                <div className="relative">
+                  <div className="text-xl font-black text-purple-600 mb-1 leading-tight">
+                    {typeof t === 'number' ? t : t}
+                  </div>
+                  <div className="text-[10px] uppercase font-bold text-gray-400 tracking-widest mt-2">
+                    {typeof t === 'string' && t.startsWith('Rangkuman') ? '🎁 Bonus Eksklusif' : '📋 Paket Soal'}
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className="bg-purple-50 border border-purple-100 rounded-3xl p-6 flex items-start gap-4">
           <BookOpen className="w-6 h-6 text-purple-600 shrink-0" />
@@ -242,6 +305,11 @@ export default function TesClient({ user, initialData = [] }: { user: any, initi
       <div className="max-w-4xl mx-auto space-y-6 animate-fade-in-up pb-20">
         <div className={`card border-2 ${grade.border} ${grade.bg} text-center py-10 shadow-sm rounded-[32px]`}>
           <Trophy className={`w-14 h-14 ${grade.color} mx-auto mb-4`} />
+          {/* Label Paket yang dikerjakan */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/70 rounded-full border border-white mb-4">
+            <Package className="w-4 h-4 text-purple-600" />
+            <span className="text-sm font-black text-purple-700">{hasil.paketLabel}</span>
+          </div>
           <div className="text-sm font-black text-gray-500 uppercase tracking-[0.2em] mb-1">Skor Akhir</div>
           <div className={`text-8xl font-black ${grade.color} mb-3 tracking-tighter`}>{hasil.skor}</div>
           <div className="flex justify-center gap-6 text-xs font-black uppercase tracking-wider text-gray-500">
